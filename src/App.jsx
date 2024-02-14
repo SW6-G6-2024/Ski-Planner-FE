@@ -64,7 +64,6 @@ function App() {
 						<span>Trysil</span>
 					</Popup>
 				</Marker>
-				{/*<GeoJSON data={liftIcons} pointToLayer={setIcon} />*/}
 			</MapContainer>
 		</div>
 	);
