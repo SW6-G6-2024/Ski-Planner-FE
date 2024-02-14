@@ -51,12 +51,12 @@ function App() {
 	};
 
 	return (
-		<div style={{width: "100vw", height: "100vh", padding: "0"}}>
+		<div style={{width: "100vw", height: "100vh"}}>
 			<MapContainer center={center} zoom={13.75} zoomSnap={0.25} scrollWheelZoom={false}>
-				{/*<TileLayer
+				<TileLayer
 					url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 					attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-	/>*/}
+	/>
 				<GeoJSON data={piste} style={setColor} />
 				<GeoJSON data={lifts} style={setLiftStyle}/>
 				<Marker position={[61.3140, 12.1971]} icon={new Icon({iconUrl: markerIconPng, iconSize: [25, 41], iconAnchor: [12, 20]})}>
