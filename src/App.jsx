@@ -1,14 +1,11 @@
 import React from "react";
-import { MapContainer, TileLayer, Marker, Popup, Polyline, GeoJSON } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, GeoJSON } from 'react-leaflet';
 import './App.css';
 
 import piste from './data/piste.json';
 import lifts from './data/lifts.json';
-import restaurants from './data/restaurant.json';
-import liftIcons from './data/lift-icons.json';
 
 import 'leaflet/dist/leaflet.css';
-import { ChairLift } from "./icons/LiftIcon";
 
 import markerIconPng from "leaflet/dist/images/marker-icon.png";
 import {Icon} from 'leaflet';
@@ -43,6 +40,7 @@ function App() {
 	};
 
 	const setLiftStyle = (feature) => {
+		feature.properties.fill = "orange";
 		return {
 			color: "orange",
 			weight: 3,
