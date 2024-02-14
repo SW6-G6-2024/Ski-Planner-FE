@@ -1,0 +1,180 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2024-02-13T12:08:50Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/347047883",
+        "amenity": "restaurant",
+        "description": "Restaurant, Pub, Vaffelstue",
+        "hiking": "yes",
+        "name": "Knettsetra",
+        "note": "Summer opening hours 11-16",
+        "opening_hours": "09:30-17:00",
+        "ski": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.2183956,
+          61.3164067
+        ]
+      },
+      "id": "node/347047883"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/601410892",
+        "amenity": "restaurant",
+        "bar": "yes",
+        "check_date": "2023-08-26",
+        "contact:facebook": "https://www.facebook.com/profile.php?id=100063588175635",
+        "hiking": "yes",
+        "name": "Skihytta",
+        "opening_hours": "09:00-18:30",
+        "outdoor_seating": "yes",
+        "ski": "yes",
+        "website": "http://www.skihyttatrysil.no/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.1949267,
+          61.3031068
+        ]
+      },
+      "id": "node/601410892"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/601410893",
+        "amenity": "restaurant",
+        "check_date": "2023-08-26",
+        "contact:facebook": "https://www.facebook.com/profile.php?id=100057181370927",
+        "name": "Restaurant Fjellroa",
+        "outdoor_seating": "yes",
+        "website": "https://www.trysil.com/no/a/restauranthuset-fagerasen/skipaviljongen/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.1741792,
+          61.31808
+        ]
+      },
+      "id": "node/601410893"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1156633967",
+        "amenity": "restaurant",
+        "description": "Serves fast lunch daytime and has after ski at night",
+        "name": "Laaven 1790",
+        "ski": "yes",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.2381692,
+          61.3091342
+        ]
+      },
+      "id": "node/1156633967"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1177505629",
+        "amenity": "restaurant",
+        "name": "Torghuset"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.2388677,
+          61.3073528
+        ]
+      },
+      "id": "node/1177505629"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7191905202",
+        "amenity": "restaurant",
+        "brand": "Peppes Pizza",
+        "brand:wikidata": "Q911973",
+        "brand:wikipedia": "en:Peppes Pizza",
+        "cuisine": "pizza",
+        "name": "Peppes Pizza",
+        "opening_hours": "Mo-Su 11:00-21:00",
+        "phone": "+47 22225555",
+        "takeaway": "yes",
+        "website": "https://www.peppes.no/desktop/pizzarestauranter/peppes-pizza-trysil-338?0"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.2429957,
+          61.3066744
+        ]
+      },
+      "id": "node/7191905202"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8848688399",
+        "amenity": "restaurant",
+        "name": "Big Horn Steakhouse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.2394347,
+          61.3081747
+        ]
+      },
+      "id": "node/8848688399"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10593859690",
+        "amenity": "restaurant",
+        "name": "Happy Faces"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.2393505,
+          61.3073435
+        ]
+      },
+      "id": "node/10593859690"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10593859691",
+        "amenity": "restaurant",
+        "name": "La Pasteria Trysil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.2390317,
+          61.307394
+        ]
+      },
+      "id": "node/10593859691"
+    }
+  ]
+}

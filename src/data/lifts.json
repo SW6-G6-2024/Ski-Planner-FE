@@ -1,0 +1,1445 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2024-02-13T12:07:46Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/394706993",
+        "aerialway": "station",
+        "building": "yes",
+        "ele": "485",
+        "public_transport": "station"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              12.2349528,
+              61.307215
+            ],
+            [
+              12.2349525,
+              61.3071702
+            ],
+            [
+              12.2349523,
+              61.3071352
+            ],
+            [
+              12.2353282,
+              61.3071347
+            ],
+            [
+              12.2353286,
+              61.3071916
+            ],
+            [
+              12.2353287,
+              61.3072145
+            ],
+            [
+              12.2349528,
+              61.307215
+            ]
+          ]
+        ]
+      },
+      "id": "way/394706993"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/394707108",
+        "aerialway": "station",
+        "building": "yes",
+        "ele": "465",
+        "image": "https://photos.app.goo.gl/z4WjpxDYgrJPLv5Z8",
+        "public_transport": "station"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              12.2378133,
+              61.3079235
+            ],
+            [
+              12.238198,
+              61.307917
+            ],
+            [
+              12.2382186,
+              61.3079601
+            ],
+            [
+              12.2382034,
+              61.3080023
+            ],
+            [
+              12.2378205,
+              61.3080096
+            ],
+            [
+              12.2377939,
+              61.3079676
+            ],
+            [
+              12.2378133,
+              61.3079235
+            ]
+          ]
+        ]
+      },
+      "id": "way/394707108"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/395167202",
+        "aerialway": "magic_carpet",
+        "building": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              12.1589439,
+              61.3236524
+            ],
+            [
+              12.1589667,
+              61.3236382
+            ],
+            [
+              12.159005,
+              61.3236361
+            ],
+            [
+              12.1590364,
+              61.3236448
+            ],
+            [
+              12.159041,
+              61.3236651
+            ],
+            [
+              12.1590177,
+              61.3236813
+            ],
+            [
+              12.158984,
+              61.3236837
+            ],
+            [
+              12.1589531,
+              61.3236737
+            ],
+            [
+              12.1589439,
+              61.3236524
+            ]
+          ]
+        ]
+      },
+      "id": "way/395167202"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/23274405",
+        "aerialway": "drag_lift",
+        "aerialway:drag_lift": "t-bar",
+        "name": "S4 Tolver'n"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            12.1993807,
+            61.303757
+          ],
+          [
+            12.1943646,
+            61.3069892
+          ]
+        ]
+      },
+      "id": "way/23274405"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/23274406",
+        "aerialway": "drag_lift",
+        "aerialway:drag_lift": "t-bar",
+        "name": "F12 Familietrekket"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            12.1574269,
+            61.3222937
+          ],
+          [
+            12.1656755,
+            61.3129503
+          ],
+          [
+            12.1693009,
+            61.3088844
+          ]
+        ]
+      },
+      "id": "way/23274406"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/23274407",
+        "aerialway": "chair_lift",
+        "aerialway:bubble": "yes",
+        "aerialway:occupancy": "6",
+        "name": "F2 Toppekspressen"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            12.1743607,
+            61.3236918
+          ],
+          [
+            12.1749948,
+            61.3199169
+          ],
+          [
+            12.1751359,
+            61.3191022
+          ],
+          [
+            12.1753324,
+            61.3179683
+          ],
+          [
+            12.1755475,
+            61.3167264
+          ],
+          [
+            12.1757976,
+            61.3152832
+          ],
+          [
+            12.1760188,
+            61.3140061
+          ],
+          [
+            12.1761423,
+            61.3132935
+          ],
+          [
+            12.1763143,
+            61.3123005
+          ],
+          [
+            12.176456,
+            61.3114823
+          ],
+          [
+            12.1766054,
+            61.31062
+          ],
+          [
+            12.1767176,
+            61.3099722
+          ],
+          [
+            12.1768861,
+            61.3089993
+          ]
+        ]
+      },
+      "id": "way/23274407"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/23274408",
+        "aerialway": "platter",
+        "aerialway:occupancy": "1",
+        "name": "F3 Kanken"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            12.1766172,
+            61.3190218
+          ],
+          [
+            12.1887392,
+            61.3191564
+          ]
+        ]
+      },
+      "id": "way/23274408"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/23274409",
+        "aerialway": "platter",
+        "aerialway:occupancy": "1",
+        "name": "T10 Hesten"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            12.2031308,
+            61.3132309
+          ],
+          [
+            12.1956857,
+            61.3152503
+          ],
+          [
+            12.1945341,
+            61.3158593
+          ],
+          [
+            12.1935433,
+            61.3163832
+          ],
+          [
+            12.1920296,
+            61.3171835
+          ],
+          [
+            12.1909737,
+            61.3177419
+          ],
+          [
+            12.1904506,
+            61.3180185
+          ],
+          [
+            12.1899669,
+            61.3182742
+          ],
+          [
+            12.18962,
+            61.3184576
+          ],
+          [
+            12.1889657,
+            61.3188195
+          ]
+        ]
+      },
+      "id": "way/23274409"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/23274410",
+        "aerialway": "drag_lift",
+        "aerialway:drag_lift": "t-bar",
+        "name": "H2 Høgegga"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            12.2217558,
+            61.3287058
+          ],
+          [
+            12.2202843,
+            61.3284577
+          ],
+          [
+            12.2050902,
+            61.3258955
+          ],
+          [
+            12.1947914,
+            61.3241621
+          ]
+        ]
+      },
+      "id": "way/23274410"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/23274411",
+        "aerialway": "chair_lift",
+        "aerialway:capacity": "2200",
+        "aerialway:duration": "6,5",
+        "aerialway:occupancy": "6",
+        "name": "H1 Høgekspressen"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            12.2222,
+            61.3280987
+          ],
+          [
+            12.2210599,
+            61.3275359
+          ],
+          [
+            12.2208285,
+            61.3274203
+          ],
+          [
+            12.2200269,
+            61.3270198
+          ],
+          [
+            12.2186253,
+            61.3263196
+          ],
+          [
+            12.2167161,
+            61.3253657
+          ],
+          [
+            12.215299,
+            61.3246577
+          ],
+          [
+            12.213879,
+            61.3239481
+          ],
+          [
+            12.2120143,
+            61.3230164
+          ],
+          [
+            12.210724,
+            61.322386
+          ],
+          [
+            12.2092027,
+            61.3216115
+          ],
+          [
+            12.208243,
+            61.3211319
+          ],
+          [
+            12.2073346,
+            61.320678
+          ],
+          [
+            12.205532,
+            61.3197772
+          ],
+          [
+            12.2034807,
+            61.3187521
+          ],
+          [
+            12.2017798,
+            61.3179161
+          ],
+          [
+            12.2002308,
+            61.3171498
+          ],
+          [
+            12.1982365,
+            61.3161514
+          ],
+          [
+            12.1981686,
+            61.3161169
+          ],
+          [
+            12.1978835,
+            61.3159743
+          ]
+        ]
+      },
+      "id": "way/23274411"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/23274412",
+        "aerialway": "drag_lift",
+        "aerialway:drag_lift": "t-bar",
+        "name": "F8 Stormyra"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            12.1619908,
+            61.3261321
+          ],
+          [
+            12.1620445,
+            61.3259534
+          ],
+          [
+            12.1644226,
+            61.317691
+          ]
+        ]
+      },
+      "id": "way/23274412"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/23274413",
+        "aerialway": "platter",
+        "name": "F9 Stjerna"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            12.1608552,
+            61.3250904
+          ],
+          [
+            12.1609688,
+            61.3213627
+          ],
+          [
+            12.160998,
+            61.3206417
+          ]
+        ]
+      },
+      "id": "way/23274413"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/23274415",
+        "aerialway": "chair_lift",
+        "aerialway:bubble": "no",
+        "aerialway:capacity": "2400",
+        "aerialway:duration": "7",
+        "aerialway:heating": "no",
+        "aerialway:occupancy": "6",
+        "name": "T1 Liekspressen"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            12.2349525,
+            61.3071702
+          ],
+          [
+            12.2347522,
+            61.3071692
+          ],
+          [
+            12.2339277,
+            61.307182
+          ],
+          [
+            12.2328717,
+            61.3072058
+          ],
+          [
+            12.2301857,
+            61.307211
+          ],
+          [
+            12.2284835,
+            61.3072142
+          ],
+          [
+            12.2256554,
+            61.3072197
+          ],
+          [
+            12.2235738,
+            61.3072237
+          ],
+          [
+            12.2203966,
+            61.3072298
+          ],
+          [
+            12.2175591,
+            61.3072353
+          ],
+          [
+            12.2150249,
+            61.3072401
+          ],
+          [
+            12.2124207,
+            61.3072452
+          ],
+          [
+            12.2099122,
+            61.30725
+          ],
+          [
+            12.2075019,
+            61.3072546
+          ],
+          [
+            12.2057474,
+            61.307258
+          ],
+          [
+            12.2038045,
+            61.3072617
+          ],
+          [
+            12.2001761,
+            61.3072687
+          ],
+          [
+            12.199347,
+            61.3072703
+          ],
+          [
+            12.1984947,
+            61.307272
+          ]
+        ]
+      },
+      "id": "way/23274415"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/23274416",
+        "aerialway": "chair_lift",
+        "aerialway:bubble": "no",
+        "aerialway:heating": "no",
+        "aerialway:occupancy": "6",
+        "name": "T2 Fjellekspressen",
+        "opening_hours": "11:00-16:00 \"closed if risk of thunderstorms\"",
+        "url": "https://youtu.be/THcz-MQhDWM"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            12.2377939,
+            61.3079676
+          ],
+          [
+            12.2376768,
+            61.3079714
+          ],
+          [
+            12.2371309,
+            61.3079891
+          ],
+          [
+            12.2349161,
+            61.3080235
+          ],
+          [
+            12.2328897,
+            61.3080677
+          ],
+          [
+            12.2300892,
+            61.3081146
+          ],
+          [
+            12.2275159,
+            61.3081668
+          ],
+          [
+            12.2247227,
+            61.30822
+          ],
+          [
+            12.2223558,
+            61.3082651
+          ],
+          [
+            12.2196767,
+            61.3083209
+          ],
+          [
+            12.2176431,
+            61.3083547
+          ],
+          [
+            12.2155706,
+            61.3084006
+          ],
+          [
+            12.2132179,
+            61.3084469
+          ],
+          [
+            12.211102,
+            61.3084857
+          ],
+          [
+            12.2093781,
+            61.3085217
+          ],
+          [
+            12.2072289,
+            61.3085579
+          ],
+          [
+            12.2049511,
+            61.308603
+          ],
+          [
+            12.201976,
+            61.3086576
+          ],
+          [
+            12.1998515,
+            61.3086987
+          ],
+          [
+            12.1991412,
+            61.3087192
+          ]
+        ]
+      },
+      "id": "way/23274416"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/23318730",
+        "aerialway": "drag_lift",
+        "aerialway:drag_lift": "t-bar",
+        "name": "T9 Setertrekket"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            12.2184564,
+            61.3144775
+          ],
+          [
+            12.1986802,
+            61.3116803
+          ]
+        ]
+      },
+      "id": "way/23318730"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/23318731",
+        "aerialway": "platter",
+        "name": "T6 Eventyr"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            12.2470104,
+            61.3101577
+          ],
+          [
+            12.2452355,
+            61.310041
+          ],
+          [
+            12.243202,
+            61.3099073
+          ],
+          [
+            12.2410164,
+            61.3097636
+          ],
+          [
+            12.240322,
+            61.3097179
+          ],
+          [
+            12.2385903,
+            61.309604
+          ],
+          [
+            12.2366857,
+            61.3094788
+          ],
+          [
+            12.2363767,
+            61.3094605
+          ]
+        ]
+      },
+      "id": "way/23318731"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/23318732",
+        "aerialway": "drag_lift",
+        "aerialway:drag_lift": "t-bar",
+        "name": "T7 Sindretrekket"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            12.237054,
+            61.3091308
+          ],
+          [
+            12.212577,
+            61.3128771
+          ]
+        ]
+      },
+      "id": "way/23318732"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/23318733",
+        "aerialway": "chair_lift",
+        "aerialway:occupancy": "4",
+        "name": "T8 Knetta"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            12.2383915,
+            61.3104198
+          ],
+          [
+            12.2370431,
+            61.3107297
+          ],
+          [
+            12.2356065,
+            61.3110828
+          ],
+          [
+            12.2340398,
+            61.3114679
+          ],
+          [
+            12.2324618,
+            61.3118479
+          ],
+          [
+            12.2311683,
+            61.3121595
+          ],
+          [
+            12.2291345,
+            61.3126493
+          ],
+          [
+            12.2288793,
+            61.3127107
+          ],
+          [
+            12.2271153,
+            61.3131355
+          ],
+          [
+            12.226969,
+            61.3131708
+          ],
+          [
+            12.2266465,
+            61.3132485
+          ],
+          [
+            12.2244233,
+            61.3137838
+          ],
+          [
+            12.2229104,
+            61.3141482
+          ],
+          [
+            12.2224253,
+            61.314265
+          ],
+          [
+            12.2219768,
+            61.314373
+          ]
+        ]
+      },
+      "id": "way/23318733"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/23318734",
+        "aerialway": "chair_lift",
+        "aerialway:occupancy": "2",
+        "name": "H3 Svart'n"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            12.1921078,
+            61.3256293
+          ],
+          [
+            12.1919369,
+            61.3251489
+          ],
+          [
+            12.1915329,
+            61.3240763
+          ],
+          [
+            12.1912573,
+            61.3233446
+          ],
+          [
+            12.1910608,
+            61.3228228
+          ],
+          [
+            12.1908313,
+            61.3222136
+          ],
+          [
+            12.1905794,
+            61.3215447
+          ],
+          [
+            12.1903812,
+            61.3210186
+          ],
+          [
+            12.1899355,
+            61.319835
+          ],
+          [
+            12.189861,
+            61.3196373
+          ],
+          [
+            12.1897731,
+            61.3194038
+          ]
+        ]
+      },
+      "id": "way/23318734"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/30285541",
+        "aerialway": "drag_lift",
+        "aerialway:drag_lift": "t-bar",
+        "name": "S6 Oletrekket"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            12.1986994,
+            61.2954201
+          ],
+          [
+            12.1891476,
+            61.3035979
+          ]
+        ]
+      },
+      "id": "way/30285541"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/30285542",
+        "aerialway": "platter",
+        "name": "S7 Håvitrekket"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            12.2043622,
+            61.2931611
+          ],
+          [
+            12.199671,
+            61.2963515
+          ]
+        ]
+      },
+      "id": "way/30285542"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/31143581",
+        "aerialway": "drag_lift",
+        "aerialway:capacity": "1200",
+        "aerialway:drag_lift": "t-bar",
+        "aerialway:duration": "0:06:04",
+        "construction_year": "1989",
+        "ele_delta": "152 m",
+        "length": "1271 m",
+        "name": "F1 Brynebekken"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            12.1845417,
+            61.3336231
+          ],
+          [
+            12.1815006,
+            61.3252386
+          ],
+          [
+            12.180542,
+            61.3228195
+          ]
+        ]
+      },
+      "id": "way/31143581"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/32905546",
+        "aerialway": "drag_lift",
+        "name": "F5 Skarven"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            12.1735118,
+            61.323789
+          ],
+          [
+            12.1719845,
+            61.3222795
+          ],
+          [
+            12.1670234,
+            61.3172861
+          ]
+        ]
+      },
+      "id": "way/32905546"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/32923955",
+        "aerialway": "platter",
+        "name": "F10 Smotten"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            12.1597275,
+            61.3245577
+          ],
+          [
+            12.1597971,
+            61.3215271
+          ],
+          [
+            12.1596955,
+            61.3211226
+          ]
+        ]
+      },
+      "id": "way/32923955"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/32955215",
+        "aerialway": "platter",
+        "name": "F6 Hytteheis I"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            12.1647884,
+            61.327321
+          ],
+          [
+            12.1598094,
+            61.3299056
+          ]
+        ]
+      },
+      "id": "way/32955215"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/55072380",
+        "aerialway": "platter",
+        "name": "T4 Fryvil"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            12.24775,
+            61.3093649
+          ],
+          [
+            12.2430508,
+            61.3082626
+          ]
+        ]
+      },
+      "id": "way/55072380"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/55097615",
+        "aerialway": "platter",
+        "name": "F11 Isiz"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            12.159647,
+            61.3245391
+          ],
+          [
+            12.1595945,
+            61.3215684
+          ]
+        ]
+      },
+      "id": "way/55097615"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/55284153",
+        "aerialway": "drag_lift",
+        "aerialway:drag_lift": "t-bar",
+        "name": "F7 Stormyra II"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            12.1618406,
+            61.3260884
+          ],
+          [
+            12.1643394,
+            61.3176918
+          ]
+        ]
+      },
+      "id": "way/55284153"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/55606473",
+        "aerialway": "magic_carpet"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            12.1591873,
+            61.3236482
+          ],
+          [
+            12.1591572,
+            61.3234562
+          ]
+        ]
+      },
+      "id": "way/55606473"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/55606490",
+        "aerialway": "drag_lift",
+        "aerialway:bubble": "yes"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            12.1585003,
+            61.3241342
+          ],
+          [
+            12.1584221,
+            61.3237287
+          ]
+        ]
+      },
+      "id": "way/55606490"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/102000932",
+        "aerialway": "platter",
+        "name": "T6 Eventyr"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            12.2470469,
+            61.3102183
+          ],
+          [
+            12.2363328,
+            61.3095395
+          ]
+        ]
+      },
+      "id": "way/102000932"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/102001121",
+        "aerialway": "magic_carpet",
+        "highway": "footway",
+        "image": "https://photos.app.goo.gl/foKmAmVu93Y71X1A7",
+        "type": "coveyer"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            12.2414608,
+            61.307501
+          ],
+          [
+            12.2390284,
+            61.3075187
+          ]
+        ]
+      },
+      "id": "way/102001121"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/102001156",
+        "aerialway": "platter",
+        "name": "T5 Tussi"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            12.241072,
+            61.3079565
+          ],
+          [
+            12.2390228,
+            61.3078612
+          ]
+        ]
+      },
+      "id": "way/102001156"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/147192693",
+        "aerialway": "magic_carpet",
+        "name": "Rullebånd",
+        "note": "Figure out it's designation"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            12.1588889,
+            61.3302822
+          ],
+          [
+            12.1550226,
+            61.3310535
+          ]
+        ]
+      },
+      "id": "way/147192693"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/156855936",
+        "aerialway": "platter",
+        "name": "F13 Myrsnipa"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            12.1664275,
+            61.3276737
+          ],
+          [
+            12.1668433,
+            61.3222036
+          ]
+        ]
+      },
+      "id": "way/156855936"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/507848254",
+        "aerialway": "chair_lift",
+        "aerialway:bubble": "yes",
+        "aerialway:heating": "yes",
+        "aerialway:occupancy": "6",
+        "name": "S1 Skihytta Ekspress",
+        "source": "aerial;gps"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            12.1995336,
+            61.3030734
+          ],
+          [
+            12.1927762,
+            61.3050162
+          ],
+          [
+            12.1780048,
+            61.3092626
+          ]
+        ]
+      },
+      "id": "way/507848254"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1145421106",
+        "aerialway": "platter",
+        "name": "S3 Valleheisen"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            12.197694,
+            61.3020975
+          ],
+          [
+            12.1931149,
+            61.3027157
+          ]
+        ]
+      },
+      "id": "way/1145421106"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1145689739",
+        "aerialway": "platter",
+        "name": "T3",
+        "ref": "T3"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            12.2448648,
+            61.3106063
+          ],
+          [
+            12.2386928,
+            61.3106237
+          ]
+        ]
+      },
+      "id": "way/1145689739"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1145689740",
+        "aerialway": "platter",
+        "name": "T3",
+        "ref": "T3"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            12.2448461,
+            61.3106536
+          ],
+          [
+            12.2386918,
+            61.3106775
+          ]
+        ]
+      },
+      "id": "way/1145689740"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1196504201",
+        "aerialway": "magic_carpet",
+        "name": "Rullebånd",
+        "note": "Figure out it's designation"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            12.1633318,
+            61.327844
+          ],
+          [
+            12.1605448,
+            61.3266795
+          ]
+        ]
+      },
+      "id": "way/1196504201"
+    }
+  ]
+}
