@@ -40,6 +40,7 @@ function App() {
 	};
 
 	const setLiftStyle = (feature) => {
+		feature.properties.fill = "orange";
 		return {
 			color: "orange",
 			weight: 3,
