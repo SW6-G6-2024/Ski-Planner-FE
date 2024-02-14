@@ -29,7 +29,20 @@ const SkiMapComponent = () => {
 
         // Fetch ski data within the current map bounds
         fetchSkiData(north, south, east, west)
-          .then(setPistes)
+          .then(geoJson => {
+            // Assuming your GeoJSON features are correctly marked as pistes or lifts in properties
+            const pistesData = {
+              type: "FeatureCollection",
+              features: geoJson.features.filter(feature => feature.properties["piste:type"] === "downhill"),
+            };
+            const liftsData = {
+              type: "FeatureCollection",
+              features: geoJson.features.filter(feature => feature.properties["aerialway"]),
+            };
+
+            setPistes(pistesData);
+            setLifts(liftsData);
+          })
           .catch(console.error);
       };
 
@@ -53,6 +66,7 @@ const SkiMapComponent = () => {
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       />
       {pistes && <GeoJSON data={pistes} style={setPisteColor} />}
+      {lifts && <GeoJSON data={lifts} style={setLiftStyle}/>}
       {/* Assume lifts data handling is similar and will be added when available */}
       <Marker position={center} icon={new L.Icon({iconUrl: markerIconPng, iconSize: [25, 41], iconAnchor: [12, 41]})}>
         <Popup>
