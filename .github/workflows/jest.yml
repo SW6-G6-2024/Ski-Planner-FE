@@ -21,4 +21,4 @@ jobs:
         run: npm i
 
       - name: Run Jest tests
-        run: npmrun test
+        run: npm run test
