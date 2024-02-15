@@ -1,6 +1,7 @@
 import React, { useCallback, useState, useRef } from 'react';
 import { fetchSkiData } from '../services/skiDataService';
 import { MapContainer, TileLayer, Marker, Popup, GeoJSON } from 'react-leaflet';
+import { Icon } from 'leaflet';
 import '../App.css';
 import { setPisteColor } from '../utils/pisteStyling';
 import { setLiftStyle } from '../utils/liftStyling';
@@ -59,7 +60,7 @@ const SkiMapComponent = () => {
         />
         {pistes && <GeoJSON data={pistes} style={setPisteColor}/>}
         {lifts && <GeoJSON data={lifts} style={setLiftStyle}/>}
-        <Marker position={center} icon={new L.Icon({iconUrl: markerIconPng, iconSize: [25, 41], iconAnchor: [12, 41]})}>
+        <Marker position={center} icon={new Icon({iconUrl: markerIconPng, iconSize: [25, 41], iconAnchor: [12, 41]})}>
           <Popup><span>Trysil</span></Popup>
         </Marker>
       </MapContainer>
