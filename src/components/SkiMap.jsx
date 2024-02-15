@@ -41,11 +41,6 @@ const SkiMapComponent = () => {
       .catch(console.error);
   }, []);
 
-  // Button click handler to manually fetch data
-  const handleFetchDataClick = () => {
-    updateBoundsAndFetchData();
-  };
-
   return (
     <>
       <MapContainer
