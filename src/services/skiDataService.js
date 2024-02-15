@@ -1,17 +1,16 @@
 export const fetchSkiData = async (north, south, east, west) => {
   try {
-    // Adjusted query to include `out geom;` for geometry data
+    // Fetches both pistes and lifts within the specified bounding box
     const query = `
       [out:json];
       (
         // Fetch downhill pistes within the bounding box
         way["piste:type"="downhill"](${south},${west},${north},${east});
-        // Fetch ski lifts within the bounding box
-        way["aerialway"="chair_lift"](${south},${west},${north},${east});
-        // You can add more aerialway types here if needed, e.g., drag_lift, gondola, etc.
+        // Fetch all ski lifts within the bounding box
+        way["aerialway"](${south},${west},${north},${east});
       );
       out geom;
-      `;
+    `;
     const response = await fetch(`http://overpass-api.de/api/interpreter?data=${encodeURIComponent(query)}`);
     if (!response.ok) {
       throw new Error('Network response was not ok');
@@ -20,16 +19,15 @@ export const fetchSkiData = async (north, south, east, west) => {
 
     const filteredData = data.elements.filter(element => {
       const isPiste = element.tags["piste:type"] === "downhill";
-      const isLift = element.tags["aerialway"] === "chair_lift"; // Add additional lift types as needed
+      const isLift = element.tags["aerialway"]; // Add specific lift types to include or exclude here
       const difficulty = element.tags["piste:difficulty"];
       const ref = element.tags["ref"];
+      const name = element.tags["name"];
     
-      // Apply filtering based on feature type
       if (isPiste) {
         // Exclude specific difficulties and ensure 'ref' is present for pistes
-        return difficulty !== "freeride" && difficulty !== "extreme" && ref;
+        return difficulty !== "freeride" && difficulty !== "extreme" && (ref || name);
       } else if (isLift) {
-        // For lifts, just ensure they are within the specified types, additional conditions can be added
         return isLift;
       }
       return false;
@@ -40,7 +38,7 @@ export const fetchSkiData = async (north, south, east, west) => {
     return geoJson;
   } catch (error) {
     console.error("Failed to fetch ski data:", error);
-    throw error; // Rethrow the error to be handled by the caller
+    throw error;
   }
 };
 

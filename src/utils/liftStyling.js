@@ -1,4 +1,4 @@
-export const setLiftStyle = (feature) => {
+export const setLiftStyle = () => {
   return {
     color: "orange",
     weight: 3,

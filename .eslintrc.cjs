@@ -23,4 +23,12 @@ module.exports = {
 		'semi': 'error',
 		'no-unused-vars': 'warn',
   },
+  overrides: [
+    {
+      files: ['**/*.test.jsx', '**/*.test.js'],
+      env: { jest: true },
+      extends: ['plugin:jest/recommended'],
+      plugins: ['jest'],
+    },
+  ],
 }
