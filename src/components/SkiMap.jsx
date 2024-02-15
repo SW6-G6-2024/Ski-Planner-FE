@@ -1,13 +1,14 @@
 import React, { useCallback, useState, useRef } from 'react';
 import { fetchSkiData } from '../services/skiDataService';
 import { MapContainer, TileLayer, Marker, Popup, GeoJSON } from 'react-leaflet';
-import { Icon } from 'leaflet';
+import { Icon, Layer, Geometry } from 'leaflet';
 import '../App.css';
 import { setPisteColor } from '../utils/pisteStyling';
 import { setLiftStyle } from '../utils/liftStyling';
 
 import 'leaflet/dist/leaflet.css';
 import markerIconPng from "leaflet/dist/images/marker-icon.png";
+import skiLiftIcon from '../icons/skilift.png';
 
 const SkiMapComponent = () => {
   const center = [61.3140, 12.1971];
@@ -42,6 +43,26 @@ const SkiMapComponent = () => {
       .catch(console.error);
   }, []);
 
+  const liftIcon = new Icon({
+		iconUrl: skiLiftIcon,
+		iconSize: [25, 41],
+		iconAnchor: [12, 41],
+		popupAnchor: [1, -34],
+		shadowSize: [41, 41]
+	});
+
+  /**
+	 * 
+	 * @param {*} feature 
+	 * @param {Layer} layer 
+	 */
+	const placeMarker = (feature, layer) => {
+		if (feature.properties.name)
+			layer.bindPopup(feature.properties.name);
+		else
+			layer.bindPopup(feature.properties.ref);
+	}
+
   return (
     <>
       <MapContainer
@@ -58,7 +79,7 @@ const SkiMapComponent = () => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
-        {pistes && <GeoJSON data={pistes} style={setPisteColor}/>}
+        {pistes && <GeoJSON data={pistes} style={setPisteColor} onEachFeature={placeMarker} />}
         {lifts && <GeoJSON data={lifts} style={setLiftStyle}/>}
         <Marker position={center} icon={new Icon({iconUrl: markerIconPng, iconSize: [25, 41], iconAnchor: [12, 41]})}>
           <Popup><span>Trysil</span></Popup>
