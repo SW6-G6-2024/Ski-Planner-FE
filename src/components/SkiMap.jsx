@@ -68,7 +68,6 @@ const SkiMapComponent = () => {
           <Popup><span>Trysil</span></Popup>
         </Marker>
       </MapContainer>
-      <button onClick={handleFetchDataClick}>Fetch Ski Data</button>
     </>
   );
 };
