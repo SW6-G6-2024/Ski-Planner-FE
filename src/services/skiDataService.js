@@ -1,14 +1,13 @@
 export const fetchSkiData = async (north, south, east, west) => {
   try {
-    // Adjusted query to include `out geom;` for geometry data
+    // Fetches both pistes and lifts within the specified bounding box
     const query = `
       [out:json];
       (
         // Fetch downhill pistes within the bounding box
         way["piste:type"="downhill"](${south},${west},${north},${east});
-        // Fetch ski lifts within the bounding box
-        way["aerialway"="chair_lift"](${south},${west},${north},${east});
-        // You can add more aerialway types here if needed, e.g., drag_lift, gondola, etc.
+        // Fetch all ski lifts within the bounding box
+        way["aerialway"](${south},${west},${north},${east});
       );
       out geom;
       `;
