@@ -11,7 +11,7 @@ export const fetchSkiData = async (north, south, east, west) => {
       );
       out geom;
     `;
-    const response = await fetch(`http://overpass-api.de/api/interpreter?data=${encodeURIComponent(query)}`);
+    const response = await fetch(`https://overpass-api.de/api/interpreter?data=${encodeURIComponent(query)}`);
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
