@@ -8,7 +8,7 @@ import { setLiftStyle } from '../utils/liftStyling';
 
 import 'leaflet/dist/leaflet.css';
 import markerIconPng from "leaflet/dist/images/marker-icon.png";
-import skiLiftIcon from '../icons/skilift.png';
+import skiLiftIcon from '../icons/buttonLift.png';
 
 const SkiMapComponent = () => {
   const center = [61.3140, 12.1971];
