@@ -8,6 +8,7 @@ export default {
     extend: {
       colors: {
         'legendbg': '#535C91',
+        'legendinteract': '#3A3F5E',
       }
     },
   },
