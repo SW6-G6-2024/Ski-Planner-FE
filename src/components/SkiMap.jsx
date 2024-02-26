@@ -20,23 +20,17 @@ const SkiMapComponent = () => {
   const updateBoundsAndFetchData = useCallback(() => {
     if (!mapRef.current) return; // Check if the map instance is available
 
-    const bounds = mapRef.current.getBounds();
-    const south = bounds.getSouth();
-    const north = bounds.getNorth();
-    const west = bounds.getWest();
-    const east = bounds.getEast();
-
-    fetchSkiData(north, south, east, west)
-      .then(geoJson => {
+    fetchSkiData('65d4a9dbecaa09d942314101')
+      .then(data => {
         const pistesData = {
           type: "FeatureCollection",
-          features: geoJson.features.filter(feature => feature.properties["piste:type"] === "downhill"),
+          features: data.geoJson.features.filter(feature => feature.properties["piste:type"] === "downhill"),
         };
         const liftsData = {
           type: "FeatureCollection",
-          features: geoJson.features.filter(feature => feature.properties["aerialway"]),
+          features: data.geoJson.features.filter(feature => feature.properties["aerialway"]),
         };
-
+        
         setLifts(liftsData);
         setPistes(pistesData);
       })
