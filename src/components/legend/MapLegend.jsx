@@ -9,14 +9,13 @@ const MapLegend = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const toggleLegend = () => {
-    console.log("toggleLegend");
     setIsExpanded(!isExpanded);
   };
 
   return (
-    <div className="flex-1 fixed z-[9999] bottom-0 left-0 bg-legendbg bg-opacity-50 rounded-tr-lg p-2 drop-shadow-lg w-40 transition-all">
+    <div className="flex-1 fixed z-[9999] bottom-0 left-0 bg-legendbg bg-opacity-50 rounded-tr-lg p2 drop-shadow-lg w-48 transition-all">
       <div
-        className="justify-center hover:bg-legendinteract rounded-lg hover:bg-opacity-25 cursor-pointer"
+        className="justify-center hover:bg-legendinteract rounded-r-lg hover:bg-opacity-25 cursor-pointer my-2 mr-2"
         onClick={toggleLegend}
       >
         {isExpanded ? (
