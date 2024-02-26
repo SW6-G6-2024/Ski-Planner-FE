@@ -1,0 +1,9 @@
+<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+  <line x1="50" y1="0" x2="50" y2="200" stroke="#249cff" stroke-width="8" />
+  
+  <!-- Rectangle -->
+  <rect x="25" y="25" fill="#249cff" width="50" height="50"/>
+
+  <!-- Text -->
+  <text x="49" y="62" font-family="Arial" font-size="30" fill="white" text-anchor="middle">35</text>
+</svg>
