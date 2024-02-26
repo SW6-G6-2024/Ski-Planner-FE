@@ -1,14 +1,14 @@
 import React, { useCallback, useState, useRef } from 'react';
 import { fetchSkiData } from '../services/skiDataService';
 import { MapContainer, TileLayer, Marker, Popup, GeoJSON } from 'react-leaflet';
-import { Icon, Layer, Geometry } from 'leaflet';
+import { Icon, Layer } from 'leaflet';
 import '../App.css';
 import { setPisteColor } from '../utils/pisteStyling';
 import { setLiftStyle } from '../utils/liftStyling';
 
 import 'leaflet/dist/leaflet.css';
 import markerIconPng from "leaflet/dist/images/marker-icon.png";
-import skiLiftIcon from '../icons/buttonLift.png';
+import skiLiftIcon from '../icons/lifts/buttonLift.png';
 
 const SkiMapComponent = () => {
   const center = [61.3140, 12.1971];
