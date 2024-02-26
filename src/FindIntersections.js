@@ -1,5 +1,3 @@
-import fs from 'fs';
-
 const findIntersections = (pistes) => {
 
 	const intersections = [];
@@ -26,7 +24,7 @@ const findDuplicate = (intersections, intersection) => {
 		}
 	}
 	return false;
-}
+};
 
 const checkIntersection = (pisteA, pisteB) => {
 	// Check if pisteA and pisteB intersect
