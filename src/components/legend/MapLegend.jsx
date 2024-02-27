@@ -9,7 +9,6 @@ const MapLegend = () => {
   const [height, setHeight] = useState(0);
 
   useEffect(() => {
-    console.log(document.getElementById("legend-content").clientHeight);
     setHeight(document.getElementById("legend-content").clientHeight);
   }, []);
 
@@ -18,7 +17,7 @@ const MapLegend = () => {
   };
 
   return (
-    <div className="absolute z-[9999] bottom-0 left-1">
+    <div className="absolute z-[9999] bottom-0 left-1" testId='legend'>
       <motion.div
         initial={{ x: 5 }}
         animate={{ y: isExpanded ? 0 : height }}
