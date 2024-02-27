@@ -5,14 +5,22 @@ const client = axios.create({
   headers: {
     "Content-Type": "application/json",
   },
-})
+});
 
 
 export const fetchSkiData = async (id) => {
   try {
     const res = await client.get(`/${id}`);
 
-    return res.data;
+    const data = res.data.geoJson.features;
+
+    const pistes = data.filter(feature => feature.properties["piste:type"] === "downhill");
+    const lifts = data.filter(feature => feature.properties["aerialway"]);
+
+    return {
+      pistes,
+      lifts,
+    };
 
   } catch (error) {
     console.error("Failed to fetch ski data:", error);

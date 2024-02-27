@@ -21,18 +21,10 @@ const SkiMapComponent = () => {
     if (!mapRef.current) return; // Check if the map instance is available
 
     fetchSkiData('65d4a9dbecaa09d942314101')
-      .then(data => {
-        const pistesData = {
-          type: "FeatureCollection",
-          features: data.geoJson.features.filter(feature => feature.properties["piste:type"] === "downhill"),
-        };
-        const liftsData = {
-          type: "FeatureCollection",
-          features: data.geoJson.features.filter(feature => feature.properties["aerialway"]),
-        };
+      .then((data) => {
         
-        setLifts(liftsData);
-        setPistes(pistesData);
+        setLifts(data.lifts);
+        setPistes(data.pistes);
       })
       .catch(console.error);
   }, []);
