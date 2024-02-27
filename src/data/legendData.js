@@ -15,36 +15,36 @@ const legendData = [
     icon: buttonLift,
   },
   {
-    name: "Chair lift",
-    icon: chairLift, 
-  },
-  {
-    name: "Gondola lift",
-    icon: gondolaLift,
-  },
-  {
-    name: "T-bar lift",
-    icon: tbarLift,
-  },
-  {
-    name: "Lift",
-    icon: liftRoute,
-  },
-  {
     name: "Very easy piste",
     icon: greenPiste,
+  },
+  {
+    name: "Chair lift",
+    icon: chairLift, 
   },
   {
     name: "Easy piste",
     icon: bluePiste,
   },
   {
+    name: "Gondola lift",
+    icon: gondolaLift,
+  },
+  {
     name: "Medium piste",
     icon: redPiste,
   },
   {
+    name: "T-bar lift",
+    icon: tbarLift,
+  },
+  {
     name: "Expert piste",
     icon: blackPiste,
+  },
+  {
+    name: "Lift",
+    icon: liftRoute,
   },
   {
     name: "Non-prepared piste",

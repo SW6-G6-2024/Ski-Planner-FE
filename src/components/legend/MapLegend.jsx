@@ -1,38 +1,51 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import LegendCard from "./LegendCard";
 import legendData from "../../data/legendData";
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import { Slide } from "@mui/material";
+import { ExpandMore as DownIcon, ExpandLess as UpIcon } from "@mui/icons-material";
+import { motion } from "framer-motion";
 
 const MapLegend = () => {
-  const [isExpanded, setIsExpanded] = useState(true);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [height, setHeight] = useState(0);
+
+  useEffect(() => {
+    console.log(document.getElementById("legend-content").clientHeight);
+    setHeight(document.getElementById("legend-content").clientHeight);
+  }, []);
 
   const toggleLegend = () => {
     setIsExpanded(!isExpanded);
   };
 
   return (
-    <div className="flex-1 fixed z-[9999] bottom-0 left-0 bg-legendbg bg-opacity-50 rounded-tr-lg p2 drop-shadow-lg transition-all">
-      <Slide direction="right" in={isExpanded} mountOnEnter unmountOnExit>
-      <div className="grid grid-cols-2 gap-1 px-2 pt-2">
+    <div className="absolute z-[9999] bottom-0 left-1">
+      <motion.div
+        initial={{ x: 5 }}
+        animate={{ y: isExpanded ? 0 : height }}
+        transition={{ duration: 0.5 }}
+        className="flex flex-col items-start overflow-hidden shadow-lg"
+      >
+        <button
+          onClick={toggleLegend}
+          className="w-[65px] h-10 bg-[#535C91] bg-opacity-50 hover:bg-opacity-25 rounded-t-lg px-2 flex items-center justify-center"
+        >
+          {isExpanded ? <DownIcon className="text-white" /> : <UpIcon className="text-white" />}
+        </button>
+        <div id="legend-content" className="grid grid-cols-2 bg-[#535C91] rounded-tr-lg bg-opacity-50 gap-1 px-2 pt-2 ">
+          <h1 className="col-span-2">Legend</h1>
           {legendData.map((item, index) => (
             <LegendCard key={index} name={item.name} icon={item.icon} />
           ))}
         </div>
-      </Slide>
-      <div
-        className="hover:bg-legendinteract rounded-md hover:bg-opacity-25 cursor-pointer m-2 w-10"
-        onClick={toggleLegend}
-      >
-        {isExpanded ? (
-          <ChevronLeftIcon className="text-white" />
-        ) : (
-          <ChevronRightIcon className="text-white" />
-        )}
-      </div>
+      </motion.div>
     </div>
-    
   );
 };
 export default MapLegend;
+
+
+<div className="grid grid-cols-2 gap-1 px-2 pt-2">
+  {legendData.map((item, index) => (
+    <LegendCard key={index} name={item.name} icon={item.icon} />
+  ))}
+</div>;

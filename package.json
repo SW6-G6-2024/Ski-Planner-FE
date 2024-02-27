@@ -12,11 +12,12 @@
         "test": "jest"
     },
     "dependencies": {
-        "axios": "^1.6.7",
         "@emotion/react": "^11.11.3",
         "@emotion/styled": "^11.11.0",
         "@mui/icons-material": "^5.15.10",
         "@mui/material": "^5.15.10",
+        "axios": "^1.6.7",
+        "framer-motion": "^11.0.6",
         "leaflet": "^1.9.4",
         "prop-types": "^15.8.1",
         "react": "^18.2.0",

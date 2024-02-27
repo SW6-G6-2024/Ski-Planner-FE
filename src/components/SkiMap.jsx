@@ -8,6 +8,7 @@ import { setLiftStyle } from '../utils/liftStyling';
 
 import 'leaflet/dist/leaflet.css';
 import markerIconPng from "leaflet/dist/images/marker-icon.png";
+import MapLegend from './legend/MapLegend';
 
 const SkiMapComponent = () => {
   const center = [61.3140, 12.1971];
@@ -49,7 +50,7 @@ const SkiMapComponent = () => {
 	};
 
   return (
-    <>
+    <div className='relative'>
       <MapContainer
         center={center}
         zoom={13.75}
@@ -66,11 +67,9 @@ const SkiMapComponent = () => {
         />
         {pistes && <GeoJSON data={pistes} style={setPisteColor} onEachFeature={placeMarker} />}
         {lifts && <GeoJSON data={lifts} style={setLiftStyle}/>}
-        <Marker position={center} icon={new Icon({iconUrl: markerIconPng, iconSize: [25, 41], iconAnchor: [12, 41]})}>
-          <Popup><span>Trysil</span></Popup>
-        </Marker>
+        <MapLegend />
       </MapContainer>
-    </>
+    </div>
   );
 };
 
