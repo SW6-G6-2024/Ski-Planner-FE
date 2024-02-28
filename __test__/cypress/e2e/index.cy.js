@@ -9,11 +9,11 @@ describe('Front page', () => {
     cy.visit('http://localhost:5555');
     cy.get('.leaflet-container').should('exist');
 
-    const pisteExample = cy.get('.leaflet-interactive').first();
-    pisteExample.should('exist');
-    pisteExample.should('have.attr', 'stroke', 'black');
-    pisteExample.should('have.attr', 'stroke-width', '3');
-  })
+    cy.get('.leaflet-interactive').first()
+      .should('exist')
+      .should('have.attr', 'stroke', 'black')
+      .should('have.attr', 'stroke-width', '3');
+  });
 
   it('should have a legend', () => {
     cy.visit('http://localhost:5555');
@@ -22,14 +22,12 @@ describe('Front page', () => {
 
   it('should have popups with piste name for each piste', () => {
     cy.visit('http://localhost:5555');
-    let piste = cy.get('.leaflet-interactive').first();
-    piste.click({ force: true});
+    cy.get('.leaflet-interactive').first().click({ force: true});
     cy.get('.leaflet-popup').should('exist');
     cy.get('.leaflet-popup-content').should('contain', '75');
 
-    piste = cy.get('.leaflet-interactive').eq(58);
-    piste.click({ force: true});
+    cy.get('.leaflet-interactive').eq(58).click({ force: true});
     cy.get('.leaflet-popup').should('exist');
     cy.get('.leaflet-popup-content').should('contain', '31');
   });
-})
+});
