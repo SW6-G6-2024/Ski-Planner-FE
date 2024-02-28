@@ -1,11 +1,11 @@
-describe('Front page', () => {
+describe('Ski map', () => {
   beforeEach(() => {
     cy.intercept('GET', /http:\/\/localhost:8888\/api\/ski-area.*/, {
       fixture: 'ski-area.json',
     });
   });
 
-  it('loads site succesfully', () => {
+  it('loads succesfully', () => {
     cy.visit('http://localhost:5555');
     cy.get('.leaflet-container').should('exist');
 
