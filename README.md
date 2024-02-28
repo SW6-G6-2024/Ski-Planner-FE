@@ -3,13 +3,14 @@ Frontend for the Ski Planner application
 
 ## Dependencies
 
-- Eslint
+- EsLint
 - Jest
 - MaterialUI
 - Tailwind
 - Vite
 - PropTypes
 - React
+- Cypress (End-to-end testing)
 
 ## Example of proptype validation
 
