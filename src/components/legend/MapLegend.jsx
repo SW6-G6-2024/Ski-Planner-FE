@@ -9,7 +9,6 @@ const MapLegend = () => {
   const [height, setHeight] = useState(0);
 
   useEffect(() => {
-    console.log(document.getElementById("legend-content").clientHeight);
     setHeight(document.getElementById("legend-content").clientHeight);
   }, []);
 

@@ -1,5 +1,6 @@
 import React, { useCallback, useState, useRef } from 'react';
 import { fetchSkiData } from '../services/skiDataService';
+import { fetchBestRoute } from '../services/bestRouteService';
 import { MapContainer, TileLayer, Marker, Popup, GeoJSON } from 'react-leaflet';
 import { Icon } from 'leaflet';
 import '../App.css';
@@ -17,17 +18,27 @@ const SkiMapComponent = () => {
   const [lifts, setLifts] = useState(null);
 
   // Use useCallback to define your data fetching function
-  const updateBoundsAndFetchData = useCallback(() => {
+  const updateBoundsAndFetchData = useCallback(async () => {
     if (!mapRef.current) return; // Check if the map instance is available
-
-    fetchSkiData('65d4a9dbecaa09d942314101')
-      .then((data) => {
-        
-        setLifts(data.lifts);
-        setPistes(data.pistes);
-      })
-      .catch(console.error);
-  }, []);
+  
+    const startNode = 347047780;
+    const endNode = 370586596;
+    
+    const bestRouteData = await fetchBestRoute(startNode, endNode, '65d4a9dbecaa09d942314101');
+    const newPiste = {
+      geometry: bestRouteData.bestRoute.geometry,
+      properties: { ...bestRouteData.bestRoute.properties, name: 'Best Route' },
+      type: 'Feature',
+    };
+  
+    const skiData = await fetchSkiData('65d4a9dbecaa09d942314101').catch(console.error);
+  
+    // Assuming skiData.pistes is an array and you want to include newPiste as part of it
+    setPistes([newPiste, ...skiData.pistes]);
+    setLifts(skiData.lifts);
+  
+  }, []); // Ensure dependencies are correctly listed if any
+  
 
   /**
 	 * 
