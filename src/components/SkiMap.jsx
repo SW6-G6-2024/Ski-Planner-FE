@@ -1,13 +1,11 @@
 import React, { useCallback, useState, useRef } from 'react';
 import { fetchSkiData } from '../services/skiDataService';
-import { MapContainer, TileLayer, Marker, Popup, GeoJSON } from 'react-leaflet';
-import { Icon } from 'leaflet';
+import { MapContainer, TileLayer, GeoJSON } from 'react-leaflet';
 import '../App.css';
 import { setPisteColor } from '../utils/pisteStyling';
 import { setLiftStyle } from '../utils/liftStyling';
 
 import 'leaflet/dist/leaflet.css';
-import markerIconPng from "leaflet/dist/images/marker-icon.png";
 import MapLegend from './legend/MapLegend';
 
 const SkiMapComponent = () => {

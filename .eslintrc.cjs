@@ -5,7 +5,8 @@ module.exports = {
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
-    'plugin:react-hooks/recommended'
+    'plugin:react-hooks/recommended',
+    'plugin:cypress/recommended',
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
@@ -19,6 +20,7 @@ module.exports = {
       { allowConstantExport: true },
     ],
 		'react/prop-types': 'warn',
+    'react/no-unknown-property': 'off',
 		'react/no-children-prop': 'warn',
 		'semi': 'error',
 		'no-unused-vars': 'warn',

@@ -48,7 +48,6 @@ __MACOSX/
 ._*
 
 # Optional npm lock file
-package-lock.json
 yarn.lock
 
 # Optional firebase cache
