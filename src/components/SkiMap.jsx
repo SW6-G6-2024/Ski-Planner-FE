@@ -80,10 +80,9 @@ const SkiMapComponent = () => {
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
 
-        {route && <GeoJSON className='z-1' data={route} style={{ fillColor: 'grey', color: 'grey', weight: 10 }} /> }
-
-        {pistes && <GeoJSON className='z-2' data={pistes} style={setPisteColor} onEachFeature={placeMarker} />}
-        {lifts && <GeoJSON className='z-2' data={lifts} style={setLiftStyle} />}
+        {route && <GeoJSON data={route} style={{ fillColor: 'grey', color: 'grey', weight: 10 }} /> }
+        {pistes && <GeoJSON data={pistes} style={setPisteColor} onEachFeature={placeMarker} />}
+        {lifts && <GeoJSON data={lifts} style={setLiftStyle} />}
         <MapLegend />
       </MapContainer>
     </div>
