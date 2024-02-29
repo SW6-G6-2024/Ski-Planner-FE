@@ -1,5 +1,6 @@
 import React, { useCallback, useState, useRef } from 'react';
 import { fetchSkiData } from '../services/skiDataService';
+import { fetchBestRoute } from '../services/bestRouteService';
 import { MapContainer, TileLayer, GeoJSON } from 'react-leaflet';
 import '../App.css';
 import { setPisteColor } from '../utils/pisteStyling';
@@ -13,31 +14,43 @@ const SkiMapComponent = () => {
   const mapRef = useRef(null); // To access the map instance
   const [pistes, setPistes] = useState(null);
   const [lifts, setLifts] = useState(null);
+  const [route, setRoute] = useState(null);
 
   // Use useCallback to define your data fetching function
-  const updateBoundsAndFetchData = useCallback(() => {
+  const updateBoundsAndFetchData = useCallback(async () => {
     if (!mapRef.current) return; // Check if the map instance is available
 
-    fetchSkiData('65d4a9dbecaa09d942314101')
-      .then((data) => {
-        
-        setLifts(data.lifts);
-        setPistes(data.pistes);
-      })
-      .catch(console.error);
-  }, []);
+    const skiData = await fetchSkiData('65d4a9dbecaa09d942314101').catch(console.error);
+
+    // Assuming skiData.pistes is an array and you want to include newPiste as part of it
+    setPistes([...skiData.pistes]);
+    setLifts(skiData.lifts);
+
+  }, []); // Ensure dependencies are correctly listed if any
+
+  const findRoute = async () => {
+    const startNode = 347047780;
+    const endNode = 370586596;
+    const bestRouteData = await fetchBestRoute(startNode, endNode, '65d4a9dbecaa09d942314101');
+    const route = {
+      geometry: bestRouteData.bestRoute.geometry,
+      properties: { ...bestRouteData.bestRoute.properties, name: 'Best Route' },
+      type: 'Feature',
+    };
+    setRoute(route);
+  };
 
   /**
-	 * 
-	 * @param {*} feature 
-	 * @param {Layer} layer 
-	 */
-	const placeMarker = (feature, layer) => {
-		if (feature.properties.name)
-			layer.bindPopup(feature.properties.name);
-		else
-			layer.bindPopup(feature.properties.ref);
-	};
+   * 
+   * @param {*} feature 
+   * @param {Layer} layer 
+   */
+  const placeMarker = (feature, layer) => {
+    if (feature.properties.name)
+      layer.bindPopup(feature.properties.name);
+    else
+      layer.bindPopup(feature.properties.ref);
+  };
 
   return (
     <div className='relative'>
@@ -51,12 +64,22 @@ const SkiMapComponent = () => {
           updateBoundsAndFetchData();
         }}
       >
+        <button
+          id='generate-route-button'
+          className='absolute right-5 top-5 z-[10000] bg-red-400 hover:bg-red-200 rounded-md shadow-xl hover:shadow-sm border border-red-300'
+          onClick={findRoute}
+        >
+          Generate Route
+        </button>
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
-        {pistes && <GeoJSON data={pistes} style={setPisteColor} onEachFeature={placeMarker} />}
-        {lifts && <GeoJSON data={lifts} style={setLiftStyle}/>}
+
+        {route && <div id='best-route'><GeoJSON className='z-1' data={route} style={{ fillColor: 'grey', color: 'grey', weight: 10 }} /> </div>}
+
+        {pistes && <GeoJSON className='z-2' data={pistes} style={setPisteColor} onEachFeature={placeMarker} />}
+        {lifts && <GeoJSON className='z-2' data={lifts} style={setLiftStyle} />}
         <MapLegend />
       </MapContainer>
     </div>
