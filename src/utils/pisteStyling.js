@@ -7,8 +7,6 @@ export const setPisteColor = (feature) => {
     feature.properties.fill = "red";
   } else if (feature.properties["piste:difficulty"] === "advanced" || feature.properties["piste:difficulty"] === "expert") {
     feature.properties.fill = "black";
-  } else if (feature.properties["description"] === "Shortest Path")  {
-    feature.properties.fill = "grey";
   } else {
     feature.properties.fill = "white";
   }
@@ -20,7 +18,7 @@ export const setPisteColor = (feature) => {
   return {
     fillColor: feature.properties.fill,
     color: feature.properties.fill,
-    weight: feature.properties["description"] === "Shortest Path" ? 10 : 3,
+    weight: 3,
     fillOpacity: 1,
     dashArray: feature.properties.dashArray,
   };

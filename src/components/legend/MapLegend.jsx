@@ -17,7 +17,7 @@ const MapLegend = () => {
   };
 
   return (
-    <div className="absolute z-[9999] bottom-0 left-1" testId='legend'>
+    <div className="absolute z-[9999] bottom-0 left-1" id='legend'>
       <motion.div
         initial={{ x: 5 }}
         animate={{ y: isExpanded ? 0 : height }}
