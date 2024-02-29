@@ -4,6 +4,10 @@ import legendData from "../../data/legendData";
 import { ExpandMore as DownIcon, ExpandLess as UpIcon } from "@mui/icons-material";
 import { motion } from "framer-motion";
 
+/**
+ * Legend for map with icons and descriptions
+ * @returns {JSX.Element} Legend
+ */
 const MapLegend = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [height, setHeight] = useState(0);

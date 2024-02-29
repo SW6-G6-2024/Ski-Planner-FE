@@ -9,6 +9,10 @@ import { setLiftStyle } from '../utils/liftStyling';
 import 'leaflet/dist/leaflet.css';
 import MapLegend from './legend/MapLegend';
 
+/**
+ * Ski map component - displays a map with pistes and lifts
+ * @returns {JSX.Element} SkiMapComponent
+ */
 const SkiMapComponent = () => {
   const center = [61.3140, 12.1971];
   const mapRef = useRef(null); // To access the map instance
@@ -76,7 +80,7 @@ const SkiMapComponent = () => {
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
 
-        {route && <div id='best-route'><GeoJSON className='z-1' data={route} style={{ fillColor: 'grey', color: 'grey', weight: 10 }} /> </div>}
+        {route && <GeoJSON className='z-1' data={route} style={{ fillColor: 'grey', color: 'grey', weight: 10 }} /> }
 
         {pistes && <GeoJSON className='z-2' data={pistes} style={setPisteColor} onEachFeature={placeMarker} />}
         {lifts && <GeoJSON className='z-2' data={lifts} style={setLiftStyle} />}

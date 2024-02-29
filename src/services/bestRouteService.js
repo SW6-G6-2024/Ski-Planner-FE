@@ -7,7 +7,13 @@ const client = axios.create({
   },
 });
 
-// Updated function to accept start, end, and skiArea parameters
+/**
+ * Fetches the best route between two nodes
+ * @param {number} start node ID for the start of the route
+ * @param {number} end node ID for the end of the route
+ * @param {string} skiArea ID of the ski area
+ * @returns {Promise<{bestRoute: Object}>} bestRoute
+ */
 export const fetchBestRoute = async (start, end, skiArea) => {
   try {
     const requestBody = {

@@ -1,3 +1,8 @@
+/**
+ * Set the color and style of the piste on the map based on the difficulty and grooming
+ * @param {Object<{}>} feature the piste feature to style
+ * @returns {<{fillColor: string, color: string, weight: number, fillOpacity: number, dashArray: string}>}
+ */
 export const setPisteColor = (feature) => {
   if (feature.properties["piste:difficulty"] === "novice") {
     feature.properties.fill = "#009400";
