@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
  * To add a new entry, add it to the legendData.js file
  * @param {name} name of the entry
  * @param {icon} url for the path to the icon 
+ * @returns {JSX.Element} LegendCard
  */
 const LegendCard = ({name, icon}) => {
   return (

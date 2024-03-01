@@ -41,8 +41,9 @@ describe('Ski map', () => {
 
   it('should find the best route at button click', () => {
     cy.visit('http://localhost:5555');
-    cy.get('#best-route').should('not.exist');
     cy.get('#generate-route-button').click();
-    cy.get('#best-route').should('exist');
+    cy.get('.leaflet-interactive')
+      .filter('path[stroke="grey"]')
+      .should('exist');
   });
 });

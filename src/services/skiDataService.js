@@ -7,7 +7,11 @@ const client = axios.create({
   },
 });
 
-
+/**
+ * Fetches the ski area data (pistes and lifts) from the server
+ * @param {string} id ID of the ski area
+ * @returns {Promise<{pistes: Array, lifts: Array}>} skiData
+ */
 export const fetchSkiData = async (id) => {
   try {
     const res = await client.get(`/${id}`);

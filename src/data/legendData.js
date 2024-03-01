@@ -9,6 +9,9 @@ import nonPreparedPiste from "../icons/pistes/non-prep.svg";
 import tbarLift from "../icons/lifts/t-bar.svg";
 import liftRoute from "../icons/lifts/lift.svg";
 
+/**
+ * Legend data for the map
+ */
 const legendData = [
   {
     name: "Button lift",
