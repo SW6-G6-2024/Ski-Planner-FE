@@ -5,6 +5,7 @@ import { MapContainer, TileLayer, GeoJSON } from 'react-leaflet';
 import '../App.css';
 import { setPisteColor } from '../utils/pisteStyling';
 import { setLiftStyle } from '../utils/liftStyling';
+import LocationMarker from './LocationMarker';
 
 import 'leaflet/dist/leaflet.css';
 import MapLegend from './legend/MapLegend';
@@ -19,6 +20,10 @@ const SkiMapComponent = () => {
   const [pistes, setPistes] = useState(null);
   const [lifts, setLifts] = useState(null);
   const [route, setRoute] = useState(null);
+  const [mode, setMode] = useState('A');
+  const [positionA, setPositionA] = useState(null);
+  const [positionB, setPositionB] = useState(null);
+
 
   // Use useCallback to define your data fetching function
   const updateBoundsAndFetchData = useCallback(async () => {
@@ -80,9 +85,11 @@ const SkiMapComponent = () => {
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
 
-        {route && <GeoJSON data={route} style={{ fillColor: 'grey', color: 'grey', weight: 10 }} /> }
+        {route && <GeoJSON data={route} style={{ fillColor: 'grey', color: 'grey', weight: 10 }} />}
         {pistes && <GeoJSON data={pistes} style={setPisteColor} onEachFeature={placeMarker} />}
         {lifts && <GeoJSON data={lifts} style={setLiftStyle} />}
+        <LocationMarker type='A' mode={mode} setMode={setMode} position={positionA} setPosition={setPositionA} />
+        <LocationMarker type='B' mode={mode} setMode={setMode} position={positionB} setPosition={setPositionB} />
         <MapLegend />
       </MapContainer>
     </div>
