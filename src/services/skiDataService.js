@@ -1,7 +1,8 @@
 import axios from 'axios';
+import env from '../../config/keys.js';
 
 const client = axios.create({
-  baseURL: 'http://localhost:8888/api/ski-areas',
+  baseURL: env.backendUrl + '/api/ski-areas',
   headers: {
     "Content-Type": "application/json",
   },

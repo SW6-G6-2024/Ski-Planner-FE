@@ -1,7 +1,8 @@
 import axios from 'axios';
+import env from '../../config/keys.js';
 
 const client = axios.create({
-  baseURL: 'http://localhost:8888/api/routes',
+  baseURL: env.backendUrl + '/api/routes',
   headers: {
     "Content-Type": "application/json",
   },
@@ -15,6 +16,7 @@ const client = axios.create({
  * @returns {Promise<{bestRoute: Object}>} bestRoute
  */
 export const fetchBestRoute = async (start, end, skiArea) => {
+  console.log(client.defaults.baseURL)
   try {
     const requestBody = {
       start: start,
