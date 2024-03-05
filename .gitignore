@@ -52,3 +52,4 @@ yarn.lock
 
 # Optional firebase cache
 .firebase/
+config/.env
