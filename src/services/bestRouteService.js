@@ -16,7 +16,6 @@ const client = axios.create({
  * @returns {Promise<{bestRoute: Object}>} bestRoute
  */
 export const fetchBestRoute = async (start, end, skiArea) => {
-  console.log(client.defaults.baseURL)
   try {
     const requestBody = {
       start: start,

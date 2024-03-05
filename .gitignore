@@ -53,3 +53,6 @@ yarn.lock
 # Optional firebase cache
 .firebase/
 config/.env
+
+# Cypress screenshots
+__test__/cypress/screenshots/
