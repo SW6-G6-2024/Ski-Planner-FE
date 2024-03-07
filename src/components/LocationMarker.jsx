@@ -21,7 +21,7 @@ function LocationMarker(props) {
 			if (props.mode !== props.type) return;
 			const clickedCoordinates = e.latlng;
 			props.setPosition(clickedCoordinates);
-			props.setMode(props.mode === 'A' ? 'B' : 'A');
+			props.setMode('B');
 		}
 	});
 	return props.position === null ? null : (
