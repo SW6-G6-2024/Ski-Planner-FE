@@ -39,11 +39,29 @@ describe('Ski map', () => {
     cy.get('#generate-route-button').should('exist');
   });
 
-  it('should find the best route at button click', () => {
+  it('should enable the user to place two markers on the map', () => {
     cy.visit('http://localhost:5555');
+    cy.get('.leaflet-container').click(100, 100);
+    cy.get('.leaflet-marker-icon').should('have.length', 1);
+    cy.get('.leaflet-container').click(200, 200);
+    cy.get('.leaflet-marker-icon').should('have.length', 2);
+  });
+
+  it('should find the best route at button click when two markers are placed', () => {
+    cy.visit('http://localhost:5555');
+    cy.get('.leaflet-container').click(100, 100);
+    cy.get('.leaflet-container').click(200, 200);
     cy.get('#generate-route-button').click();
     cy.get('.leaflet-interactive')
       .filter('path[stroke="grey"]')
       .should('exist');
+  });
+
+  it('should not find the best route at button click if not markers are placed', () => {
+    cy.visit('http://localhost:5555');
+    cy.get('#generate-route-button').click();
+    cy.get('.leaflet-interactive')
+      .filter('path[stroke="grey"]')
+      .should('not.exist');
   });
 });
