@@ -11,21 +11,22 @@ function LocationMarker(props) {
 			const clickedCoordinates = e.latlng;
 			props.setPosition(clickedCoordinates);
 			props.setMode(props.mode === 'A' ? 'B' : 'A');
-		},
-		locationfound(e) {
-			props.setPosition(e.latlng);
-			map.flyTo(e.latlng, map.getZoom());
-		},
+		}
 	});
-
 	return props.position === null ? null : (
 		<Marker icon={icon({
 			iconUrl: props.type === 'A' ? markerA : markerB,
 			iconSize: [64, 48],
 			iconAnchor: [32, 41],
 			popupAnchor: [1, -34],
-		})} position={props.position} draggable={true}>
-			<Popup>{props.type}</Popup>
+		})}
+			position={props.position}
+			draggable={true}
+			eventHandlers={{
+				dragend: (e) => {
+					props.setPosition(e.target.getLatLng());
+				}
+			}}>
 		</Marker>
 	);
 }

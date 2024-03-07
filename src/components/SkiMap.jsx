@@ -38,8 +38,17 @@ const SkiMapComponent = () => {
   }, []); // Ensure dependencies are correctly listed if any
 
   const findRoute = async () => {
-    const startNode = 347047780;
-    const endNode = 370586596;
+    if (!positionA || !positionB) return;
+
+    setRoute(null);
+    const startNode = {
+      lat: positionA.lat,
+      lon: positionA.lng
+    };
+    const endNode = {
+      lat: positionB.lat,
+      lon: positionB.lng
+    };
     const bestRouteData = await fetchBestRoute(startNode, endNode, '65d4a9dbecaa09d942314101');
     const route = {
       geometry: bestRouteData.bestRoute.geometry,
@@ -47,6 +56,7 @@ const SkiMapComponent = () => {
       type: 'Feature',
     };
     setRoute(route);
+    console.log('Best route:', route);
   };
 
   /**
@@ -63,6 +73,13 @@ const SkiMapComponent = () => {
 
   return (
     <div className='relative'>
+      <button
+        id='generate-route-button'
+        className='absolute right-5 top-5 z-[10000] bg-red-400 hover:bg-red-200 rounded-md shadow-xl hover:shadow-sm border border-red-300'
+        onClick={findRoute}
+      >
+        Generate Route
+      </button>
       <MapContainer
         center={center}
         zoom={13.75}
@@ -73,13 +90,6 @@ const SkiMapComponent = () => {
           updateBoundsAndFetchData();
         }}
       >
-        <button
-          id='generate-route-button'
-          className='absolute right-5 top-5 z-[10000] bg-red-400 hover:bg-red-200 rounded-md shadow-xl hover:shadow-sm border border-red-300'
-          onClick={findRoute}
-        >
-          Generate Route
-        </button>
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
