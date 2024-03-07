@@ -56,7 +56,6 @@ const SkiMapComponent = () => {
       type: 'Feature',
     };
     setRoute(route);
-    console.log('Best route:', route);
   };
 
   /**
