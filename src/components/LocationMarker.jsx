@@ -13,6 +13,8 @@ import PropTypes from 'prop-types';
  * @param {LatLng} props.position position of the marker
  * @param {Function} props.setPosition function to set the position of the marker
  * @param {Function} props.setMode function to set the mode of the marker
+ * @param {boolean} props.wasDragged whether the marker was dragged
+ * @param {Function} props.setWasDragged function to set whether the marker was dragged
  * @returns {JSX.Element} Marker with either A or B icon
  */
 function LocationMarker(props) {
