@@ -18,6 +18,11 @@ import PropTypes from 'prop-types';
 function LocationMarker(props) {
 	useMapEvents({
 		click(e) {
+			// If A is dragged, don't move B
+			if (props.wasDragged && props.type === 'B') {
+				props.setWasDragged(false);
+				return;
+			}
 			if (props.mode !== props.type) return;
 			const clickedCoordinates = e.latlng;
 			props.setPosition(clickedCoordinates);
@@ -36,6 +41,7 @@ function LocationMarker(props) {
 			eventHandlers={{
 				dragend: (e) => {
 					props.setPosition(e.target.getLatLng());
+					props.setWasDragged(true);
 				}
 			}}>
 		</Marker>

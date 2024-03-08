@@ -23,6 +23,7 @@ const SkiMapComponent = () => {
   const [mode, setMode] = useState('A');
   const [positionA, setPositionA] = useState(null);
   const [positionB, setPositionB] = useState(null);
+  const [wasDragged, setWasDragged] = useState(false);
 
 
   // Use useCallback to define your data fetching function
@@ -97,8 +98,24 @@ const SkiMapComponent = () => {
         {route && <GeoJSON data={route} style={{ fillColor: 'grey', color: 'grey', weight: 10 }} />}
         {pistes && <GeoJSON data={pistes} style={setPisteColor} onEachFeature={placeMarker} />}
         {lifts && <GeoJSON data={lifts} style={setLiftStyle} />}
-        <LocationMarker type='A' mode={mode} setMode={setMode} position={positionA} setPosition={setPositionA} />
-        <LocationMarker type='B' mode={mode} setMode={setMode} position={positionB} setPosition={setPositionB} />
+        <LocationMarker
+           type='A'
+           mode={mode}
+           setMode={setMode}
+           position={positionA}
+           setPosition={setPositionA}
+           wasDragged={wasDragged}
+           setWasDragged={setWasDragged}
+        />
+        <LocationMarker
+           type='B'
+           mode={mode}
+           setMode={setMode}
+           position={positionB}
+           setPosition={setPositionB}
+           wasDragged={wasDragged}
+           setWasDragged={setWasDragged}
+        />
         <MapLegend />
       </MapContainer>
     </div>
