@@ -3,6 +3,19 @@
     "private": true,
     "version": "0.0.0",
     "type": "module",
+    "watch": {
+        "lint": {
+          "patterns": [
+            "src"
+          ],
+          "extensions": "js,jsx",
+          "legacyWatch": true,
+          "runOnChangeOnly": false,
+          "quiet": false,
+          "runInBand": true,
+          "delay": 100
+        }
+      },
     "scripts": {
         "dev": "vite",
         "build": "vite build",
@@ -12,7 +25,8 @@
         "test": "jest",
         "cypress:open": "cypress open --e2e --browser chrome --port 52750",
         "cypress:run": "cypress run",
-        "cypress-server": "npm start -- --port 5555"
+        "cypress-server": "npm start -- --port 5555",
+        "watch": "npm-watch lint"
     },
     "dependencies": {
         "@emotion/react": "^11.11.3",
@@ -63,5 +77,4 @@
             "\\.(css|less)$": "<rootDir>/mocks/fileMock.js"
         }
     }
-    
 }
