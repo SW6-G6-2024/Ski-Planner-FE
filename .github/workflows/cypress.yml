@@ -24,4 +24,6 @@ jobs:
           # Records to Cypress Cloud 
           # https://docs.cypress.io/guides/cloud/projects#Set-up-a-project-to-record
           record: false
-          parallel: false # Runs test in parallel using settings above
+          parallel: false # Runs test in parallel using settings above¨
+        env:
+          VITE_API_URL: "http://localhost:8888"
