@@ -36,4 +36,4 @@ jobs:
           record: false
           parallel: false # Runs test in parallel using settings above¨
         env:
-          VITE_API_URL: "http://localhost:8888"
+          VITE_BACKEND_URL: "http://localhost:8888"
