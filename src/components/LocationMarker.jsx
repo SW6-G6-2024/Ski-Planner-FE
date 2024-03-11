@@ -13,11 +13,18 @@ import PropTypes from 'prop-types';
  * @param {LatLng} props.position position of the marker
  * @param {Function} props.setPosition function to set the position of the marker
  * @param {Function} props.setMode function to set the mode of the marker
+ * @param {boolean} props.wasDragged whether the marker was dragged
+ * @param {Function} props.setWasDragged function to set whether the marker was dragged
  * @returns {JSX.Element} Marker with either A or B icon
  */
 function LocationMarker(props) {
 	useMapEvents({
 		click(e) {
+			// If A is dragged, don't move B
+			if (props.wasDragged && props.type === 'B') {
+				props.setWasDragged(false);
+				return;
+			}
 			if (props.mode !== props.type) return;
 			const clickedCoordinates = e.latlng;
 			props.setPosition(clickedCoordinates);
@@ -36,6 +43,7 @@ function LocationMarker(props) {
 			eventHandlers={{
 				dragend: (e) => {
 					props.setPosition(e.target.getLatLng());
+					props.setWasDragged(true);
 				}
 			}}>
 		</Marker>
@@ -48,6 +56,8 @@ LocationMarker.propTypes = {
 	position: PropTypes.object.isRequired,
 	setPosition: PropTypes.func.isRequired,
 	setMode: PropTypes.func.isRequired,
+	wasDragged: PropTypes.bool.isRequired,
+	setWasDragged: PropTypes.func.isRequired
 };
 
 
