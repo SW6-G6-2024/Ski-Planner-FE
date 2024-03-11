@@ -11,4 +11,7 @@ export default defineConfig({
     specPattern: "__test__/cypress/e2e/**/*.cy.js",
     supportFile: "__test__/cypress/support/e2e.js",
   },
+  env: {
+    VITE_BACKEND_URL: "http://localhost:8888",
+  },
 });

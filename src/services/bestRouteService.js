@@ -1,7 +1,8 @@
 import axios from 'axios';
+import env from '../../config/keys.js';
 
 const client = axios.create({
-  baseURL: 'http://localhost:8888/api/routes',
+  baseURL: env.backendUrl + '/api/routes',
   headers: {
     "Content-Type": "application/json",
   },

@@ -31,9 +31,14 @@ const SkiMapComponent = () => {
     if (!mapRef.current) return; // Check if the map instance is available
 
     const skiData = await fetchSkiData('65d4a9dbecaa09d942314101').catch(console.error);
+    if (!skiData) { // Handle the error if the data fetching fails
+      console.error('Failed to fetch ski data');
+      return;
+    
+    } 
 
     // Assuming skiData.pistes is an array and you want to include newPiste as part of it
-    setPistes([...skiData.pistes]);
+    setPistes(skiData.pistes);
     setLifts(skiData.lifts);
 
   }, []); // Ensure dependencies are correctly listed if any

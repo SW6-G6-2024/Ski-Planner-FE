@@ -55,4 +55,4 @@ yarn.lock
 config/.env
 
 # Cypress screenshots
-__test__/cypress/screenshots/**/*
+__test__/cypress/screenshots/
