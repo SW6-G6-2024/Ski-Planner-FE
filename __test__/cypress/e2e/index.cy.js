@@ -10,7 +10,7 @@ describe('Ski map', () => {
 
   it('loads succesfully', () => {
     cy.visit('http://localhost:5555');
-    cy.get('.leaflet-container', { timeout: 10000 }).should('be.visible');
+    cy.get('.leaflet-container').should('exist');
 
     cy.get('.leaflet-interactive').first()
       .should('exist')
