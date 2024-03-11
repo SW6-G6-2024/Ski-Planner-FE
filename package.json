@@ -3,8 +3,22 @@
     "private": true,
     "version": "0.0.0",
     "type": "module",
+    "watch": {
+        "lint": {
+            "patterns": [
+                "src"
+            ],
+            "extensions": "js,jsx",
+            "legacyWatch": true,
+            "runOnChangeOnly": false,
+            "quiet": false,
+            "runInBand": true,
+            "delay": 100
+        }
+    },
     "scripts": {
-        "dev": "vite",
+        "dev:server": "vite",
+        "dev": "concurrently \"npm run dev:server\" \"npm run watch\"",
         "build": "vite build",
         "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
         "preview": "vite preview",
@@ -12,7 +26,9 @@
         "test": "jest",
         "cypress:open": "cypress open --e2e --browser chrome --port 52750",
         "cypress:run": "cypress run",
-        "cypress-server": "npm start -- --port 5555"
+        "cypress-server": "npm start -- --port 5555",
+        "watch": "npm-watch lint",
+        "test-lint": "tape test/*.js"
     },
     "dependencies": {
         "@emotion/react": "^11.11.3",
@@ -37,6 +53,7 @@
         "@vitejs/plugin-react": "^4.2.1",
         "autoprefixer": "^10.4.17",
         "babel-jest": "^29.7.0",
+        "concurrently": "^8.2.2",
         "cypress": "^13.6.6",
         "eslint": "^8.56.0",
         "eslint-plugin-cypress": "^2.15.1",
@@ -45,6 +62,8 @@
         "eslint-plugin-react-hooks": "^4.6.0",
         "eslint-plugin-react-refresh": "^0.4.5",
         "jest": "^29.7.0",
+        "nodemon": "^3.1.0",
+        "npm-watch": "^0.11.0",
         "postcss": "^8.4.35",
         "tailwindcss": "^3.4.1",
         "vite": "^5.1.0"
