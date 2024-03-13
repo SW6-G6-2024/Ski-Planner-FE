@@ -25,16 +25,13 @@ const SkiMapComponent = () => {
   const [positionB, setPositionB] = useState(null);
   const [wasDragged, setWasDragged] = useState(false);
 
-
   // Use useCallback to define your data fetching function
   const updateBoundsAndFetchData = useCallback(async () => {
     if (!mapRef.current) return; // Check if the map instance is available
 
     const skiData = await fetchSkiData('65d4a9dbecaa09d942314101').catch(console.error);
     if (!skiData) { // Handle the error if the data fetching fails
-      console.error('Failed to fetch ski data');
       return;
-    
     } 
 
     // Assuming skiData.pistes is an array and you want to include newPiste as part of it
@@ -55,7 +52,12 @@ const SkiMapComponent = () => {
       lat: positionB.lat,
       lon: positionB.lng
     };
-    const bestRouteData = await fetchBestRoute(startNode, endNode, '65d4a9dbecaa09d942314101');
+    const bestRouteData = await fetchBestRoute(startNode, endNode, '65d4a9dbecaa09d942314101').catch(console.error);
+
+    if (!bestRouteData) {
+      return;
+    }
+    
     const route = {
       geometry: bestRouteData.bestRoute.geometry,
       properties: { ...bestRouteData.bestRoute.properties, name: 'Best Route' },
