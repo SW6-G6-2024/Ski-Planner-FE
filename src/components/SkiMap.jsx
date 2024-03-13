@@ -6,6 +6,7 @@ import '../App.css';
 import { setPisteColor } from '../utils/pisteStyling';
 import { setLiftStyle } from '../utils/liftStyling';
 import LocationMarker from './LocationMarker';
+import useCustomToast from '../hooks/ErrorMessage';
 
 import 'leaflet/dist/leaflet.css';
 import MapLegend from './legend/MapLegend';
@@ -24,7 +25,7 @@ const SkiMapComponent = () => {
   const [positionA, setPositionA] = useState(null);
   const [positionB, setPositionB] = useState(null);
   const [wasDragged, setWasDragged] = useState(false);
-
+  const { showError, showSuccess } = useCustomToast();
 
   // Use useCallback to define your data fetching function
   const updateBoundsAndFetchData = useCallback(async () => {
@@ -32,16 +33,17 @@ const SkiMapComponent = () => {
 
     const skiData = await fetchSkiData('65d4a9dbecaa09d942314101').catch(console.error);
     if (!skiData) { // Handle the error if the data fetching fails
+      showError('Failed to fetch ski data');
       console.error('Failed to fetch ski data');
       return;
-    
     } 
+    showSuccess('Successfully fetched ski data');
 
     // Assuming skiData.pistes is an array and you want to include newPiste as part of it
     setPistes(skiData.pistes);
     setLifts(skiData.lifts);
 
-  }, []); // Ensure dependencies are correctly listed if any
+  }, [showError, showSuccess]); // Ensure dependencies are correctly listed if any
 
   const findRoute = async () => {
     if (!positionA || !positionB) return;
