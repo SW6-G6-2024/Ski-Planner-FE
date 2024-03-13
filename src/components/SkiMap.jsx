@@ -31,7 +31,6 @@ const SkiMapComponent = () => {
 
     const skiData = await fetchSkiData('65d4a9dbecaa09d942314101').catch(console.error);
     if (!skiData) { // Handle the error if the data fetching fails
-      console.error('Failed to fetch ski data');
       return;
     } 
 
@@ -53,7 +52,12 @@ const SkiMapComponent = () => {
       lat: positionB.lat,
       lon: positionB.lng
     };
-    const bestRouteData = await fetchBestRoute(startNode, endNode, '65d4a9dbecaa09d942314101');
+    const bestRouteData = await fetchBestRoute(startNode, endNode, '65d4a9dbecaa09d942314101').catch(console.error);
+
+    if (!bestRouteData) {
+      return;
+    }
+    
     const route = {
       geometry: bestRouteData.bestRoute.geometry,
       properties: { ...bestRouteData.bestRoute.properties, name: 'Best Route' },

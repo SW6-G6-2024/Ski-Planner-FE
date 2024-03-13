@@ -36,8 +36,7 @@ export const fetchBestRoute = async (start, end, skiArea) => {
     }
 
   } catch (error) {
-    console.error("Failed to generate route data:", error);
-    if (error.response) {
+    if (error) {
       notifyError('Failed to generate route');
     }
     throw error;
