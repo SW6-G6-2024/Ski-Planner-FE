@@ -64,4 +64,43 @@ describe('Ski map', () => {
       .filter('path[stroke="grey"]')
       .should('not.exist');
   });
+
+  it('displays an error message if the route generation fails', () => {
+    // Intercept the POST request and force it to fail
+    cy.intercept('POST', /http:\/\/localhost:8888\/api\/routes\/generate-route.*/, {
+      statusCode: 500, // Simulate server error
+    }).as('generateRouteFail');
+  
+    cy.visit('http://localhost:5555');
+    cy.get('.leaflet-container').click(100, 100);
+    cy.get('.leaflet-container').click(200, 200);
+    cy.get('#generate-route-button').click();
+  
+    // Wait for the intercepted request to resolve
+    cy.wait('@generateRouteFail');
+  
+    // Check for the presence of an error toast
+    cy.get('div[role="status"]').should('contain', 'Failed to generate route');
+  });
+
+  it('displays a success message when the route is generated successfully', () => {
+    // Intercept the POST request and mock a successful response
+    cy.intercept('POST', /http:\/\/localhost:8888\/api\/routes\/generate-route.*/, {
+      fixture: 'best-route.json', // Assuming this fixture represents a successful route response
+      statusCode: 200, // Simulate success
+    }).as('generateRouteSuccess');
+  
+    cy.visit('http://localhost:5555');
+    cy.get('.leaflet-container').click(100, 100);
+    cy.get('.leaflet-container').click(200, 200);
+    cy.get('#generate-route-button').click();
+  
+    // Wait for the intercepted request to resolve
+    cy.wait('@generateRouteSuccess');
+  
+    // Check for the presence of a success toast
+    // Adjust the selector and message as needed based on how your application displays success notifications
+    cy.get('div[role="status"]').should('contain', 'Successfully generated route');
+  });
+  
 });
