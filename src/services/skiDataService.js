@@ -25,11 +25,12 @@ export const fetchSkiData = async (id) => {
 
     if (res.status === 200 && pistes && lifts) {
       notifySuccess('Successfully fetched ski data');
-      return {
-        pistes,
-        lifts,
-      };
     }
+    
+    return {
+      pistes,
+      lifts,
+    };
 
   } catch (error) {
     if (error) {

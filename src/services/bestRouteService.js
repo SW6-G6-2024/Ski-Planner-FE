@@ -30,10 +30,11 @@ export const fetchBestRoute = async (start, end, skiArea) => {
 
     if (res.status === 200 && bestRoute) {
       notifySuccess('Successfully generated route');
-      return {
-        bestRoute,
-      };
     }
+
+    return {
+      bestRoute,
+    };
 
   } catch (error) {
     if (error) {
