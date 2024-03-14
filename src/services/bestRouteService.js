@@ -1,7 +1,9 @@
 import axios from 'axios';
+import env from '../../config/keys.js';
+import { notifyError, notifySuccess } from '../utils/customErrorMessage.js';
 
 const client = axios.create({
-  baseURL: 'http://localhost:8888/api/routes',
+  baseURL: env.backendUrl + '/api/routes',
   headers: {
     "Content-Type": "application/json",
   },
@@ -26,12 +28,18 @@ export const fetchBestRoute = async (start, end, skiArea) => {
 
     const bestRoute = res.data.res;
 
+    if (res.status === 200 && bestRoute) {
+      notifySuccess('Successfully generated route');
+    }
+
     return {
       bestRoute,
     };
 
   } catch (error) {
-    console.error("Failed to generate route data:", error);
+    if (error) {
+      notifyError('Failed to generate route');
+    }
     throw error;
   }
 };
