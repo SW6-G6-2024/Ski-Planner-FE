@@ -53,7 +53,7 @@ function LocationMarker(props) {
 LocationMarker.propTypes = {
 	type: PropTypes.string.isRequired,
 	mode: PropTypes.string.isRequired,
-	position: PropTypes.object.isRequired,
+	position: PropTypes.object,
 	setPosition: PropTypes.func.isRequired,
 	setMode: PropTypes.func.isRequired,
 	wasDragged: PropTypes.bool.isRequired,
