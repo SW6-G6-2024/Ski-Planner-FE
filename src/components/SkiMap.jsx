@@ -157,8 +157,12 @@ const SkiMapComponent = () => {
         />
 
         {route && <GeoJSON data={route} style={{ fillColor: 'grey', color: 'grey', weight: 10 }} />}
-        {pistes && <GeoJSON data={pistes} style={setPisteColor} onEachFeature={addPistDetails} />}
-        {lifts && <GeoJSON data={lifts} style={setLiftStyle} onEachFeature={addLiftDetails} />}
+        {pistes && <GeoJSON data={pistes} style={setPisteColor} />}
+        {lifts && <GeoJSON data={lifts} style={setLiftStyle} />}
+
+        {/* Bigger weight to make the pistes and lifts easier to click */}
+        {pistes && <GeoJSON data={pistes} style={{ ...setPisteColor, color: 'transparent', weight: 15 }} onEachFeature={addPistDetails} />}
+        {lifts && <GeoJSON data={lifts} style={{ ...setLiftStyle, color: 'transparent', weight: 15 }} onEachFeature={addLiftDetails} />}
         <LocationMarker
            type='A'
            mode={mode}
