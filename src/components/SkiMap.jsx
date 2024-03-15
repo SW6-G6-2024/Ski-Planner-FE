@@ -7,7 +7,7 @@ import { setPisteColor } from '../utils/pisteStyling';
 import { setLiftStyle } from '../utils/liftStyling';
 import LocationMarker from './LocationMarker';
 
-import buttonLiftImg from '../icons/lifts/buttonLift.png';
+import buttonLiftImg from '../icons/lifts/buttonLift.svg';
 import chairLiftImg from '../icons/lifts/chair-lift.svg';
 import gondolaImg from '../icons/lifts/gondola.svg';
 import liftImg from '../icons/lifts/lift.svg';
@@ -122,7 +122,7 @@ const SkiMapComponent = () => {
     // Include the image in your styledLiftDetails if liftImage is not null
     const styledLiftDetails = `
       <div style="text-align: center;">
-        ${liftImage ? `<img src="${liftImage}" alt="${liftImageType}" style="width: 50px; height: 50px; margin-left:auto; margin-right:auto;"><br>` : ''}
+        ${liftImage ? `<img src="${liftImage}" alt="${liftImageType}" style="width: 60px; height: 60px; margin-left:auto; margin-right:auto;"><br>` : ''}
         <div style="font-size: 0.8rem; font-weight: bold;">
           Lift: ${liftName}<br>${occupancyString}
         </div>
