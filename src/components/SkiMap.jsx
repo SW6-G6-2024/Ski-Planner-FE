@@ -94,6 +94,7 @@ const SkiMapComponent = () => {
         difficulty = difficulty.charAt(0).toUpperCase() + difficulty.slice(1);
     }
   
+    // TODO: Add ratings to this popup
     const styledPisteDetails = `
       <div style="font-size: 0.8rem; font-weight: bold;">
         Lift: ${pisteName}<br>Difficulty: ${difficulty}
