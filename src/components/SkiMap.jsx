@@ -97,7 +97,7 @@ const SkiMapComponent = () => {
     // TODO: Add ratings to this popup
     const styledPisteDetails = `
       <div style="font-size: 0.8rem; font-weight: bold;">
-        Lift: ${pisteName}<br>Difficulty: ${difficulty}
+        Name: ${pisteName}<br>Difficulty: ${difficulty}
       </div>`;
 
     layer.bindPopup(styledPisteDetails);
