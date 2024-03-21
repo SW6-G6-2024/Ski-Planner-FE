@@ -25,11 +25,12 @@ describe('Ski map', () => {
 
   it('should have popups with piste name for each piste', () => {
     cy.visit('http://localhost:5555');
-    cy.get('.leaflet-interactive').first().click({ force: true});
+    // The number is 165 because the first 164 elements are pistes with colours but no popups
+    cy.get('.leaflet-interactive').eq(167).click({ force: true});
     cy.get('.leaflet-popup').should('exist');
     cy.get('.leaflet-popup-content').should('contain', '75');
 
-    cy.get('.leaflet-interactive').eq(58).click({ force: true});
+    cy.get('.leaflet-interactive').eq(225).click({ force: true});
     cy.get('.leaflet-popup').should('exist');
     cy.get('.leaflet-popup-content').should('contain', '31');
   });

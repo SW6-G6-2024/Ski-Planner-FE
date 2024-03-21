@@ -7,6 +7,12 @@ import { setPisteColor } from '../utils/pisteStyling';
 import { setLiftStyle } from '../utils/liftStyling';
 import LocationMarker from './LocationMarker';
 
+import buttonLiftImg from '../icons/lifts/buttonLift.svg';
+import chairLiftImg from '../icons/lifts/chair-lift.svg';
+import gondolaImg from '../icons/lifts/gondola.svg';
+import liftImg from '../icons/lifts/lift.svg';
+import tBarImg from '../icons/lifts/t-bar.svg';
+
 import 'leaflet/dist/leaflet.css';
 import MapLegend from './legend/MapLegend';
 
@@ -71,11 +77,59 @@ const SkiMapComponent = () => {
    * @param {*} feature 
    * @param {Layer} layer 
    */
-  const placeMarker = (feature, layer) => {
-    if (feature.properties.name)
-      layer.bindPopup(feature.properties.name);
-    else
-      layer.bindPopup(feature.properties.ref);
+  const addPistDetails = (feature, layer) => {
+    const pisteName = (feature.properties.name ? feature.properties.name : feature.properties.ref).replace(/[^a-zA-Z0-9]/g, '');
+    let difficulty = feature.properties["piste:difficulty"] === 'novice' ? 'Beginner' : feature.properties["piste:difficulty"];
+    switch (difficulty) {
+      case 'easy':
+        difficulty = 'Easy';
+        break;
+      case 'intermediate':
+        difficulty = 'Medium';
+        break;
+      case 'expert', 'advanced':
+        difficulty = 'Expert';
+        break;
+      default:
+        difficulty = difficulty.charAt(0).toUpperCase() + difficulty.slice(1);
+    }
+  
+    // TODO: Add ratings to this popup
+    const styledPisteDetails = `
+      <div style="font-size: 0.8rem; font-weight: bold;">
+        Name: ${pisteName}<br>Difficulty: ${difficulty}
+      </div>`;
+
+    layer.bindPopup(styledPisteDetails);
+  };  
+
+  const liftTypeToImage = {
+    'button_lift': buttonLiftImg,
+    'platter': buttonLiftImg,
+    'drag_lift': tBarImg,
+    'chair_lift': chairLiftImg,
+    'gondola': gondolaImg,
+    't_bar': tBarImg,
+    'magic_carpet': liftImg,
+  };
+
+  const addLiftDetails = (feature, layer) => {
+    const liftName = feature.properties.name ? feature.properties.name : 'Unnamed lift';
+    const liftImageType = feature.properties["aerialway"];
+    const occupancy = feature.properties["aerialway:occupancy"];
+    const occupancyString = occupancy ? `Occupancy: ${occupancy}<br>` : '';
+    const liftImage = liftImageType !== 'magic_carpet' ? liftTypeToImage[liftImageType] : null;
+  
+    // Include the image in your styledLiftDetails if liftImage is not null
+    const styledLiftDetails = `
+      <div style="text-align: center;">
+        ${liftImage ? `<img src="${liftImage}" alt="${liftImageType}" style="width: 60px; height: 60px; margin-left:auto; margin-right:auto;"><br>` : ''}
+        <div style="font-size: 0.8rem; font-weight: bold;">
+          Lift: ${liftName}<br>${occupancyString}
+        </div>
+      </div>`;
+  
+    layer.bindPopup(styledLiftDetails);
   };
 
   return (
@@ -103,8 +157,12 @@ const SkiMapComponent = () => {
         />
 
         {route && <GeoJSON data={route} style={{ fillColor: 'grey', color: 'grey', weight: 10 }} />}
-        {pistes && <GeoJSON data={pistes} style={setPisteColor} onEachFeature={placeMarker} />}
+        {pistes && <GeoJSON data={pistes} style={setPisteColor} />}
         {lifts && <GeoJSON data={lifts} style={setLiftStyle} />}
+
+        {/* Bigger weight to make the pistes and lifts easier to click */}
+        {pistes && <GeoJSON data={pistes} style={{ ...setPisteColor, color: 'transparent', weight: 15 }} onEachFeature={addPistDetails} />}
+        {lifts && <GeoJSON data={lifts} style={{ ...setLiftStyle, color: 'transparent', weight: 15 }} onEachFeature={addLiftDetails} />}
         <LocationMarker
            type='A'
            mode={mode}
