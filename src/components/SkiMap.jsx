@@ -98,9 +98,21 @@ const SkiMapComponent = () => {
     const styledPisteDetails = `
       <div style="font-size: 0.8rem; font-weight: bold;">
         Name: ${pisteName}<br>Difficulty: ${difficulty}
-      </div>`;
+      </div>
+      <button id="myButton" style="margin-top: 5px;">Click Me</button>`;
 
     layer.bindPopup(styledPisteDetails);
+
+    layer.on('popupopen', () => {
+      const popupElement = document.querySelector('.leaflet-popup-content');
+      if (popupElement) {
+        popupElement.addEventListener('click', (e) => {
+          if (e.target && e.target.id === 'myButton') {
+            console.log('Button Clicked!');
+          }
+        });
+      }
+    });
   };  
 
   const liftTypeToImage = {
