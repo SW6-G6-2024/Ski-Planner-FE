@@ -120,7 +120,6 @@ const SkiMapComponent = () => {
     const occupancyString = occupancy ? `Occupancy: ${occupancy}<br>` : '';
     const liftImage = liftImageType !== 'magic_carpet' ? liftTypeToImage[liftImageType] : null;
   
-    // Include the image in your styledLiftDetails if liftImage is not null
     const styledLiftDetails = `
       <div style="text-align: center;">
         ${liftImage ? `<img src="${liftImage}" alt="${liftImageType}" style="width: 60px; height: 60px; margin-left:auto; margin-right:auto;"><br>` : ''}
