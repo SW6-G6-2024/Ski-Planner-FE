@@ -1,4 +1,4 @@
-import buttonLift from "../icons/lifts/buttonLift.png";
+import buttonLift from "../icons/lifts/buttonLift.svg";
 import chairLift from "../icons/lifts/chair-lift.svg";
 import gondolaLift from "../icons/lifts/gondola.svg";
 import redPiste from "../icons/pistes/red.svg";
