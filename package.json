@@ -20,7 +20,7 @@
         "dev:server": "vite",
         "dev": "npm-run-all --parallel dev:server watch",
         "build": "vite build",
-        "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+        "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0 --fix",
         "preview": "vite preview",
         "start": "vite",
         "test": "jest",
