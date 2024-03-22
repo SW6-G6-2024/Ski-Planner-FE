@@ -14,15 +14,13 @@ const client = axios.create({
  * @param {number} rating rating of the piste
  * @param {string} piste ID of the piste
  */
-export const fetchBestRoute = async (rating, pisteId) => {
+export const ratePiste = async (rating, pisteId) => {
   try {
     const requestBody = {
       rating,
     };
 
     const res = await client.post(`/${pisteId}`, requestBody);
-
-    console.log(res.status);
 
     if (res.status === 202) {
       notifySuccess('Successfully rated piste');

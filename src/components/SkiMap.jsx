@@ -15,6 +15,7 @@ import tBarImg from '../icons/lifts/t-bar.svg';
 
 import 'leaflet/dist/leaflet.css';
 import MapLegend from './legend/MapLegend';
+import { ratePiste } from '../services/rateService';
 
 /**
  * Ski map component - displays a map with pistes and lifts
@@ -108,7 +109,7 @@ const SkiMapComponent = () => {
       if (popupElement) {
         popupElement.addEventListener('click', (e) => {
           if (e.target && e.target.id === 'myButton') {
-            console.log('Button Clicked!');
+            ratePiste(5, feature.id);
           }
         });
       }
