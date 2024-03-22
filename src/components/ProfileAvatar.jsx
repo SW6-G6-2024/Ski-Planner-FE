@@ -14,7 +14,7 @@ const ProfileAvatar = (props) => {
 			{user?.picture &&
 				<img
 					src={user.picture} alt={user.name}
-					className='rounded-full'
+					className='rounded-full w-14 h-14'
 				/>}
 			{!user?.picture &&
 				<AccountCircleIcon

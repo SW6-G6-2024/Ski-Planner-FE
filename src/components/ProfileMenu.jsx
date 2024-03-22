@@ -1,24 +1,62 @@
 import React from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import Button from './Button';
 
 const ProfileMenu = () => {
-	const { user } = useAuth0();
+	const { user, isAuthenticated, loginWithRedirect, logout } = useAuth0();
 
-	return (
-		<div className='bg-white flex flex-col place-items-center shadow-xl border border-gray-300 w-[250px] absolute top-20 right-20 z-[10000] rounded-lg'>
-			{user?.picture &&
-				<img
-					src={user.picture} alt={user.name}
-					className='rounded-full'
-				/>}
-			{!user?.picture &&
+
+	const loggedIn = () => (
+		<>
+			<div>
+				{user?.picture &&
+					<img
+						src={user.picture} alt={user.name}
+						className='rounded-full w-20 h-20'
+					/>}
+				{!user?.picture &&
+					<AccountCircleIcon
+						style={{ fontSize: 100 }}
+						className='text-slate-400 text-lg'
+					/>
+
+				}
+			</div>
+
+			<div className='text-lg text-slate-600 border-b border-grey-200 w-full py-2'>{user.given_name} {user.family_name}</div>
+			<div className='pt-3 w-full px-10 flex flex-col gap-2'>
+				<Button className='w-full bg-gray-300 rounded-lg border text-gray-700 hover:bg-gray-400 active:shadow-inner border-gray-200 active:border shadow-md hover:shadow-lg py-2'>
+					<p>Edit Profile</p>
+				</Button>
+				<Button onClick={() => logout({ returnTo: window.location.origin })}>
+					<p>Sign Out</p>
+				</Button>
+			</div>
+
+		</>
+	);
+
+	const loggedOut = () => (
+		<>
+			<div className='w-full border-b border-grey-500'>
 				<AccountCircleIcon
 					style={{ fontSize: 100 }}
 					className='text-slate-400 text-lg'
 				/>
-			}
-      
+			</div>
+			<div className='w-full px-10 pt-3'>
+				<Button onClick={loginWithRedirect}>
+					<p>Login</p>
+				</Button>
+			</div>
+		</>
+
+	);
+
+	return (
+		<div className='bg-white flex flex-col place-items-center shadow-xl border border-gray-300 w-[250px] absolute top-20 right-20 z-[10000] rounded-lg py-3'>
+			{isAuthenticated ? loggedIn() : loggedOut()}
 		</div>
 	);
 };
