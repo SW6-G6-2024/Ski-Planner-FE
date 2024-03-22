@@ -2,10 +2,10 @@ import React from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Button from './Button';
+import PropTypes from 'prop-types';
 
-const ProfileMenu = () => {
+const ProfileMenu = (props) => {
 	const { user, isAuthenticated, loginWithRedirect, logout } = useAuth0();
-
 
 	const loggedIn = () => (
 		<>
@@ -26,7 +26,10 @@ const ProfileMenu = () => {
 
 			<div className='text-lg text-slate-600 border-b border-grey-200 w-full py-2'>{user.given_name} {user.family_name}</div>
 			<div className='pt-3 w-full px-10 flex flex-col gap-2'>
-				<Button className='w-full bg-gray-300 rounded-lg border text-gray-700 hover:bg-gray-400 active:shadow-inner border-gray-200 active:border shadow-md hover:shadow-lg py-2'>
+				<Button
+					className='w-full bg-gray-300 rounded-lg border text-gray-700 hover:bg-gray-400 active:shadow-inner border-gray-200 active:border shadow-md hover:shadow-lg py-2'
+					onClick={() => props.setShowProfileModal(true)}
+				>
 					<p>Edit Profile</p>
 				</Button>
 				<Button onClick={() => logout({ returnTo: window.location.origin })}>
@@ -59,6 +62,10 @@ const ProfileMenu = () => {
 			{isAuthenticated ? loggedIn() : loggedOut()}
 		</div>
 	);
+};
+
+ProfileMenu.propTypes = {
+	setShowProfileModal: PropTypes.func.isRequired,
 };
 
 export default ProfileMenu;
