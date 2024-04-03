@@ -1,4 +1,5 @@
 import React, { useCallback, useState, useRef } from 'react';
+import { createRoot } from 'react-dom/client';
 import { fetchSkiData } from '../services/skiDataService';
 import { fetchBestRoute } from '../services/bestRouteService';
 import { MapContainer, TileLayer, GeoJSON } from 'react-leaflet';
@@ -6,6 +7,7 @@ import '../App.css';
 import { setPisteColor } from '../utils/pisteStyling';
 import { setLiftStyle } from '../utils/liftStyling';
 import LocationMarker from './LocationMarker';
+import StarRating from './StarRating';
 
 import buttonLiftImg from '../icons/lifts/buttonLift.svg';
 import chairLiftImg from '../icons/lifts/chair-lift.svg';
@@ -31,6 +33,7 @@ const SkiMapComponent = () => {
   const [positionA, setPositionA] = useState(null);
   const [positionB, setPositionB] = useState(null);
   const [wasDragged, setWasDragged] = useState(false);
+  const roots = new Map();
 
   // Use useCallback to define your data fetching function
   const updateBoundsAndFetchData = useCallback(async () => {
@@ -95,26 +98,40 @@ const SkiMapComponent = () => {
         difficulty = difficulty.charAt(0).toUpperCase() + difficulty.slice(1);
     }
   
-    // TODO: Add ratings to this popup
     const styledPisteDetails = `
       <div style="font-size: 0.8rem; font-weight: bold;">
         Name: ${pisteName}<br>Difficulty: ${difficulty}
       </div>
-      <button id="myButton" style="margin-top: 5px;">Click Me</button>`;
-
+      <div id="star-rating-container-${feature.id}"></div>`; // Placeholder for the star rating component
+  
     layer.bindPopup(styledPisteDetails);
-
+  
     layer.on('popupopen', () => {
-      const popupElement = document.querySelector('.leaflet-popup-content');
-      if (popupElement) {
-        popupElement.addEventListener('click', (e) => {
-          if (e.target && e.target.id === 'myButton') {
-            ratePiste(5, feature.id);
-          }
-        });
+      const containerId = `star-rating-container-${feature.id}`;
+      const container = document.getElementById(containerId);
+      if (container && !roots.has(container)) {
+          const root = createRoot(container);
+          roots.set(container, root);
+          root.render(
+            <StarRating
+              onRatingSelected={(rating) => {
+                ratePiste(rating, feature.id);
+                layer.closePopup();
+              }}
+            />
+          );
       }
     });
-  };  
+
+    layer.on('popupclose', () => {
+        const containerId = `star-rating-container-${feature.id}`;
+        const container = document.getElementById(containerId);
+        if (container && roots.has(container)) {
+            roots.get(container).unmount();
+            roots.delete(container);
+        }
+    });
+  };
 
   const liftTypeToImage = {
     'button_lift': buttonLiftImg,
