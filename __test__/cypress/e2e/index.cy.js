@@ -9,7 +9,7 @@ describe('Ski map', () => {
     cy.intercept('POST', /http:\/\/localhost:8888\/api\/rate-piste.*/, {
       statusCode: 202,
       body: { message: "Successfully rated piste" },
-    })
+    });
   });
 
   it('loads succesfully', () => {
