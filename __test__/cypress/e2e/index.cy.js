@@ -6,6 +6,10 @@ describe('Ski map', () => {
     cy.intercept('POST', /http:\/\/localhost:8888\/api\/routes\/generate-route.*/, {
       fixture: 'best-route.json',
     });
+    cy.intercept('POST', /http:\/\/localhost:8888\/api\/rate-piste.*/, {
+      statusCode: 202,
+      body: { message: "Successfully rated piste" },
+    })
   });
 
   it('loads succesfully', () => {
@@ -25,7 +29,7 @@ describe('Ski map', () => {
 
   it('should have popups with piste name for each piste', () => {
     cy.visit('http://localhost:5555');
-    // The number is 165 because the first 164 elements are pistes with colours but no popups
+    // The number is 167 because the first 166 elements are pistes with colours but no popups
     cy.get('.leaflet-interactive').eq(167).click({ force: true});
     cy.get('.leaflet-popup').should('exist');
     cy.get('.leaflet-popup-content').should('contain', '75');
@@ -103,5 +107,30 @@ describe('Ski map', () => {
     // Adjust the selector and message as needed based on how your application displays success notifications
     cy.get('div[role="status"]').should('contain', 'Successfully generated route');
   });
-  
+
+  it('should display the ratings div within a piste popup', () => {
+    // Open the piste popup
+    cy.visit('http://localhost:5555');
+    cy.get('.leaflet-interactive').eq(167).click({ force: true});
+    cy.get('.leaflet-popup').should('exist');
+
+    cy.get('.leaflet-popup-content').find('div[id^="star-rating-container-"]').should('exist');
+
+    cy.get('.leaflet-popup-content').find('div[id^="star-rating-container-"]')
+      .find('button').should('have.length', 5);
+  });
+
+  it('should rate a piste when a star is clicked', () => {
+    // Open the piste popup
+    cy.visit('http://localhost:5555');
+    cy.get('.leaflet-interactive').eq(167).click({ force: true});
+    cy.get('.leaflet-popup').should('exist');
+
+    // Click the first star
+    cy.get('.leaflet-popup-content').find('div[id^="star-rating-container-"]')
+      .find('button').first().click();
+
+    // Check for the success message
+    cy.get('div[role="status"]').should('contain', 'Successfully rated piste');
+  });
 });
