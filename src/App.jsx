@@ -5,12 +5,13 @@ import SkiMapComponent from "./components/SkiMap";
 import { Toaster } from 'react-hot-toast';
 import ProfileAvatar from "./components/ProfileAvatar";
 import ProfileMenu from "./components/ProfileMenu";
-import ProfileModal from "./components/ProfileModal";
+import ProfileSettings from "./components/ProfileSettings";
 import Modal from "./components/Modal";
 
 function App() {
 	const [showProfileModal, setShowProfileModal] = useState(false);
 	const [showMenu, setShowMenu] = useState(false);
+	const [showAvatar, setShowAvatar] = useState(true);
 
 	useEffect(() => {
 		console.log('Show profile modal:', showProfileModal);
@@ -21,14 +22,19 @@ function App() {
 		setShowMenu(!showMenu);
 	};
 
+	const closeModal = () => {
+		setShowProfileModal(false);
+		setShowAvatar(true);
+	};
+
 	return (
 		<div className="h-screen w-screen min-h-screen flex place-items-center content-center justify-center">
-			<ProfileAvatar onClick={toggleMenu} />
-			{showMenu && <ProfileMenu setShowProfileModal={setShowProfileModal} />}
+			{showAvatar && <ProfileAvatar onClick={toggleMenu} />}
+			{showMenu && <ProfileMenu setShowProfileModal={setShowProfileModal} setShowMenu={setShowMenu} setShowAvatar={setShowAvatar} />}
 			<SkiMapComponent />
 			{showProfileModal &&
-				<Modal setShowProfileModal={setShowProfileModal}>
-					<ProfileModal />
+				<Modal closeFunc={closeModal}>
+					<ProfileSettings />
 				</Modal>}
 			<Toaster position="top-center" reverseOrder={false} />
 		</div>
