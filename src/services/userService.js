@@ -9,11 +9,11 @@ const patchUser = async (first, last, id, token) => {
 			name: first + ' ' + last,
 		};
 
-		const res = await axios.patch(`https://${env.auth0Domain}/api/v2/users/${id}`, requestBody, {
+		const res = await axios.patch(`${env.backendUrl}/api/users/${id}`, requestBody, {
 			headers: {
-				'Content-Type': 'application/json',
-				'Authorization': `Bearer ${token}`,
-			}
+				"Content-Type": "application/json",
+				Authorization: `Bearer ${token}`,
+			},
 		});
 
 		if (res.status === 200) {

@@ -19,26 +19,30 @@ function ProfileSettings() {
 		const token = await getAccessTokenSilently({
 			cacheMode: 'no-cache',
 			authorizationParams: {
-				audience: 'https://dev-b8qw0pac72kuwxyk.eu.auth0.com/api/v2/',
-				scope: 'update:users',
+				scope: 'update:user',
+				audience: 'http://localhost:8888'
 			}
 		});
 
-		console.log(token);
-
 		try {
-			patchUser(first, last, user.sub, token);
-			user.given_name = first;
-			user.family_name = last;
-			notifySuccess('Successfully updated user');
+			await patchUser(first, last, user.sub, token);
 		} catch (error) {
 			notifyError('Failed to update user');
+			setEditMode(false);
+			return;
 		}
+
+		user.given_name = first;
+		user.family_name = last;
+		notifySuccess('Successfully updated user');
+
 		setEditMode(false);
 	};
-	// eslint-disable-next-line no-unused-vars
-	const handleCancel = () => {
 
+	const handleCancel = () => {
+		setFirstName(user.given_name);
+		setLastName(user.family_name);
+		setEditMode(false);
 	};
 
 	return (
@@ -53,7 +57,7 @@ function ProfileSettings() {
 						<ProfileField label='Last name:' value={user.family_name} />
 						<ProfileField label='Email:' value={user.email} />
 						<Button
-							className='w-44 bg-blue-400 text-white rounded-lg hover:bg-gray-400 py-2'
+							className='w-44 bg-blue-500 text-white rounded-lg hover:bg-blue-400 py-2'
 							onClick={() => setEditMode(true)}>
 							<p>Edit profile</p>
 						</Button>
@@ -67,10 +71,18 @@ function ProfileSettings() {
 							<FormField label='First name' value={first} onChange={(e) => setFirstName(e.target.value)} />
 							<FormField label='Last name' value={last} onChange={(e) => setLastName(e.target.value)} />
 						</div>
-						<Button
-							onClick={handleSave}>
-							<p>Save</p>
-						</Button>
+						<div className='grid grid-cols-[1fr,2fr] gap-3'>
+							<Button
+								className='bg-red-500 w-full text-white rounded-lg hover:bg-red-400 py-2'
+								onClick={handleCancel}>
+								<p>Cancel</p>
+							</Button>
+							<Button
+								onClick={handleSave}>
+								<p>Save</p>
+							</Button>
+						</div>
+
 					</>
 				)}
 			</div>
@@ -81,13 +93,3 @@ function ProfileSettings() {
 
 export default ProfileSettings;
 
-
-/*
-<div className='flex-col w-1/2 justify-start'>
-						<p>Profile picture:</p>
-						<div className='flex'>
-							<Button>Edit</Button>
-							<Button>Remove</Button>
-						</div>
-					</div>
-					*/
