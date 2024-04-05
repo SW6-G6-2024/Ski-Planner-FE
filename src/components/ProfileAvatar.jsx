@@ -8,6 +8,7 @@ const ProfileAvatar = (props) => {
 
 	return (
 		<div
+			id='profile-avatar'
 			className='absolute bg-slate-200 cursor-pointer hover:bg-slate-300 hover:shadow-xl right-5 top-5 z-[100000] rounded-full flex place-items-center'
 			onClick={props.onClick}
 		>

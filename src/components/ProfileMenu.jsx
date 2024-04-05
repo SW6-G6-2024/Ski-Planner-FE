@@ -49,7 +49,7 @@ const ProfileMenu = (props) => {
 				/>
 			</div>
 			<div className='w-full px-10 pt-3'>
-				<Button onClick={loginWithRedirect}>
+				<Button onClick={loginWithRedirect} id='login-button'>
 					<p>Login</p>
 				</Button>
 			</div>
@@ -58,7 +58,7 @@ const ProfileMenu = (props) => {
 	);
 
 	return (
-		<div className='bg-white flex flex-col place-items-center shadow-xl border border-gray-300 w-[250px] absolute top-20 right-20 z-[10000] rounded-lg py-3'>
+		<div className='bg-white flex flex-col place-items-center shadow-xl border border-gray-300 w-[250px] absolute top-20 right-20 z-[10000] rounded-lg py-3' id='profile-menu'>
 			{isAuthenticated ? loggedIn() : loggedOut()}
 		</div>
 	);
