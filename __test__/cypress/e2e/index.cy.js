@@ -7,7 +7,7 @@ describe('Ski map', () => {
       fixture: 'best-route.json',
     });
     cy.intercept('POST', /http:\/\/localhost:8888\/api\/rate-piste.*/, {
-      statusCode: 202,
+      statusCode: 200,
       body: { message: "Successfully rated piste" },
     });
   });
