@@ -30,7 +30,7 @@ const ProfileMenu = (props) => {
 					className='w-full bg-gray-300 rounded-lg border text-gray-700 hover:bg-gray-400 active:shadow-inner border-gray-200 active:border shadow-md hover:shadow-lg py-2'
 					onClick={() => {props.setShowProfileModal(true); props.setShowMenu(false); props.setShowAvatar(false);}}
 				>
-					<p>Edit Profile</p>
+					<p>Settings</p>
 				</Button>
 				<Button onClick={() => logout({ returnTo: window.location.origin })}>
 					<p>Sign Out</p>
