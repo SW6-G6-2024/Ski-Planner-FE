@@ -22,7 +22,7 @@ export const ratePiste = async (rating, pisteId) => {
 
     const res = await client.post(`/${pisteId}`, requestBody);
 
-    if (res.status === 202) {
+    if (res.status === 200) {
       notifySuccess('Successfully rated piste');
     }
 
