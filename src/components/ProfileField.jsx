@@ -15,4 +15,5 @@ export default ProfileField;
 ProfileField.propTypes = {
 	label: PropTypes.string.isRequired,
 	value: PropTypes.string.isRequired,
+	id: PropTypes.string,
 };

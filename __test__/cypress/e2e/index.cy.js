@@ -9,7 +9,7 @@ describe('Ski map', () => {
   });
 
   it('loads succesfully', () => {
-    cy.visit('http://localhost:5555');
+    cy.visit('https://cypress-secure:5555');
     cy.get('.leaflet-container').should('exist');
 
     cy.get('.leaflet-interactive').first()
@@ -19,12 +19,12 @@ describe('Ski map', () => {
   });
 
   it('should have a legend', () => {
-    cy.visit('http://localhost:5555');
+    cy.visit('https://cypress-secure:5555');
     cy.get('#legend').should('exist');
   });
 
   it('should have popups with piste name for each piste', () => {
-    cy.visit('http://localhost:5555');
+    cy.visit('https://cypress-secure:5555');
     // The number is 165 because the first 164 elements are pistes with colours but no popups
     cy.get('.leaflet-interactive').eq(167).click({ force: true});
     cy.get('.leaflet-popup').should('exist');
@@ -36,12 +36,12 @@ describe('Ski map', () => {
   });
 
   it('should have a button to find the best route', () => {
-    cy.visit('http://localhost:5555');
+    cy.visit('https://cypress-secure:5555');
     cy.get('#generate-route-button').should('exist');
   });
 
   it('should enable the user to place two markers on the map', () => {
-    cy.visit('http://localhost:5555');
+    cy.visit('https://cypress-secure:5555');
     cy.get('.leaflet-container').click(100, 100);
     cy.get('.leaflet-marker-icon').should('have.length', 1);
     cy.get('.leaflet-container').click(200, 200);
@@ -49,7 +49,7 @@ describe('Ski map', () => {
   });
 
   it('should find the best route at button click when two markers are placed', () => {
-    cy.visit('http://localhost:5555');
+    cy.visit('https://cypress-secure:5555');
     cy.get('.leaflet-container').click(100, 100);
     cy.get('.leaflet-container').click(200, 200);
     cy.get('#generate-route-button').click();
@@ -59,7 +59,7 @@ describe('Ski map', () => {
   });
 
   it('should not find the best route at button click if not markers are placed', () => {
-    cy.visit('http://localhost:5555');
+    cy.visit('https://cypress-secure:5555');
     cy.get('#generate-route-button').click();
     cy.get('.leaflet-interactive')
       .filter('path[stroke="grey"]')
@@ -72,7 +72,7 @@ describe('Ski map', () => {
       statusCode: 500, // Simulate server error
     }).as('generateRouteFail');
   
-    cy.visit('http://localhost:5555');
+    cy.visit('https://cypress-secure:5555');
     cy.get('.leaflet-container').click(100, 100);
     cy.get('.leaflet-container').click(200, 200);
     cy.get('#generate-route-button').click();

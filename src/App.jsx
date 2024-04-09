@@ -33,7 +33,7 @@ function App() {
 			{showMenu && <ProfileMenu setShowProfileModal={setShowProfileModal} setShowMenu={setShowMenu} setShowAvatar={setShowAvatar} />}
 			<SkiMapComponent />
 			{showProfileModal &&
-				<Modal closeFunc={closeModal}>
+				<Modal closeFunc={closeModal} id='profile-settings'>
 					<ProfileSettings />
 				</Modal>}
 			<Toaster position="top-center" reverseOrder={false} />

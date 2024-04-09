@@ -53,12 +53,14 @@ function ProfileSettings() {
 				</div>
 				{!editMode && (
 					<div className='flex-col w-full justify-start *:mb-2'>
-						<ProfileField label='First name:' value={user.given_name} />
-						<ProfileField label='Last name:' value={user.family_name} />
-						<ProfileField label='Email:' value={user.email} />
+						<ProfileField label='First name:' value={user.given_name} id='first-name-field' />
+						<ProfileField label='Last name:' value={user.family_name} id='last-name-field' />
+						<ProfileField label='Email:' value={user.email} id='email-field' />
 						<Button
 							className='w-44 bg-blue-500 text-white rounded-lg hover:bg-blue-400 py-2'
-							onClick={() => setEditMode(true)}>
+							onClick={() => setEditMode(true)}
+							id='edit-profile-button'
+						>
 							<p>Edit profile</p>
 						</Button>
 						<div className='flex-col w-1/2 justify-start'>
@@ -68,8 +70,14 @@ function ProfileSettings() {
 				{editMode && (
 					<>
 						<div className='*:mb-3'>
-							<FormField label='First name' value={first} onChange={(e) => setFirstName(e.target.value)} />
-							<FormField label='Last name' value={last} onChange={(e) => setLastName(e.target.value)} />
+							<FormField label='First name' value={first}
+								onChange={(e) => setFirstName(e.target.value)}
+								id='first-name-input'
+							/>
+							<FormField label='Last name' value={last}
+								onChange={(e) => setLastName(e.target.value)}
+								id='last-name-input'
+							/>
 						</div>
 						<div className='grid grid-cols-[1fr,2fr] gap-3'>
 							<Button
@@ -78,7 +86,9 @@ function ProfileSettings() {
 								<p>Cancel</p>
 							</Button>
 							<Button
-								onClick={handleSave}>
+								onClick={handleSave}
+								id='save-profile-button'
+							>
 								<p>Save</p>
 							</Button>
 						</div>

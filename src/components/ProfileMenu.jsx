@@ -7,6 +7,13 @@ import PropTypes from 'prop-types';
 const ProfileMenu = (props) => {
 	const { user, isAuthenticated, loginWithRedirect, logout } = useAuth0();
 
+	const logoutWithRedirect = () => {
+		console.log(window.location.origin);
+		logout({ 
+			logoutParams: { returnTo: window.location.origin },
+		});
+	};
+
 	const loggedIn = () => (
 		<>
 			<div>
@@ -24,15 +31,16 @@ const ProfileMenu = (props) => {
 				}
 			</div>
 
-			<div className='text-lg text-slate-600 border-b border-grey-200 w-full py-2'>{user.given_name} {user.family_name}</div>
+			<div className='text-lg text-slate-600 border-b border-grey-200 w-full py-2' id='profile-name'>{user.given_name} {user.family_name}</div>
 			<div className='pt-3 w-full px-10 flex flex-col gap-2'>
 				<Button
 					className='w-full bg-gray-300 rounded-lg border text-gray-700 hover:bg-gray-400 active:shadow-inner border-gray-200 active:border shadow-md hover:shadow-lg py-2'
 					onClick={() => {props.setShowProfileModal(true); props.setShowMenu(false); props.setShowAvatar(false);}}
+					id='settings-button'
 				>
 					<p>Settings</p>
 				</Button>
-				<Button onClick={() => logout({ returnTo: window.location.origin })}>
+				<Button onClick={logoutWithRedirect} id='logout-button'>
 					<p>Sign Out</p>
 				</Button>
 			</div>
