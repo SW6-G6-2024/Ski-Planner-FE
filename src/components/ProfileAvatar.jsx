@@ -3,7 +3,12 @@ import { useAuth0 } from '@auth0/auth0-react';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import PropTypes from 'prop-types';
 
-const ProfileAvatar = (props) => {
+/**
+ * Profile avatar component to display user avatar
+ * @param {ProfileAvatar.propTypes} props 
+ * @returns {JSX.Element} A profile avatar component
+ */
+function ProfileAvatar(props) {
 	const { user } = useAuth0();
 
 	return (
@@ -25,7 +30,7 @@ const ProfileAvatar = (props) => {
 			}
 		</div>
 	);
-};
+}
 
 ProfileAvatar.propTypes = {
 	onClick: PropTypes.func,

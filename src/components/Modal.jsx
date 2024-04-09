@@ -2,7 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import CloseIcon from '@mui/icons-material/Close';
 
-const Modal = (props) => {
+/**
+ * Modal component to display content in a modal
+ * @param {Modal.propTypes} props 
+ * @returns {JSX.Element} Modal component
+ */
+function Modal(props) {
 	return (
 		<div className='z-[5000] absolute h-screen w-full flex items-center justify-center bg-[rgba(50,50,50,0.5)]' id={props.id}>
 			<div className='bg-white w-[45%] z-[10000] rounded-lg'>
@@ -18,7 +23,7 @@ const Modal = (props) => {
 			</div>
 		</div>
 	);
-};
+}
 
 Modal.propTypes = {
 	children: PropTypes.node,

@@ -4,11 +4,15 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Button from './Button';
 import PropTypes from 'prop-types';
 
-const ProfileMenu = (props) => {
+/**
+ * Profile menu component to display user profile menu
+ * @param {ProfileMenu.propTypes} props 
+ * @returns {JSX.Element} A profile menu component
+ */
+function ProfileMenu(props) {
 	const { user, isAuthenticated, loginWithRedirect, logout } = useAuth0();
 
 	const logoutWithRedirect = () => {
-		console.log(window.location.origin);
 		logout({ 
 			logoutParams: { returnTo: window.location.origin },
 		});
@@ -70,7 +74,7 @@ const ProfileMenu = (props) => {
 			{isAuthenticated ? loggedIn() : loggedOut()}
 		</div>
 	);
-};
+}
 
 ProfileMenu.propTypes = {
 	setShowProfileModal: PropTypes.func.isRequired,

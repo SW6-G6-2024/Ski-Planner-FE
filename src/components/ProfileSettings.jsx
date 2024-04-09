@@ -6,6 +6,10 @@ import FormField from './FormField';
 import { patchUser } from '../services/userService';
 import { notifyError, notifySuccess } from '../utils/customErrorMessage';
 
+/**
+ * ProfileSettings component that allows the user to edit their profile
+ * @returns ProfileSettings component
+ */
 function ProfileSettings() {
 	const { user, getAccessTokenSilently } = useAuth0();
 
@@ -15,7 +19,13 @@ function ProfileSettings() {
 
 	const [editMode, setEditMode] = React.useState(false);
 
+	/**
+	 * Handles the save button click event to update the user profile information
+	 * This function is called when the user clicks the save button
+	 * It updates the user profile information via the backend and notifies the user of the result
+	 */
 	const handleSave = async () => {
+		// Get access token for backend
 		const token = await getAccessTokenSilently({
 			cacheMode: 'no-cache',
 			authorizationParams: {
@@ -39,6 +49,11 @@ function ProfileSettings() {
 		setEditMode(false);
 	};
 
+	/**
+	 * Handles the cancel button click event to cancel the user profile edit
+	 * This function is called when the user clicks the cancel button
+	 * It cancels the user profile edit and reverts the user profile information to the original values
+	 */
 	const handleCancel = () => {
 		setFirstName(user.given_name);
 		setLastName(user.family_name);

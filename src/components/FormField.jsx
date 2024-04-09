@@ -1,6 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+FormField.propTypes = {
+	label: PropTypes.string.isRequired,
+	value: PropTypes.string.isRequired,
+	onChange: PropTypes.func.isRequired,
+	id: PropTypes.string,
+};
+
+/**
+ * Form field component to display a text form field
+ * @param {FormField.propTypes} props 
+ * @returns {JSX.Element} A form field component
+ */
 function FormField(props) {
 	return (
 		<div className='relative'>
@@ -11,12 +23,5 @@ function FormField(props) {
 
 	);
 }
-
-FormField.propTypes = {
-	label: PropTypes.string.isRequired,
-	value: PropTypes.string.isRequired,
-	onChange: PropTypes.func.isRequired,
-	id: PropTypes.string,
-};
 
 export default FormField;
