@@ -59,4 +59,4 @@ config/.env
 __test__/cypress/screenshots/
 
 # Certificates
-.cert/
+certs/

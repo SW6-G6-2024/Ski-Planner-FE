@@ -4,6 +4,8 @@ on:
     types: [opened, synchronize, reopened]
 jobs:
   cypress-run:
+    env:
+      SSL_CERT_DIR: "./certs/"
     runs-on: ubuntu-latest
     # Runs tests in parallel with matrix strategy https://docs.cypress.io/guides/guides/parallelization
     # https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs
@@ -38,3 +40,4 @@ jobs:
         env:
           VITE_BACKEND_URL: "http://localhost:8888"
           CYPRESS_PASSWORD: ${{ secrets.CYPRESS_PASSWORD }}
+          
