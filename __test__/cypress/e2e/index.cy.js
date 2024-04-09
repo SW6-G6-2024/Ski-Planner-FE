@@ -91,7 +91,7 @@ describe('Ski map', () => {
       statusCode: 200, // Simulate success
     }).as('generateRouteSuccess');
   
-    cy.visit('http://localhost:5555');
+    cy.visit('https://cypress-secure:5555');
     cy.get('.leaflet-container').click(100, 100);
     cy.get('.leaflet-container').click(200, 200);
     cy.get('#generate-route-button').click();

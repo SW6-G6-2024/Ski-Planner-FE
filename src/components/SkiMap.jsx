@@ -46,7 +46,7 @@ const SkiMapComponent = () => {
 
   }, []); // Ensure dependencies are correctly listed if any
 
-  // eslint-disable-next-line no-unused-vars
+   
   const findRoute = async () => {
     if (!positionA || !positionB) return;
 
@@ -135,6 +135,13 @@ const SkiMapComponent = () => {
 
   return (
     <div className='relative'>
+      <button
+        id='generate-route-button'
+        className='absolute right-[100px] top-5 z-[10000] bg-red-400 hover:bg-red-200 rounded-md shadow-xl hover:shadow-sm border border-red-300'
+        onClick={findRoute}
+      >
+        Generate Route
+      </button>
       <MapContainer
         center={center}
         zoom={13.75}
