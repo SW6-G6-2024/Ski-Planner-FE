@@ -6,6 +6,7 @@ import mkcert from 'vite-plugin-mkcert';
 export default defineConfig({
   plugins: [react(), mkcert({
 		savePath: "./certs/",
+		source: "github"
 	})],
 	base: "",
 	envDir: "./config/",
