@@ -13,6 +13,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      
+      - name: Decode certificate
+        run: echo ${{ secrets.SELF_SIGNED_CERTIFICATE }} | base64 -d > /etc/ssl/certs/ca-certificates.crt
+
+      - name: Add certificate to system's trusted certificates
+        run: sudo update-ca-certificates
 
         # Add this step to set up the Node.js version
       - name: Setup Node.js
