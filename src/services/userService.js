@@ -16,9 +16,7 @@ const patchUser = async (first, last, id, token) => {
 			},
 		});
 
-		if (res.status === 200) {
-			throw new Error('Failed to update user');
-		}
+		return res.data;
 
 	} catch (error) {
 		console.log('Failed to update user');

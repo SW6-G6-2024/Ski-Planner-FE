@@ -13,12 +13,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      
-      - name: Decode certificate
-        run: sudo echo "${{ secrets.SELF_SIGNED_CERTIFICATE }}" | base64 -d > /usr/local/share/ca-certificates/ca-certificate.crt
-
-      - name: Add certificate to system's trusted certificates
-        run: sudo update-ca-certificates
 
         # Add this step to set up the Node.js version
       - name: Setup Node.js
@@ -36,7 +30,7 @@ jobs:
         with:
           # Starts web server for E2E tests - replace with your own server invocation
           start: npm run cypress-server --no-ssl-verify
-          wait-on: 'https://localhost:5555' # Waits for above
+          wait-on: 'http://localhost:5555' # Waits for above
           # Records to Cypress Cloud 
           # https://docs.cypress.io/guides/cloud/projects#Set-up-a-project-to-record
           record: false 

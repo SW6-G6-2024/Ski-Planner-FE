@@ -10,7 +10,7 @@ export default defineConfig({
   screenshotsFolder: "__test__/cypress/screenshots",
   chromeWebSecurity: false,
   e2e: {
-    baseUrl: "https://cypress-secure:5555",
+    baseUrl: "http://localhost:5555",
     specPattern: "__test__/cypress/e2e/**/*.cy.js",
     supportFile: "__test__/cypress/support/e2e.js",
   },
