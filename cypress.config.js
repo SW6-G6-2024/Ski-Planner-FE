@@ -8,7 +8,7 @@ export default defineConfig({
   fixturesFolder: "__test__/cypress/fixtures",
   e2eFolder: "__test__/cypress/e2e",
   screenshotsFolder: "__test__/cypress/screenshots",
-  
+  chromeWebSecurity: false,
   e2e: {
     baseUrl: "https://cypress-secure:5555",
     specPattern: "__test__/cypress/e2e/**/*.cy.js",
