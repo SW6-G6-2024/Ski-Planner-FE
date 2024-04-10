@@ -25,7 +25,7 @@
         "start": "vite",
         "test": "jest",
         "cypress:open": "cypress open --e2e --browser chrome --port 52750",
-        "cypress:run": "cypress run",
+        "cypress:run": "cypress run --browser chrome",
         "cypress-server": "npm start -- --port 5555",
         "watch": "npm-watch lint",
         "test-lint": "tape test/*.js"
@@ -49,6 +49,7 @@
     "devDependencies": {
         "@babel/preset-env": "^7.23.9",
         "@babel/preset-react": "^7.23.3",
+        "@cypress/skip-test": "^2.6.1",
         "@testing-library/react": "^14.2.1",
         "@types/jest": "^29.5.12",
         "@types/react": "^18.2.55",

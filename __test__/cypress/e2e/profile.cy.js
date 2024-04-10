@@ -1,3 +1,5 @@
+import { onlyOn } from '@cypress/skip-test'
+
 beforeEach(() => {
 	cy.intercept('GET', /http:\/\/localhost:8888\/api\/ski-area.*/, {
 		fixture: 'ski-area.json',
@@ -36,11 +38,9 @@ describe('Profile avatar', () => {
 	});
 });
 
-if(Cypress.env('ENVIRONMENT' === 'github')) {
-	return;
-}
 describe('Profile menu', () => {
 	beforeEach(() => {
+		onlyOn('chrome');
 		login();
 	});
 
