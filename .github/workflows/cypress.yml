@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v4
       
       - name: Decode certificate
-        run: echo ${{ secrets.SELF_SIGNED_CERTIFICATE }} | base64 -d > /etc/ssl/certs/ca-certificates.crt
+        run: echo "hej" && echo ${{ secrets.SELF_SIGNED_CERTIFICATE }} | base64 -d > /etc/ssl/certs/ca-certificates.crt
 
       - name: Add certificate to system's trusted certificates
         run: sudo update-ca-certificates
