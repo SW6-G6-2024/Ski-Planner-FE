@@ -1,4 +1,4 @@
-import { onlyOn } from '@cypress/skip-test'
+import { onlyOn } from '@cypress/skip-test';
 
 beforeEach(() => {
 	cy.intercept('GET', /http:\/\/localhost:8888\/api\/ski-area.*/, {
