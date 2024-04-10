@@ -29,15 +29,13 @@ jobs:
         
         with:
           # Starts web server for E2E tests - replace with your own server invocation
-          # https://docs.cypress.io/guides/continuous-integration/introduction#Boot-your-server
-          start: npm run cypress-server --no-ssl-verify
+          start: GIT_SSL_NO_VERIFY=true npm run cypress-server --no-ssl-verify
           wait-on: 'https://localhost:5555' # Waits for above
           # Records to Cypress Cloud 
           # https://docs.cypress.io/guides/cloud/projects#Set-up-a-project-to-record
-          record: false
+          record: false 
           parallel: false # Runs test in parallel using settings above¨
         env:
           VITE_BACKEND_URL: "http://localhost:8888"
           CYPRESS_PASSWORD: ${{ secrets.CYPRESS_PASSWORD }}
-          NODE_EXTRA_CA_CERTS: /config/root-CA.pem
-          
+          NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-certificates.crt
