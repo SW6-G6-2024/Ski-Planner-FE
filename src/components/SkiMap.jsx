@@ -16,8 +16,8 @@ import liftImg from '../icons/lifts/lift.svg';
 import tBarImg from '../icons/lifts/t-bar.svg';
 
 import 'leaflet/dist/leaflet.css';
-import MapLegend from './legend/MapLegend';
 import { ratePiste } from '../services/rateService';
+import GuideSlider from './stepByStepGuide/GuideSlider';
 
 /**
  * Ski map component - displays a map with pistes and lifts
@@ -33,6 +33,7 @@ const SkiMapComponent = () => {
   const [positionA, setPositionA] = useState(null);
   const [positionB, setPositionB] = useState(null);
   const [wasDragged, setWasDragged] = useState(false);
+  const [stepByStepGuide, setStepByStepGuide] = useState([]);
   const roots = new Map();
 
   // Use useCallback to define your data fetching function
@@ -66,6 +67,10 @@ const SkiMapComponent = () => {
 
     if (!bestRouteData) {
       return;
+    }
+    
+    if (bestRouteData.stepByStepGuide) {
+      setStepByStepGuide(bestRouteData.stepByStepGuide);
     }
     
     const route = {
@@ -170,6 +175,7 @@ const SkiMapComponent = () => {
       >
         Generate Route
       </button>
+      <GuideSlider guide={stepByStepGuide} />
       <MapContainer
         center={center}
         zoom={13.75}
@@ -210,7 +216,6 @@ const SkiMapComponent = () => {
            wasDragged={wasDragged}
            setWasDragged={setWasDragged}
         />
-        <MapLegend />
       </MapContainer>
     </div>
   );
