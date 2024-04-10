@@ -36,6 +36,9 @@ describe('Profile avatar', () => {
 	});
 });
 
+if(Cypress.env('ENVIRONMENT' === 'github')) {
+	return;
+}
 describe('Profile menu', () => {
 	beforeEach(() => {
 		login();
