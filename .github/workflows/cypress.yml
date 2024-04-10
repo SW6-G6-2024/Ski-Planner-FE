@@ -4,9 +4,6 @@ on:
     types: [opened, synchronize, reopened]
 jobs:
   cypress-run:
-    env:
-      SSL_CERT_DIR: "/etc/ssl/certs"
-
     runs-on: ubuntu-latest
     # Runs tests in parallel with matrix strategy https://docs.cypress.io/guides/guides/parallelization
     # https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs
@@ -16,6 +13,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        env: 
+          NODE_EXTRA_CA_CERTS: /config/root-CA.pem
 
         # Add this step to set up the Node.js version
       - name: Setup Node.js
