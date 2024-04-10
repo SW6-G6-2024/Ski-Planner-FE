@@ -74,6 +74,7 @@ function login() {
 	cy.visit('/');
 	cy.get('#profile-avatar').click();
 	cy.get('#login-button').click();
+	cy.wait(10000);
 	cy.origin('https://dev-b8qw0pac72kuwxyk.eu.auth0.com', () => {
 		cy.get('input[name="username"]').type('cypress@test.com');
 		cy.get('input[name="password"]').type(Cypress.env('CYPRESS_PASSWORD'), { log: false });
