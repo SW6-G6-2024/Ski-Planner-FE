@@ -51,6 +51,7 @@ const SkiMapComponent = () => {
 
   }, []); // Ensure dependencies are correctly listed if any
 
+   
   const findRoute = async () => {
     if (!positionA || !positionB) return;
 
@@ -170,7 +171,7 @@ const SkiMapComponent = () => {
     <div className='relative'>
       <button
         id='generate-route-button'
-        className='absolute right-5 top-5 z-[10000] bg-red-400 hover:bg-red-200 rounded-md shadow-xl hover:shadow-sm border border-red-300'
+        className='absolute right-[100px] top-5 z-[10000] bg-red-400 hover:bg-red-200 rounded-md shadow-xl hover:shadow-sm border border-red-300'
         onClick={findRoute}
       >
         Generate Route
