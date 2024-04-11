@@ -28,17 +28,19 @@ const GuideSlider = ({ guide }) => {
         transition={{ duration: 0.3 }}
         className="overflow-hidden shadow-lg"
       >
-        <div id="guide-content" className="w-80 bg-[#535C91] bg-opacity-80 p-4 flex flex-col justify-between h-screen">
-          <h2 className='text-3xl font-bold mb-4'>Step-by-step Guide</h2>
-          <div className="overflow-y-auto">
+        <div id="guide-content" className="flex flex-col w-80 bg-[#535C91] bg-opacity-80 p-4 h-screen">
+          <h2 className='text-3xl font-bold mb-4 text-white'>Step-by-step Guide</h2>
+          <div className="flex-grow overflow-y-auto">
             <StepByStepGuide guide={guide} />
           </div>
-          <div className="bg-white h-[2px] mt-4 mb-4"></div> {/* White line as a visual separator */}
-          <div id="legend-content" className="grid grid-cols-2 gap-1 pb-4">
+          <div className="bg-white h-[2px] my-4"></div>
+          <div id="legend-content" className="pt-4">
             <h2 className="text-3xl font-bold mb-4 col-span-2 text-white">Legend</h2>
-            {legendData.map((item, index) => (
-              <LegendCard key={index} name={item.name} icon={item.icon} />
-            ))}
+            <div className='grid grid-cols-2 gap-2'>
+              {legendData.map((item, index) => (
+                <LegendCard key={index} name={item.name} icon={item.icon} />
+              ))}
+            </div>
           </div>
         </div>
       </motion.div>
