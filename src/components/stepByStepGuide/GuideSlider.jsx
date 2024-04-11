@@ -28,18 +28,13 @@ const GuideSlider = ({ guide }) => {
         transition={{ duration: 0.3 }}
         className="overflow-hidden shadow-lg"
       >
-        {/* Set the guide-content to a flex column container */}
-        <div id="guide-content" className="flex flex-col w-80 bg-[#535C91] bg-opacity-80 p-4 h-screen">
-          {/* Title remains the same */}
-          <h2 className='text-3xl font-bold mb-4 text-white'>Step-by-step Guide</h2>
-          {/* StepByStepGuide container flex grow and overflow */}
-          <div className="flex-grow overflow-y-auto">
+        <div id="guide-content" className="w-80 bg-[#535C91] bg-opacity-80 p-4 flex flex-col justify-between h-screen">
+          <h2 className='text-3xl font-bold mb-4'>Step-by-step Guide</h2>
+          <div className="overflow-y-auto">
             <StepByStepGuide guide={guide} />
-            {/* The white line is inside the scrollable area but always visible */}
-            <div className="bg-white h-[2px] my-4"></div>
           </div>
-          {/* Legend content is always at the bottom */}
-          <div id="legend-content" className="pt-4">
+          <div className="bg-white h-[2px] mt-4 mb-4"></div> {/* White line as a visual separator */}
+          <div id="legend-content" className="grid grid-cols-2 gap-1 pb-4">
             <h2 className="text-3xl font-bold mb-4 col-span-2 text-white">Legend</h2>
             {legendData.map((item, index) => (
               <LegendCard key={index} name={item.name} icon={item.icon} />
@@ -47,7 +42,6 @@ const GuideSlider = ({ guide }) => {
           </div>
         </div>
       </motion.div>
-      {/* Button remains the same */}
       <button
         onClick={toggleGuide}
         className="w-10 h-20 bg-[#535C91] bg-opacity-50 hover:bg-opacity-25 rounded-r flex items-center justify-center z-10"
