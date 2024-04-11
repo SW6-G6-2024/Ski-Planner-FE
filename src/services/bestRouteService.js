@@ -26,7 +26,8 @@ export const fetchBestRoute = async (start, end, skiArea) => {
 
     const res = await client.post('/generate-route', requestBody);
 
-    const bestRoute = res.data.res;
+    const bestRoute = res.data.res[0].features[0];
+    const stepByStepGuide = res.data.res[1];
 
     if (res.status === 200 && bestRoute) {
       notifySuccess('Successfully generated route');
@@ -34,6 +35,7 @@ export const fetchBestRoute = async (start, end, skiArea) => {
 
     return {
       bestRoute,
+      stepByStepGuide,
     };
 
   } catch (error) {

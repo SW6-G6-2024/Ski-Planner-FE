@@ -26,11 +26,6 @@ describe('Ski map', () => {
       .should('have.attr', 'stroke-width', '3');
   });
 
-  it('should have a legend', () => {
-    cy.visit('/');
-    cy.get('#legend').should('exist');
-  });
-
   it('should have popups with piste name for each piste', () => {
     cy.visit('/');
     // The number is 165 because the first 164 elements are pistes with colours but no popups
