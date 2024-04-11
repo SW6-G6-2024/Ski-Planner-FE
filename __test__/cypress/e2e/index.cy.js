@@ -24,7 +24,7 @@ describe('Ski map', () => {
 
   it('should have a legend', () => {
     cy.visit('http://localhost:5555');
-    cy.get('#legend').should('exist');
+    cy.get('#legend-content').should('exist');
   });
 
   it('should have popups with piste name for each piste', () => {
