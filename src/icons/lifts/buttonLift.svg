@@ -1,0 +1,8 @@
+<svg width="100%" height="100%" viewBox="0 0 110 110" xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <g transform="rotate(-30 50 50)">
+    <!-- Increased the stroke-width to make the line thicker -->
+    <line x1="50" y1="10" x2="50" y2="90" stroke="#000000" stroke-width="4"></line>
+    <!-- Increased the rx and ry to make the ellipse bigger -->
+    <ellipse cx="50" cy="90" rx="20" ry="7" fill="#000000"></ellipse>
+  </g>
+</svg>

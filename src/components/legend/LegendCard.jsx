@@ -7,11 +7,11 @@ import PropTypes from 'prop-types';
  * @param {icon} url for the path to the icon 
  * @returns {JSX.Element} LegendCard
  */
-const LegendCard = ({name, icon}) => {
+const LegendCard = (props) => {
   return (
     <div className="transition-all duration-300 ease-in-out flex legend-card items-center mb-1">
-      <img src={icon} alt="icon" className="size-8 mx-2 bg-white" />
-      <div className="text-white cursor-default text-sm">{name}</div>
+      <object id={props.name.replace(' ', '-') + '-icon'} data={props.icon} type="image/svg+xml" className="size-8 mx-2 bg-white" aria-label={props.name} />
+      <div className="text-white cursor-default text-sm">{props.name}</div>
     </div>
   );
 };
