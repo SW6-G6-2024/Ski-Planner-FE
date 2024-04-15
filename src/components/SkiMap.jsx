@@ -206,7 +206,6 @@ const SkiMapComponent = () => {
         scrollWheelZoom={false}
         whenReady={(mapEvent) => {
           mapRef.current = mapEvent.target;
-          updateBoundsAndFetchData();
         }}
       >
         <TileLayer
