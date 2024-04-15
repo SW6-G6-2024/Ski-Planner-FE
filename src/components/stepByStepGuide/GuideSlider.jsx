@@ -21,7 +21,11 @@ const GuideSlider = ({ guide }) => {
   };
 
   return (
-    <div className="fixed top-1/2 left-0 -translate-y-1/2 z-[9999] flex items-center" id='guide-slider'>
+    <div
+      className={`fixed top-1/2 left-0 -translate-y-1/2 flex items-center`}
+      id='guide-slider'
+      style={{zIndex: isExpanded ? 1001 : 500}}
+    >
       <motion.div
         initial={{ width: 0 }}
         animate={{ width: isExpanded ? width : 0 }}
