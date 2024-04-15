@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useRef } from 'react';
+import React, { useCallback, useEffect, useState, useRef } from 'react';
 import { createRoot } from 'react-dom/client';
 import { fetchSkiData } from '../services/skiDataService';
 import { fetchBestRoute } from '../services/bestRouteService';
@@ -8,6 +8,7 @@ import { setPisteColor } from '../utils/pisteStyling';
 import { setLiftStyle } from '../utils/liftStyling';
 import LocationMarker from './LocationMarker';
 import StarRating from './StarRating';
+import SkiAreaDropDown from './SkiAreasDropDown';
 
 import buttonLiftImg from '../icons/lifts/buttonLift.svg';
 import chairLiftImg from '../icons/lifts/chair-lift.svg';
@@ -24,8 +25,8 @@ import GuideSlider from './stepByStepGuide/GuideSlider';
  * @returns {JSX.Element} SkiMapComponent
  */
 const SkiMapComponent = () => {
-  const center = [61.3140, 12.1971];
   const mapRef = useRef(null); // To access the map instance
+  const center = [61.3140, 12.1971];
   const [pistes, setPistes] = useState(null);
   const [lifts, setLifts] = useState(null);
   const [route, setRoute] = useState(null);
@@ -34,23 +35,37 @@ const SkiMapComponent = () => {
   const [positionB, setPositionB] = useState(null);
   const [wasDragged, setWasDragged] = useState(false);
   const [stepByStepGuide, setStepByStepGuide] = useState([]);
+  const [skiAreaId, setSkiAreaId] = useState('65d4a9dbecaa09d942314101');
+  const [key, setKey] = useState("65d4a9dbecaa09d942314101");
   const roots = new Map();
 
   // Use useCallback to define your data fetching function
   const updateBoundsAndFetchData = useCallback(async () => {
-    if (!mapRef.current) return; // Check if the map instance is available
+    if (!mapRef.current) return;
 
-    const skiData = await fetchSkiData('65d4a9dbecaa09d942314101').catch(console.error);
-    if (!skiData) { // Handle the error if the data fetching fails
+    const skiData = await fetchSkiData(skiAreaId).catch(console.error);
+    if (!skiData) {
       return;
     } 
 
-    // Assuming skiData.pistes is an array and you want to include newPiste as part of it
+    setPistes(null);
+    setLifts(null);
+
     setPistes(skiData.pistes);
     setLifts(skiData.lifts);
 
-  }, []); // Ensure dependencies are correctly listed if any
+    setKey(skiAreaId);
+    setPositionA(null);
+    setPositionB(null);
+  }, [skiAreaId]);
 
+  const handleDropdownSelect = (skiAreaId, newCenter) => {
+    setSkiAreaId(skiAreaId);
+
+    if (mapRef.current) {
+      mapRef.current.flyTo(newCenter);
+    }
+  };
    
   const findRoute = async () => {
     if (!positionA || !positionB) return;
@@ -64,7 +79,7 @@ const SkiMapComponent = () => {
       lat: positionB.lat,
       lon: positionB.lng
     };
-    const bestRouteData = await fetchBestRoute(startNode, endNode, '65d4a9dbecaa09d942314101').catch(console.error);
+    const bestRouteData = await fetchBestRoute(startNode, endNode, skiAreaId).catch(console.error);
 
     if (!bestRouteData) {
       return;
@@ -167,8 +182,15 @@ const SkiMapComponent = () => {
     layer.bindPopup(styledLiftDetails);
   };
 
+  useEffect(() => {
+    if (skiAreaId) {
+      updateBoundsAndFetchData();
+    }
+  }, [skiAreaId, updateBoundsAndFetchData]);
+
   return (
     <div className='relative'>
+      <SkiAreaDropDown onSelect={handleDropdownSelect} />
       <button
         id='generate-route-button'
         className='absolute right-[100px] top-5 z-[10000] bg-red-400 hover:bg-red-200 rounded-md shadow-xl hover:shadow-sm border border-red-300'
@@ -193,12 +215,12 @@ const SkiMapComponent = () => {
         />
 
         {route && <GeoJSON data={route} style={{ fillColor: 'grey', color: 'grey', weight: 10 }} />}
-        {pistes && <GeoJSON data={pistes} style={setPisteColor} />}
-        {lifts && <GeoJSON data={lifts} style={setLiftStyle} />}
+        {pistes && <GeoJSON key={`pistes-${key}`} data={pistes} style={setPisteColor} />}
+        {lifts && <GeoJSON key={`lifts-${key}`} data={lifts} style={setLiftStyle} />}
 
         {/* Bigger weight to make the pistes and lifts easier to click */}
-        {pistes && <GeoJSON data={pistes} style={{ ...setPisteColor, color: 'transparent', weight: 15 }} onEachFeature={addPistDetails} />}
-        {lifts && <GeoJSON data={lifts} style={{ ...setLiftStyle, color: 'transparent', weight: 15 }} onEachFeature={addLiftDetails} />}
+        {pistes && <GeoJSON key={`pistes2-${key}`} data={pistes} style={{ ...setPisteColor, color: 'transparent', weight: 15 }} onEachFeature={addPistDetails} />}
+        {lifts && <GeoJSON key={`lifts2-${key}`}data={lifts} style={{ ...setLiftStyle, color: 'transparent', weight: 15 }} onEachFeature={addLiftDetails} />}
         <LocationMarker
            type='A'
            mode={mode}
