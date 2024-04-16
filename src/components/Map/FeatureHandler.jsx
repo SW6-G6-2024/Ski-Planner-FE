@@ -3,8 +3,13 @@ import { GeoJSON } from 'react-leaflet';
 import { setPisteColor } from '../../utils/pisteStyling';
 import { setLiftStyle } from '../../utils/liftStyling';
 import { addLiftDetails, addPisteDetails } from '../../utils/popupMount';
-import PropTypes from 'prop-types';
+import PropTypes, { object } from 'prop-types';
 
+/**
+ * 
+ * @param {FeatureHandler.propTypes} props 
+ * @returns 
+ */
 export default function FeatureHandler(props) {
 	return (
 		<>
@@ -20,7 +25,7 @@ export default function FeatureHandler(props) {
 }
 
 FeatureHandler.propTypes = {
-	route: PropTypes.object.isRequired,
-	pistes: PropTypes.object.isRequired,
-	lifts: PropTypes.object.isRequired,
+	route: PropTypes.object,
+	pistes: PropTypes.arrayOf(object),
+	lifts: PropTypes.arrayOf(object),
 };

@@ -42,7 +42,7 @@ const addPisteDetails = (feature, layer) => {
 
 	layer.bindPopup(styledPisteDetails);
 
-	layer.on('popupopen', ratingPopup);
+	layer.on('popupopen', () => {ratingPopup(feature, layer);});
 
 	layer.on('popupclose', () => {
 		const containerId = `star-rating-container-${feature.id}`;
