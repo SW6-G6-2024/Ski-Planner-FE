@@ -1,6 +1,14 @@
 import axios from 'axios';
 import env from '../../config/keys.js';
 
+/**
+ * Function to update the user's first and last name in the database
+ * @param {String} first first name of the user
+ * @param {String} last last name of the user
+ * @param {String} id id of the user
+ * @param {String} token user token for authentication
+ * @returns {Promise} response ("User updated")
+ */
 const patchUser = async (first, last, id, token) => {
 	try {
 		const requestBody = {

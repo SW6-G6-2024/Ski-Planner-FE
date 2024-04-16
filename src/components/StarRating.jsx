@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+/**
+ * StarRating component - displays a star rating system for a review and calls a function when a rating is selected
+ * @param {Function} onRatingSelected The function to call when a rating is selected
+ * @returns 
+ */
 const StarRating = ({ onRatingSelected }) => {
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(null);

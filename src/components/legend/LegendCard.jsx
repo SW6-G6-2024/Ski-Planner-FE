@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 /**
  * Card for each entry in the legend
  * To add a new entry, add it to the legendData.js file
- * @param {name} name of the entry
- * @param {icon} url for the path to the icon 
+ * @param {String} name of the entry
+ * @param {String} url for the path to the icon 
  * @returns {JSX.Element} LegendCard
  */
 const LegendCard = (props) => {
