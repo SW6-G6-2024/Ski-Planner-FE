@@ -15,8 +15,8 @@ ProfileField.propTypes = {
 function ProfileField(props) {
 	return (
 		<div className='flex gap-5 justify-between border border-gray-200 py-2 px-5 rounded-md'>
-			<p>{props.label}</p>
-			<p>{props.value}</p>
+			<p className="text-black">{props.label}</p>
+      <p className="text-black">{props.value}</p>
 		</div>
 	);
 }
