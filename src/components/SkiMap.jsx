@@ -39,9 +39,6 @@ const SkiMapComponent = () => {
       return;
     } 
 
-    setPistes(null);
-    setLifts(null);
-
     setPistes(skiData.pistes);
     setLifts(skiData.lifts);
 
