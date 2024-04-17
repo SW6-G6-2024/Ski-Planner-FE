@@ -17,8 +17,11 @@ const SkiAreaDropDown = ({ onSelect }) => {
   };
 
   return (
-    <div className="absolute right-[250px] top-5 z-[10000] bg-red-400 hover:bg-red-200 rounded-md shadow-xl hover:shadow-sm">
-      <button onClick={toggleDropdown} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+    <div className="absolute right-[270px] top-5 z-[10000] bg-red-400 hover:bg-red-200 rounded-md shadow-xl hover:shadow-sm">
+      <button
+        onClick={toggleDropdown}
+        className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded text-base font-bold w-42 h-11"
+      >
         Select Ski Area
       </button>
       {isOpen && (

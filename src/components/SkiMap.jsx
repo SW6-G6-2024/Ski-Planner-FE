@@ -19,6 +19,7 @@ import tBarImg from '../icons/lifts/t-bar.svg';
 import 'leaflet/dist/leaflet.css';
 import { ratePiste } from '../services/rateService';
 import GuideSlider from './stepByStepGuide/GuideSlider';
+import { notifyError } from '../utils/customErrorMessage.js';
 
 /**
  * Ski map component - displays a map with pistes and lifts
@@ -69,7 +70,10 @@ const SkiMapComponent = () => {
   };
    
   const findRoute = async () => {
-    if (!positionA || !positionB) return;
+    if (!positionA || !positionB) {
+      notifyError('Please place the two markers by clicking on the map');
+      return;
+    }
 
     setRoute(null);
     const startNode = {
@@ -194,7 +198,7 @@ const SkiMapComponent = () => {
       <SkiAreaDropDown onSelect={handleDropdownSelect} />
       <button
         id='generate-route-button'
-        className='absolute right-[100px] top-5 z-[10000] bg-red-400 hover:bg-red-200 rounded-md shadow-xl hover:shadow-sm border border-red-300'
+        className='absolute right-[100px] top-5 z-[10000] bg-red-400 hover:bg-red-200 rounded-md shadow-xl hover:shadow-sm border border-red-300 px-4 py-2 text-base font-bold w-42 h-11'
         onClick={findRoute}
       >
         Generate Route
