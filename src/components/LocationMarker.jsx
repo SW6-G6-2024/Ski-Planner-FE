@@ -7,14 +7,7 @@ import PropTypes from 'prop-types';
 
 /**
  * Marker for the map that can be placed by the user to select a start or end point
- * @param {Object} props 
- * @param {string} props.type type of marker (A or B)
- * @param {string} props.mode current mode for placing marker (A or B)
- * @param {LatLng} props.position position of the marker
- * @param {Function} props.setPosition function to set the position of the marker
- * @param {Function} props.setMode function to set the mode of the marker
- * @param {boolean} props.wasDragged whether the marker was dragged
- * @param {Function} props.setWasDragged function to set whether the marker was dragged
+ * @param {LocationMarker.propTypes} props 
  * @returns {JSX.Element} Marker with either A or B icon
  */
 function LocationMarker(props) {
@@ -51,13 +44,13 @@ function LocationMarker(props) {
 }
 
 LocationMarker.propTypes = {
-	type: PropTypes.string.isRequired,
-	mode: PropTypes.string.isRequired,
-	position: PropTypes.object,
-	setPosition: PropTypes.func.isRequired,
-	setMode: PropTypes.func.isRequired,
-	wasDragged: PropTypes.bool.isRequired,
-	setWasDragged: PropTypes.func.isRequired
+	type: PropTypes.string.isRequired, // A or B
+	mode: PropTypes.string.isRequired, // A or B
+	position: PropTypes.object, // LatLng object 
+	setPosition: PropTypes.func.isRequired, // Function to set the position
+	setMode: PropTypes.func.isRequired, // Function to set the mode
+	wasDragged: PropTypes.bool.isRequired, // Boolean to check if the marker was dragged
+	setWasDragged: PropTypes.func.isRequired // Function to set the wasDragged boolean
 };
 
 

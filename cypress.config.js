@@ -9,6 +9,7 @@ export default defineConfig({
   e2eFolder: "__test__/cypress/e2e",
   screenshotsFolder: "__test__/cypress/screenshots",
   chromeWebSecurity: false,
+  downloadsFolder: "__test__/cypress/downloads",
   e2e: {
     baseUrl: "http://localhost:5555",
     specPattern: "__test__/cypress/e2e/**/*.cy.js",

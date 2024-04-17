@@ -12,7 +12,7 @@ const client = axios.create({
 /**
  * Fetches the ski area data (pistes and lifts) from the server
  * @param {string} id ID of the ski area
- * @returns {Promise<{pistes: Array, lifts: Array}>} skiData
+ * @returns {Promise<{pistes: Array<Feature>, lifts: Array<Feature>}>} skiData
  */
 export const fetchSkiData = async (id) => {
   try {
@@ -23,19 +23,19 @@ export const fetchSkiData = async (id) => {
     const pistes = data.filter(feature => feature.properties["piste:type"] === "downhill");
     const lifts = data.filter(feature => feature.properties["aerialway"]);
 
-    if (res.status === 200 && pistes && lifts) {
+    const hasPisteAndLifts = pistes?.length > 0 && lifts?.length > 0;
+
+    if (res.status === 200 && hasPisteAndLifts) {
       notifySuccess('Successfully fetched ski data');
     }
-    
+
     return {
       pistes,
       lifts,
     };
 
   } catch (error) {
-    if (error) {
-      notifyError('Failed to fetch ski data: \nCheck your internet connection, or try again later');
-    }
+    notifyError('Failed to fetch ski data: \nCheck your internet connection, or try again later');
     throw error;
   }
 };

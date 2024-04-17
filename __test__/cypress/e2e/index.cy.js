@@ -29,11 +29,11 @@ describe('Ski map', () => {
   it('should have popups with piste name for each piste', () => {
     cy.visit('/');
     // The number is 165 because the first 164 elements are pistes with colours but no popups
-    cy.get('.leaflet-interactive').eq(167).click({ force: true});
+    cy.get('.leaflet-interactive').eq(167).click({ force: true });
     cy.get('.leaflet-popup').should('exist');
     cy.get('.leaflet-popup-content').should('contain', '75');
 
-    cy.get('.leaflet-interactive').eq(225).click({ force: true});
+    cy.get('.leaflet-interactive').eq(225).click({ force: true });
     cy.get('.leaflet-popup').should('exist');
     cy.get('.leaflet-popup-content').should('contain', '31');
   });
@@ -74,15 +74,12 @@ describe('Ski map', () => {
     cy.intercept('POST', /http:\/\/localhost:8888\/api\/routes\/generate-route.*/, {
       statusCode: 500, // Simulate server error
     }).as('generateRouteFail');
-  
-    cy.visit('/');
-    cy.get('.leaflet-container').click(100, 100);
-    cy.get('.leaflet-container').click(200, 200);
-    cy.get('#generate-route-button').click();
-  
+
+    generateRoute();
+
     // Wait for the intercepted request to resolve
     cy.wait('@generateRouteFail');
-  
+
     // Check for the presence of an error toast
     cy.get('div[role="status"]').should('contain', 'Failed to generate route');
   });
@@ -93,15 +90,12 @@ describe('Ski map', () => {
       fixture: 'best-route.json', // Assuming this fixture represents a successful route response
       statusCode: 200, // Simulate success
     }).as('generateRouteSuccess');
-  
-    cy.visit('/');
-    cy.get('.leaflet-container').click(100, 100);
-    cy.get('.leaflet-container').click(200, 200);
-    cy.get('#generate-route-button').click();
-  
+
+    generateRoute();
+
     // Wait for the intercepted request to resolve
     cy.wait('@generateRouteSuccess');
-  
+
     // Check for the presence of a success toast
     // Adjust the selector and message as needed based on how your application displays success notifications
     cy.get('div[role="status"]').should('contain', 'Successfully generated route');
@@ -110,7 +104,7 @@ describe('Ski map', () => {
   it('should display the ratings div within a piste popup', () => {
     // Open the piste popup
     cy.visit('/');
-    cy.get('.leaflet-interactive').eq(167).click({ force: true});
+    cy.get('.leaflet-interactive').eq(167).click({ force: true });
     cy.get('.leaflet-popup').should('exist');
 
     cy.get('.leaflet-popup-content').find('div[id^="star-rating-container-"]').should('exist');
@@ -122,7 +116,7 @@ describe('Ski map', () => {
   it('should rate a piste when a star is clicked', () => {
     // Open the piste popup
     cy.visit('/');
-    cy.get('.leaflet-interactive').eq(167).click({ force: true});
+    cy.get('.leaflet-interactive').eq(167).click({ force: true });
     cy.get('.leaflet-popup').should('exist');
 
     // Click the first star
@@ -133,3 +127,10 @@ describe('Ski map', () => {
     cy.get('div[role="status"]').should('contain', 'Successfully rated piste');
   });
 });
+
+function generateRoute() {
+  cy.visit('/');
+  cy.get('.leaflet-container').click(100, 100);
+  cy.get('.leaflet-container').click(200, 200);
+  cy.get('#generate-route-button').click();
+}

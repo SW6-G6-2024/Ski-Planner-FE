@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
-import ProfileAvatar from './ProfileAvatar';
-import ProfileMenu from './ProfileMenu';
-import ProfileSettings from './ProfileSettings';
+import ProfileAvatar from './Profile/ProfileAvatar';
+import ProfileMenu from './Profile/ProfileMenu';
+import ProfileSettings from './Profile/ProfileSettings';
 import Modal from './Modal';
 
+/**
+ * ProfileHandler component - handles the profile avatar, menu, and settings
+ * @returns {JSX.Element} ProfileHandler component
+ */
 function ProfileHandler() {
 	const [showProfileModal, setShowProfileModal] = useState(false);
 	const [showMenu, setShowMenu] = useState(false);

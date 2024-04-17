@@ -5,6 +5,10 @@ import SkiMapComponent from "./components/SkiMap";
 import { Toaster } from 'react-hot-toast';
 import ProfileHandler from "./components/ProfileHandler";
 
+/**
+ * App component that renders the main app
+ * @returns {JSX.Element} App component
+ */
 function App() {
 	return (
 		<div className="h-screen w-screen min-h-screen flex place-items-center content-center justify-center">
