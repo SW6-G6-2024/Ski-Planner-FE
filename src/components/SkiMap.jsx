@@ -8,7 +8,7 @@ import { setPisteColor } from '../utils/pisteStyling';
 import { setLiftStyle } from '../utils/liftStyling';
 import LocationMarker from './LocationMarker';
 import StarRating from './StarRating';
-import SkiAreaDropDown from './SkiAreasDropDown';
+import SkiAreaDropDown from './skiareas/SkiAreasDropDown';
 
 import buttonLiftImg from '../icons/lifts/buttonLift.svg';
 import chairLiftImg from '../icons/lifts/chair-lift.svg';
@@ -57,6 +57,7 @@ const SkiMapComponent = () => {
     setKey(skiAreaId);
     setPositionA(null);
     setPositionB(null);
+    setMode('A');
   }, [skiAreaId]);
 
   const handleDropdownSelect = (skiAreaId, newCenter) => {
