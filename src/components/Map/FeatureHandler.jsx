@@ -19,7 +19,7 @@ export default function FeatureHandler(props) {
 
 			{/* Bigger weight to make the pistes and lifts easier to click */}
 			{props.pistes && <GeoJSON key={`pistes-${props.key}`} data={props.pistes} style={{ ...setPisteColor, color: 'transparent', weight: 15 }} onEachFeature={addPisteDetails} />}
-			{props.lifts && <GeoJSON key={`lifts-${props.key}`}data={props.lifts} style={{ ...setLiftStyle, color: 'transparent', weight: 15 }} onEachFeature={addLiftDetails} />}
+			{props.lifts && <GeoJSON key={`lifts-${props.key}`} data={props.lifts} style={{ ...setLiftStyle, color: 'transparent', weight: 15 }} onEachFeature={addLiftDetails} />}
 		</>
 	);
 }

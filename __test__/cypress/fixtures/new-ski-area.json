@@ -1,0 +1,1026 @@
+{
+  "geoJson": {
+  "type": "FeatureCollection",
+  "features": [
+      {
+          "type": "Feature",
+          "properties": {
+              "aerialway": "drag_lift",
+              "created_by": "JOSM",
+              "name": "Barnliften",
+              "piste:lift": "rope_tow"
+          },
+          "id": 24005357,
+          "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                  [
+                      13.6083695,
+                      57.4354527
+                  ],
+                  [
+                      13.6097336,
+                      57.4355749
+                  ]
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "name": "Barnbacken",
+              "piste:difficulty": "novice",
+              "piste:type": "downhill",
+              "route": "piste"
+          },
+          "id": 24005358,
+          "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                  [
+                      13.6096266,
+                      57.4354988
+                  ],
+                  [
+                      13.6089947,
+                      57.4354256
+                  ],
+                  [
+                      13.6083844,
+                      57.4354049
+                  ]
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "aerialway": "platter",
+              "name": "Superiorliften",
+              "source": "GPS"
+          },
+          "id": 32144985,
+          "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                  [
+                      13.6082103,
+                      57.4352231
+                  ],
+                  [
+                      13.6082828,
+                      57.4332967
+                  ]
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "name": "Lillbacken",
+              "piste:difficulty": "novice",
+              "piste:type": "downhill",
+              "route": "piste",
+              "source": "GPS"
+          },
+          "id": 32144986,
+          "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                  [
+                      13.6084115,
+                      57.4333717
+                  ],
+                  [
+                      13.6085196,
+                      57.4337191
+                  ],
+                  [
+                      13.6085684,
+                      57.434969
+                  ],
+                  [
+                      13.6083844,
+                      57.435277
+                  ]
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "aerialway": "platter",
+              "name": "Toppliftarna",
+              "source": "GPS"
+          },
+          "id": 32144989,
+          "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                  [
+                      13.6094631,
+                      57.4342844
+                  ],
+                  [
+                      13.6099679,
+                      57.4315142
+                  ]
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "aerialway": "chair_lift",
+              "aerialway:bicycle": "summer",
+              "aerialway:occupancy": "6",
+              "layer": "1",
+              "name": "Isabergsexpressen",
+              "operator": "Isaberg Mountain Resort",
+              "source": "GPS"
+          },
+          "id": 32144990,
+          "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                  [
+                      13.6178398,
+                      57.4321149
+                  ],
+                  [
+                      13.6171322,
+                      57.4320809
+                  ],
+                  [
+                      13.6155724,
+                      57.4320059
+                  ],
+                  [
+                      13.6139298,
+                      57.431927
+                  ],
+                  [
+                      13.611095,
+                      57.4317907
+                  ],
+                  [
+                      13.6103415,
+                      57.4317545
+                  ]
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "aerialway": "t-bar",
+              "name": "Dalliftarna",
+              "source": "GPS"
+          },
+          "id": 32144991,
+          "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                  [
+                      13.6175581,
+                      57.4336484
+                  ],
+                  [
+                      13.6128819,
+                      57.435851
+                  ]
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "aerialway": "t-bar",
+              "name": "Dalliftarna",
+              "source": "GPS"
+          },
+          "id": 32144992,
+          "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                  [
+                      13.6174589,
+                      57.4336116
+                  ],
+                  [
+                      13.6128704,
+                      57.4357791
+                  ]
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "name": "Slalombacken",
+              "piste:difficulty": "advanced",
+              "piste:type": "downhill",
+              "route": "piste",
+              "source": "GPS"
+          },
+          "id": 32144993,
+          "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                  [
+                      13.6107179,
+                      57.4319014
+                  ],
+                  [
+                      13.6113017,
+                      57.4320723
+                  ],
+                  [
+                      13.6117973,
+                      57.4321287
+                  ],
+                  [
+                      13.6120837,
+                      57.4321963
+                  ],
+                  [
+                      13.6124067,
+                      57.4324342
+                  ],
+                  [
+                      13.6126531,
+                      57.4328251
+                  ],
+                  [
+                      13.6127048,
+                      57.4328566
+                  ],
+                  [
+                      13.6130865,
+                      57.4330886
+                  ],
+                  [
+                      13.6147861,
+                      57.4336239
+                  ],
+                  [
+                      13.6156414,
+                      57.4336805
+                  ],
+                  [
+                      13.6162392,
+                      57.433595
+                  ]
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "name": "Slalombacken",
+              "piste:difficulty": "novice",
+              "piste:type": "downhill",
+              "route": "piste",
+              "source": "GPS"
+          },
+          "id": 32144995,
+          "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                  [
+                      13.6162392,
+                      57.433595
+                  ],
+                  [
+                      13.6167067,
+                      57.433471
+                  ],
+                  [
+                      13.6171231,
+                      57.4331226
+                  ],
+                  [
+                      13.6175624,
+                      57.4327791
+                  ],
+                  [
+                      13.6177393,
+                      57.4322106
+                  ]
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "name": "Slalombacken",
+              "piste:difficulty": "advanced",
+              "piste:type": "downhill",
+              "route": "piste",
+              "source": "GPS"
+          },
+          "id": 32144996,
+          "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                  [
+                      13.6124067,
+                      57.4324342
+                  ],
+                  [
+                      13.6121356,
+                      57.4326798
+                  ],
+                  [
+                      13.6120679,
+                      57.4329087
+                  ],
+                  [
+                      13.6122452,
+                      57.433182
+                  ]
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "name": "Mittlöpan",
+              "piste:difficulty": "intermediate",
+              "piste:type": "downhill",
+              "route": "piste",
+              "source": "GPS"
+          },
+          "id": 32144999,
+          "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                  [
+                      13.6104657,
+                      57.4319534
+                  ],
+                  [
+                      13.6107307,
+                      57.4325471
+                  ],
+                  [
+                      13.6109587,
+                      57.4328556
+                  ],
+                  [
+                      13.6115564,
+                      57.4330978
+                  ],
+                  [
+                      13.6116054,
+                      57.4331038
+                  ],
+                  [
+                      13.6122452,
+                      57.433182
+                  ],
+                  [
+                      13.6128571,
+                      57.4334965
+                  ],
+                  [
+                      13.6137834,
+                      57.4340913
+                  ],
+                  [
+                      13.614203,
+                      57.4342486
+                  ]
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "name": "Mittlöpan",
+              "piste:difficulty": "intermediate",
+              "piste:type": "downhill",
+              "route": "piste",
+              "source": "GPS"
+          },
+          "id": 32145000,
+          "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                  [
+                      13.6109587,
+                      57.4328556
+                  ],
+                  [
+                      13.6111222,
+                      57.4333284
+                  ],
+                  [
+                      13.6111695,
+                      57.4334652
+                  ],
+                  [
+                      13.6112298,
+                      57.4336384
+                  ],
+                  [
+                      13.6114372,
+                      57.4340271
+                  ],
+                  [
+                      13.6118774,
+                      57.4342687
+                  ]
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "name": "Familjebacken",
+              "piste:difficulty": "intermediate",
+              "piste:type": "downhill",
+              "route": "piste",
+              "source": "GPS"
+          },
+          "id": 32145001,
+          "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                  [
+                      13.6101041,
+                      57.431618
+                  ],
+                  [
+                      13.6101596,
+                      57.4320558
+                  ],
+                  [
+                      13.6103643,
+                      57.4326649
+                  ],
+                  [
+                      13.6102709,
+                      57.4333236
+                  ],
+                  [
+                      13.6099347,
+                      57.4340827
+                  ]
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "highway": "path",
+              "name": "Transporten",
+              "piste:difficulty": "easy",
+              "piste:type": "downhill",
+              "source": "GPS"
+          },
+          "id": 32145004,
+          "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                  [
+                      13.61381,
+                      57.4367739
+                  ],
+                  [
+                      13.6135492,
+                      57.4365511
+                  ],
+                  [
+                      13.6131763,
+                      57.4363491
+                  ],
+                  [
+                      13.6126619,
+                      57.4361137
+                  ],
+                  [
+                      13.6124373,
+                      57.4359717
+                  ],
+                  [
+                      13.6123371,
+                      57.4359084
+                  ],
+                  [
+                      13.6122503,
+                      57.4358178
+                  ],
+                  [
+                      13.611834,
+                      57.4353907
+                  ],
+                  [
+                      13.6114646,
+                      57.4350506
+                  ],
+                  [
+                      13.6113121,
+                      57.4349155
+                  ],
+                  [
+                      13.6109853,
+                      57.4346261
+                  ]
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "aerialway": "chair_lift",
+              "aerialway:occupancy": "4",
+              "name": "Norrliften",
+              "source": "GPS"
+          },
+          "id": 32145662,
+          "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                  [
+                      13.6189639,
+                      57.434509
+                  ],
+                  [
+                      13.6182169,
+                      57.4349174
+                  ],
+                  [
+                      13.6175045,
+                      57.4353069
+                  ],
+                  [
+                      13.6171025,
+                      57.4355267
+                  ],
+                  [
+                      13.6165525,
+                      57.4359116
+                  ],
+                  [
+                      13.6159986,
+                      57.4362036
+                  ],
+                  [
+                      13.6154772,
+                      57.4364532
+                  ],
+                  [
+                      13.6147205,
+                      57.4368846
+                  ],
+                  [
+                      13.6137803,
+                      57.4374205
+                  ]
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "name": "Norrbacken",
+              "piste:difficulty": "intermediate",
+              "piste:type": "downhill",
+              "route": "piste",
+              "source": "GPS"
+          },
+          "id": 32145664,
+          "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                  [
+                      13.6135821,
+                      57.4373251
+                  ],
+                  [
+                      13.6141701,
+                      57.4370071
+                  ],
+                  [
+                      13.6148288,
+                      57.4366315
+                  ],
+                  [
+                      13.6154678,
+                      57.4363664
+                  ],
+                  [
+                      13.6155891,
+                      57.4362887
+                  ],
+                  [
+                      13.616482,
+                      57.4356412
+                  ],
+                  [
+                      13.6166203,
+                      57.4355204
+                  ],
+                  [
+                      13.6169459,
+                      57.435236
+                  ],
+                  [
+                      13.6178176,
+                      57.434691
+                  ],
+                  [
+                      13.6186302,
+                      57.4344045
+                  ],
+                  [
+                      13.6189104,
+                      57.4343994
+                  ]
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "highway": "path",
+              "name": "Transporten",
+              "piste:difficulty": "novice",
+              "piste:type": "downhill",
+              "route": "piste",
+              "source": "GPS"
+          },
+          "id": 32145665,
+          "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                  [
+                      13.6130476,
+                      57.4358958
+                  ],
+                  [
+                      13.6133695,
+                      57.435994
+                  ],
+                  [
+                      13.6136591,
+                      57.4361037
+                  ],
+                  [
+                      13.613981,
+                      57.436225
+                  ],
+                  [
+                      13.6141956,
+                      57.4362943
+                  ],
+                  [
+                      13.6143565,
+                      57.4363376
+                  ],
+                  [
+                      13.6147052,
+                      57.4363953
+                  ]
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "name": "Gamla backen",
+              "piste:difficulty": "intermediate",
+              "piste:type": "downhill",
+              "route": "piste",
+              "source": "GPS"
+          },
+          "id": 32145919,
+          "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                  [
+                      13.6143565,
+                      57.4363376
+                  ],
+                  [
+                      13.6146144,
+                      57.4361248
+                  ],
+                  [
+                      13.6147761,
+                      57.4360025
+                  ],
+                  [
+                      13.6147879,
+                      57.4358684
+                  ],
+                  [
+                      13.6150679,
+                      57.4350086
+                  ],
+                  [
+                      13.6153914,
+                      57.4348824
+                  ],
+                  [
+                      13.6167944,
+                      57.4346954
+                  ],
+                  [
+                      13.617416,
+                      57.4344698
+                  ],
+                  [
+                      13.6179757,
+                      57.4341638
+                  ],
+                  [
+                      13.6180238,
+                      57.4339349
+                  ],
+                  [
+                      13.6180357,
+                      57.4337156
+                  ]
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "highway": "path",
+              "name": "Lassebacken",
+              "piste:difficulty": "easy",
+              "piste:type": "downhill",
+              "source": "GPS",
+              "surface": "grass"
+          },
+          "id": 32146796,
+          "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                  [
+                      13.6193868,
+                      57.4352715
+                  ],
+                  [
+                      13.6192993,
+                      57.4351722
+                  ],
+                  [
+                      13.6192712,
+                      57.4350559
+                  ],
+                  [
+                      13.6192655,
+                      57.4349476
+                  ],
+                  [
+                      13.6193084,
+                      57.4348378
+                  ],
+                  [
+                      13.6193058,
+                      57.4347339
+                  ],
+                  [
+                      13.6192584,
+                      57.4346533
+                  ],
+                  [
+                      13.6191781,
+                      57.4345666
+                  ]
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "name": "Dalbacken",
+              "piste:difficulty": "easy",
+              "piste:type": "downhill",
+              "route": "piste",
+              "source": "GPS"
+          },
+          "id": 260290397,
+          "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                  [
+                      13.6109853,
+                      57.4346261
+                  ],
+                  [
+                      13.611237,
+                      57.4343494
+                  ],
+                  [
+                      13.6118774,
+                      57.4342687
+                  ],
+                  [
+                      13.6128394,
+                      57.434324
+                  ],
+                  [
+                      13.6133442,
+                      57.4342948
+                  ],
+                  [
+                      13.6137641,
+                      57.4342989
+                  ],
+                  [
+                      13.614203,
+                      57.4342486
+                  ],
+                  [
+                      13.6147012,
+                      57.4341848
+                  ],
+                  [
+                      13.6158824,
+                      57.4340234
+                  ],
+                  [
+                      13.6165754,
+                      57.4336755
+                  ],
+                  [
+                      13.617388,
+                      57.4335146
+                  ]
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "name": "Transporten",
+              "piste:difficulty": "novice",
+              "piste:type": "downhill",
+              "route": "piste"
+          },
+          "id": 260291222,
+          "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                  [
+                      13.6135492,
+                      57.4365511
+                  ],
+                  [
+                      13.6137921,
+                      57.436526
+                  ],
+                  [
+                      13.6141096,
+                      57.4363852
+                  ],
+                  [
+                      13.6143565,
+                      57.4363376
+                  ]
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "name": "Transporten",
+              "piste:difficulty": "novice",
+              "piste:type": "downhill",
+              "source": "GPS"
+          },
+          "id": 541199310,
+          "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                  [
+                      13.6147052,
+                      57.4363953
+                  ],
+                  [
+                      13.6155891,
+                      57.4362887
+                  ]
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "name": "Transporten",
+              "piste:difficulty": "novice",
+              "piste:type": "downhill",
+              "source": "GPS"
+          },
+          "id": 541199311,
+          "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                  [
+                      13.6124373,
+                      57.4359717
+                  ],
+                  [
+                      13.6130476,
+                      57.4358958
+                  ]
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "name": "Lassebacken",
+              "piste:difficulty": "easy",
+              "piste:type": "downhill",
+              "route": "piste",
+              "source": "GPS"
+          },
+          "id": 541199314,
+          "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                  [
+                      13.6166203,
+                      57.4355204
+                  ],
+                  [
+                      13.6174732,
+                      57.435379
+                  ],
+                  [
+                      13.6179882,
+                      57.4353212
+                  ]
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "highway": "path",
+              "name": "Lassebacken",
+              "piste:difficulty": "easy",
+              "piste:type": "downhill",
+              "surface": "ground",
+              "trail_visibility": "excellent"
+          },
+          "id": 541199315,
+          "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                  [
+                      13.6179882,
+                      57.4353212
+                  ],
+                  [
+                      13.6184066,
+                      57.4353068
+                  ],
+                  [
+                      13.6187794,
+                      57.4353039
+                  ],
+                  [
+                      13.6191627,
+                      57.4353082
+                  ],
+                  [
+                      13.6193868,
+                      57.4352715
+                  ]
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "highway": "path",
+              "name": "Transporten",
+              "piste:difficulty": "easy",
+              "piste:type": "downhill",
+              "source": "GPS"
+          },
+          "id": 620928836,
+          "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                  [
+                      13.6141701,
+                      57.4370071
+                  ],
+                  [
+                      13.61381,
+                      57.4367739
+                  ]
+              ]
+          }
+      }
+  ]
+}
+}
