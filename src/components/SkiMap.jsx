@@ -44,6 +44,8 @@ const SkiMapComponent = () => {
 
     setPistes(skiData.pistes);
     setLifts(skiData.lifts);
+
+    setKey(skiAreaId);
   }, [skiAreaId]);
 
   const handleDropdownSelect = (skiAreaId, newCenter) => {
@@ -84,7 +86,6 @@ const SkiMapComponent = () => {
   useEffect(() => {
     if (skiAreaId) {
       updateBoundsAndFetchData();
-      setKey(skiAreaId);
       setPositionA(null);
       setPositionB(null);
       setMode('A');
