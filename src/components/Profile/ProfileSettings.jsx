@@ -1,10 +1,10 @@
 import React from 'react';
-import Button from './Button';
+import Button from '../Button';
 import { useAuth0 } from '@auth0/auth0-react';
 import ProfileField from './ProfileField';
-import FormField from './FormField';
-import { patchUser } from '../services/userService';
-import { notifyError, notifySuccess } from '../utils/customErrorMessage';
+import FormField from '../FormField';
+import { patchUser } from '../../services/userService';
+import { notifyError, notifySuccess } from '../../utils/customErrorMessage';
 
 /**
  * ProfileSettings component that allows the user to edit their profile

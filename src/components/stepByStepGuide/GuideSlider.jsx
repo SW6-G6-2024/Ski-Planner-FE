@@ -7,6 +7,11 @@ import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import PropTypes from 'prop-types';
 
+/**
+ * GuideSlider component - displays the step-by-step guide and legend
+ * @param {Array} guide array containing steps of the step-by-step guide
+ * @returns {JSX.Element} GuideSlider
+ */
 const GuideSlider = ({ guide }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [width, setWidth] = useState(0);

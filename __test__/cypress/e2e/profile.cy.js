@@ -80,6 +80,6 @@ function login() {
 	cy.origin('https://dev-b8qw0pac72kuwxyk.eu.auth0.com', () => {
 		cy.get('input[name="username"]').type('cypress@test.com');
 		cy.get('input[name="password"]').type(Cypress.env('CYPRESS_PASSWORD'), { log: false });
-		cy.get('.ca1220cdf button[type="submit"]').click();
+		cy.get('button[type=submit]').contains(/^Continue$/).click();
 	});
 }
