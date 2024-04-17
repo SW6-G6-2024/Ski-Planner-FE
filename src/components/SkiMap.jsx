@@ -1,19 +1,10 @@
 import React, { useCallback, useEffect, useState, useRef } from 'react';
-import { createRoot } from 'react-dom/client';
-import React, { useCallback, useState, useRef } from 'react';
 import { fetchSkiData } from '../services/skiDataService';
 import { fetchBestRoute } from '../services/bestRouteService';
 import { MapContainer, TileLayer } from 'react-leaflet';
 import '../App.css';
 import LocationMarker from './LocationMarker';
-import StarRating from './StarRating';
 import SkiAreaDropDown from './skiareas/SkiAreasDropDown';
-
-import buttonLiftImg from '../icons/lifts/buttonLift.svg';
-import chairLiftImg from '../icons/lifts/chair-lift.svg';
-import gondolaImg from '../icons/lifts/gondola.svg';
-import liftImg from '../icons/lifts/lift.svg';
-import tBarImg from '../icons/lifts/t-bar.svg';
 
 import 'leaflet/dist/leaflet.css';
 import GuideSlider from './stepByStepGuide/GuideSlider';
@@ -38,7 +29,6 @@ const SkiMapComponent = () => {
   const [stepByStepGuide, setStepByStepGuide] = useState([]);
   const [skiAreaId, setSkiAreaId] = useState('65d4a9dbecaa09d942314101');
   const [key, setKey] = useState("65d4a9dbecaa09d942314101");
-  const roots = new Map();
 
   // Fetch the ski data and update the bounds of the map
   const updateBoundsAndFetchData = useCallback(async () => {
@@ -96,6 +86,12 @@ const SkiMapComponent = () => {
     setRoute(route);
   };
 
+  useEffect(() => {
+    if (skiAreaId) {
+      updateBoundsAndFetchData();
+    }
+  }, [skiAreaId, updateBoundsAndFetchData]);
+
   return (
     <div className='relative'>
       <SkiAreaDropDown onSelect={handleDropdownSelect} />
@@ -119,7 +115,7 @@ const SkiMapComponent = () => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
-        <FeatureHandler pistes={pistes} lifts={lifts} route={route} />
+        <FeatureHandler pistes={pistes} lifts={lifts} route={route} key={key} />
         <LocationMarker type='A'
           mode={mode} setMode={setMode}
           position={positionA} setPosition={setPositionA}
