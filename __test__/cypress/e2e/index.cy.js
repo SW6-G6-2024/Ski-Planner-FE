@@ -126,6 +126,11 @@ describe('Ski map', () => {
     // Check for the success message
     cy.get('div[role="status"]').should('contain', 'Successfully rated piste');
   });
+
+  it('should display SkiAreaDropDown button', () => {
+    cy.visit('/');
+    cy.get('#ski-area-dropdown-button').should('exist');
+  });
 });
 
 function generateRoute() {
