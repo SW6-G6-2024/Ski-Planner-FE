@@ -1,11 +1,14 @@
-import React, { useCallback, useState, useRef } from 'react';
+import React, { useCallback, useEffect, useState, useRef } from 'react';
 import { fetchSkiData } from '../services/skiDataService';
 import { fetchBestRoute } from '../services/bestRouteService';
 import { MapContainer, TileLayer } from 'react-leaflet';
 import '../App.css';
 import LocationMarker from './LocationMarker';
+import SkiAreaDropDown from './skiareas/SkiAreasDropDown';
+
 import 'leaflet/dist/leaflet.css';
 import GuideSlider from './stepByStepGuide/GuideSlider';
+import { notifyError } from '../utils/customErrorMessage.js';
 import FeatureHandler from './Map/FeatureHandler';
 
 /**
@@ -24,29 +27,42 @@ const SkiMapComponent = () => {
   const [positionB, setPositionB] = useState(null);
   const [wasDragged, setWasDragged] = useState(false);
   const [stepByStepGuide, setStepByStepGuide] = useState([]);
+  const [skiAreaId, setSkiAreaId] = useState('65d4a9dbecaa09d942314101');
+  const [key, setKey] = useState("65d4a9dbecaa09d942314101");
 
   // Fetch the ski data and update the bounds of the map
   const updateBoundsAndFetchData = useCallback(async () => {
-    if (!mapRef.current) return; // Check if the map instance is available
+    if (!mapRef.current) return;
 
-    const skiData = await fetchSkiData('65d4a9dbecaa09d942314101').catch(console.error);
-    if (!skiData) { return; } // Check if the data was fetched successfully
+    const skiData = await fetchSkiData(skiAreaId).catch(console.error);
+    if (!skiData) {
+      return;
+    } 
 
     setPistes(skiData.pistes);
     setLifts(skiData.lifts);
-  }, []);
 
+    setKey(skiAreaId);
+  }, [skiAreaId]);
 
-  /**
-   * Method to find the best route between two points
-   */
+  const handleDropdownSelect = (skiAreaId, newCenter) => {
+    setSkiAreaId(skiAreaId);
+
+    if (mapRef.current) {
+      mapRef.current.flyTo(newCenter);
+    }
+  };
+   
   const findRoute = async () => {
-    if (!positionA || !positionB) return;
+    if (!positionA || !positionB) {
+      notifyError('Please place the two markers by clicking on the map');
+      return;
+    }
 
     setRoute(null);
     const startNode = { lat: positionA.lat, lon: positionA.lng };
     const endNode = { lat: positionB.lat, lon: positionB.lng };
-    const bestRouteData = await fetchBestRoute(startNode, endNode, '65d4a9dbecaa09d942314101').catch(console.error);
+    const bestRouteData = await fetchBestRoute(startNode, endNode, skiAreaId).catch(console.error);
 
     if (!bestRouteData) {
       return;
@@ -64,11 +80,22 @@ const SkiMapComponent = () => {
     setRoute(route);
   };
 
+  useEffect(() => {
+    if (skiAreaId) {
+      updateBoundsAndFetchData();
+      setPositionA(null);
+      setPositionB(null);
+      setMode('A');
+      setRoute(null);
+    }
+  }, [skiAreaId, updateBoundsAndFetchData]);
+
   return (
     <div className='relative'>
+      <SkiAreaDropDown onSelect={handleDropdownSelect} />
       <button
         id='generate-route-button'
-        className='absolute right-[100px] top-5 z-[10000] bg-red-500 hover:bg-red-400 px-2 py-2 text-white rounded-md shadow-xl hover:shadow-sm border border-red-300'
+        className='absolute right-[100px] top-5 z-[10000] bg-red-400 hover:bg-red-200 rounded-md shadow-xl hover:shadow-sm border border-red-300 px-4 py-2 text-base font-bold w-42 h-11'
         onClick={findRoute}
       >
         Generate Route
@@ -80,14 +107,13 @@ const SkiMapComponent = () => {
         scrollWheelZoom={true}
         whenReady={(mapEvent) => {
           mapRef.current = mapEvent.target;
-          updateBoundsAndFetchData();
         }}
       >
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
-        <FeatureHandler pistes={pistes} lifts={lifts} route={route} />
+        <FeatureHandler pistes={pistes} lifts={lifts} route={route} key={key} />
         <LocationMarker type='A'
           mode={mode} setMode={setMode}
           position={positionA} setPosition={setPositionA}

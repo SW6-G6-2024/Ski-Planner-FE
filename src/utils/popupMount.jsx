@@ -18,7 +18,11 @@ const roots = new Map();
  * @param {import('leaflet').Layer} layer the layer object
  */
 const addPisteDetails = (feature, layer) => {
-	const pisteName = (feature.properties.name ? feature.properties.name : feature.properties.ref).replace(/[^a-zA-Z0-9]/g, '');
+	// Safely extract pisteName ensuring feature and properties exist and handling multiple possible keys.
+	const pisteName = feature && feature.properties 
+		? (feature.properties['piste:name'] || feature.properties['name'] || feature.properties['piste:ref'] || feature.properties['ref'] || '').replace(/[^a-zA-Z0-9]/g, '')
+		: '';
+
 	let difficulty = feature.properties["piste:difficulty"] === 'novice' ? 'Beginner' : feature.properties["piste:difficulty"];
 	switch (difficulty) {
 		case 'easy':
