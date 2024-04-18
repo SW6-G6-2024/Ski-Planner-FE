@@ -29,6 +29,7 @@ const SkiAreaDropDown = ({ onSelect }) => {
         <div className="absolute left-0 mt-1 bg-white shadow-lg">
           <button onClick={() => handleSelect('65d4a9dbecaa09d942314101', [61.3140, 12.1971])} className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full">Trysil</button>
           <button onClick={() => handleSelect('65d4a9dbecaa09d942314102', [57.4344, 13.6147])} className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full">Isaberg</button>
+          <button onClick={() => handleSelect('6620d40250c012926c59023c', [47.1385, 13.1054])} className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full">Bad Gastein</button>
         </div>
       )}
     </div>
