@@ -86,6 +86,7 @@ const SkiMapComponent = () => {
       setPositionA(null);
       setPositionB(null);
       setMode('A');
+      setRoute(null);
     }
   }, [skiAreaId, updateBoundsAndFetchData]);
 

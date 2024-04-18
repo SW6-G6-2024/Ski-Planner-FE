@@ -18,8 +18,8 @@ export default function FeatureHandler(props) {
 			{props.lifts && <GeoJSON data={props.lifts} style={setLiftStyle} />}
 
 			{/* Bigger weight to make the pistes and lifts easier to click */}
-			{props.pistes && <GeoJSON key={`pistes-${props.key}`} data={props.pistes} style={{ ...setPisteColor, color: 'transparent', weight: 15 }} onEachFeature={addPisteDetails} />}
-			{props.lifts && <GeoJSON key={`lifts-${props.key}`} data={props.lifts} style={{ ...setLiftStyle, color: 'transparent', weight: 15 }} onEachFeature={addLiftDetails} />}
+			{props.pistes && <GeoJSON data={props.pistes} style={{ ...setPisteColor, color: 'transparent', weight: 15 }} onEachFeature={addPisteDetails} />}
+			{props.lifts && <GeoJSON data={props.lifts} style={{ ...setLiftStyle, color: 'transparent', weight: 15 }} onEachFeature={addLiftDetails} />}
 		</>
 	);
 }
@@ -28,5 +28,4 @@ FeatureHandler.propTypes = {
 	route: PropTypes.object,
 	pistes: PropTypes.arrayOf(object),
 	lifts: PropTypes.arrayOf(object),
-	key: PropTypes.string
 };
