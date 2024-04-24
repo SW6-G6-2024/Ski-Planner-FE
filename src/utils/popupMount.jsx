@@ -9,6 +9,7 @@ import chairLiftImg from '../icons/lifts/chair-lift.svg';
 import gondolaImg from '../icons/lifts/gondola.svg';
 import liftImg from '../icons/lifts/lift.svg';
 import tBarImg from '../icons/lifts/t-bar.svg';
+import getDifficultyString from './difficultyMapping';
 
 const roots = new Map();
 
@@ -24,19 +25,7 @@ const addPisteDetails = (feature, layer) => {
 		: '';
 
 	let difficulty = feature.properties["piste:difficulty"] === 'novice' ? 'Beginner' : feature.properties["piste:difficulty"];
-	switch (difficulty) {
-		case 'easy':
-			difficulty = 'Easy';
-			break;
-		case 'intermediate':
-			difficulty = 'Medium';
-			break;
-		case 'expert', 'advanced':
-			difficulty = 'Expert';
-			break;
-		default:
-			difficulty = difficulty.charAt(0).toUpperCase() + difficulty.slice(1);
-	}
+	difficulty = getDifficultyString(difficulty);
 
 	const styledPisteDetails = `
 		<div style="font-size: 0.8rem; font-weight: bold;">
