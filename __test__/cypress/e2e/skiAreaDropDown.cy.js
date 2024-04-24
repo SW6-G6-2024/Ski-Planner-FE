@@ -1,17 +1,10 @@
 describe('Ski map', () => {
   beforeEach(() => {
-    cy.intercept('GET', /http:\/\/localhost:8888\/api\/ski-area.*/, {
+    cy.intercept('GET', Cypress.env('BACKEND_URL') + '/api/ski-areas/*', {
       fixture: 'ski-area.json',
     });
-    cy.intercept('GET', /http:\/\/localhost:8888\/api\/ski-area.*/, {
+    cy.intercept('GET', Cypress.env('BACKEND_URL') + '/api/ski-areas/*', {
       fixture: 'new-ski-area.json',
-    });
-    cy.intercept('POST', /http:\/\/localhost:8888\/api\/routes\/generate-route.*/, {
-      fixture: 'best-route.json',
-    });
-    cy.intercept('POST', /http:\/\/localhost:8888\/api\/rate-piste.*/, {
-      statusCode: 200,
-      body: { message: "Successfully rated piste" },
     });
   });
 

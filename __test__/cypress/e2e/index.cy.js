@@ -1,12 +1,12 @@
 describe('Ski map', () => {
   beforeEach(() => {
-    cy.intercept('GET', /http:\/\/localhost:8888\/api\/ski-area.*/, {
+    cy.intercept('GET', Cypress.env('BACKEND_URL') + '/api/ski-areas/*', {
       fixture: 'ski-area.json',
     });
-    cy.intercept('POST', /http:\/\/localhost:8888\/api\/routes\/generate-route.*/, {
+    cy.intercept('POST', Cypress.env('BACKEND_URL') + '/generate-route/*', {
       fixture: 'best-route.json',
     });
-    cy.intercept('POST', /http:\/\/localhost:8888\/api\/rate-piste.*/, {
+    cy.intercept('POST', Cypress.env('BACKEND_URL') + '/api/rate-piste/*', {
       statusCode: 200,
       body: { message: "Successfully rated piste" },
     });
@@ -71,7 +71,7 @@ describe('Ski map', () => {
 
   it('displays an error message if the route generation fails', () => {
     // Intercept the POST request and force it to fail
-    cy.intercept('POST', /http:\/\/localhost:8888\/api\/routes\/generate-route.*/, {
+    cy.intercept('POST', Cypress.env('BACKEND_URL') + '/api/routes/generate-route*', {
       statusCode: 500, // Simulate server error
     }).as('generateRouteFail');
 
@@ -86,7 +86,7 @@ describe('Ski map', () => {
 
   it('displays a success message when the route is generated successfully', () => {
     // Intercept the POST request and mock a successful response
-    cy.intercept('POST', /http:\/\/localhost:8888\/api\/routes\/generate-route.*/, {
+    cy.intercept('POST', Cypress.env('BACKEND_URL') + '/api/routes/generate-route*', {
       fixture: 'best-route.json', // Assuming this fixture represents a successful route response
       statusCode: 200, // Simulate success
     }).as('generateRouteSuccess');

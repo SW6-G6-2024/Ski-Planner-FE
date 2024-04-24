@@ -151,9 +151,20 @@
 				"type": "FeatureCollection"
 		},
 		[
-				"31",
-				"63",
-				"H2 Høgegga"
+				{
+					"name": "31",
+					"difficulty": "intermediate"
+				},
+				{
+					"name": "63",
+					"difficulty": "novice"
+				}
+				,
+				{
+					"name": "H2 Høgegga",
+					"type": "chair_lift"
+				}
+				
 		]
 	]
 }
