@@ -3,7 +3,7 @@ describe('Ski map', () => {
     cy.intercept('GET', Cypress.env('BACKEND_URL') + '/api/ski-areas/*', {
       fixture: 'ski-area.json',
     });
-    cy.intercept('POST', Cypress.env('BACKEND_URL') + '/generate-route/*', {
+    cy.intercept('POST', Cypress.env('BACKEND_URL') + '/api/routes/generate-route*', {
       fixture: 'best-route.json',
     });
     cy.intercept('POST', Cypress.env('BACKEND_URL') + '/api/rate-piste/*', {
