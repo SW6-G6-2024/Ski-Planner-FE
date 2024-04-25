@@ -1,3 +1,8 @@
+/**
+ * Maps the difficulty string from the geojson data to a more user-friendly string
+ * @param {String} difficulty The difficulty string from the geojson data
+ * @returns {String} The final difficulty string
+ */
 function getDifficultyString(difficulty) {
 	switch (difficulty) {
 		case 'novice':

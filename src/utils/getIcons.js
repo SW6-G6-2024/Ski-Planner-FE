@@ -9,6 +9,11 @@ import chairLift from '../icons/lifts/chair-lift.svg';
 import tbarLift from '../icons/lifts/t-bar.svg';
 import gondola from '../icons/lifts/gondola.svg';
 
+/**
+ * Function to map difficulty to the corresponding icon
+ * @param {String} difficulty The difficulty string from the geojson data
+ * @returns {String} The icon path
+ */
 function difficultyToIcon(difficulty) {
 	switch (difficulty) {
 		case "novice":
@@ -22,6 +27,11 @@ function difficultyToIcon(difficulty) {
 	}
 }
 
+/**
+ * Function to map lift type to the corresponding icon
+ * @param {String} liftType String representing the type of lift
+ * @returns {String} The icon path
+ */
 function getLiftIcon(liftType) {
 	switch (liftType) {
 		case "button-lift":
