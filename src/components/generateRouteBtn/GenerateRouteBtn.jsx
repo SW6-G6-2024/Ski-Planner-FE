@@ -31,7 +31,7 @@ function GenerateRouteBtn({ bestRoute, shortestRoute }) {
   };
 
   const handleClick = () => {
-    if (selectedIndex === 0) {
+    if (selectedIndex === 1) {
       bestRoute();
     } else {
       shortestRoute();
