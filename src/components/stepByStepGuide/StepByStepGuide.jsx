@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import { getLiftIcon, difficultyToIcon } from '../../utils/getIcons.js';
 
@@ -22,7 +23,7 @@ const StepByStepGuide = ({ guide }) => {
   return (
     <div className='flex flex-col place-items-center'>
       {guide.map((step, index) => {
-        return (<>
+        return (<React.Fragment key={index}>
           {(index !== 0) && <div className='w-[0] h-[10px] border-r-2 border-slate-400'></div>}
           {step.difficulty ?
               <div className='relative'>
@@ -41,7 +42,7 @@ const StepByStepGuide = ({ guide }) => {
               <p className="text-white text-lg font-bold">{cutString(step.name, 20)}</p>
             </div>
           }
-        </>);
+        </React.Fragment>);
       })}
     </div>
   );
