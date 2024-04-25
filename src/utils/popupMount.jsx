@@ -21,11 +21,14 @@ const roots = new Map();
 const addPisteDetails = (feature, layer) => {
 	// Safely extract pisteName ensuring feature and properties exist and handling multiple possible keys.
 	const pisteName = feature && feature.properties 
-		? (feature.properties['piste:name'] || feature.properties['name'] || feature.properties['piste:ref'] || feature.properties['ref'] || '').replace(/[^a-zA-Z0-9]/g, '')
+		? (feature.properties['name'] || '').replace(/[^a-zA-Z0-9]/g, '')
 		: '';
 
-	let difficulty = feature.properties["piste:difficulty"] === 'novice' ? 'Beginner' : feature.properties["piste:difficulty"];
+	let difficulty = feature.properties["piste:difficulty"];
 	difficulty = getDifficultyString(difficulty);
+
+	if(!difficulty)
+		console.log('Difficulty not found for piste:', feature);
 
 	const styledPisteDetails = `
 		<div style="font-size: 0.8rem; font-weight: bold;">

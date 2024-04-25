@@ -6,7 +6,7 @@ function getDifficultyString(difficulty) {
 			return 'Easy';
 		case 'intermediate':
 			return 'Intermediate';
-		case 'expert' || 'advanced':
+		case 'expert': case 'advanced':
 			return 'Expert';
 		default:
 			difficulty = difficulty.charAt(0).toUpperCase() + difficulty.slice(1);
