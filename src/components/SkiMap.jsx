@@ -74,8 +74,6 @@ const SkiMapComponent = () => {
         setStepByStepGuide(routeData.stepByStepGuide);
     }
 
-    console.log(routeData.bestRoute);
-
     const route = {
         geometry: routeData.bestRoute.geometry,
         properties: { ...routeData.bestRoute.properties, name: "Best Route" },
