@@ -1,17 +1,17 @@
 import { onlyOn } from '@cypress/skip-test';
 
 beforeEach(() => {
-	cy.intercept('GET', /http:\/\/localhost:8888\/api\/ski-area.*/, {
+	cy.intercept('GET', Cypress.env('BACKEND_URL') + '/api/ski-areas/*', {
 		fixture: 'ski-area.json',
 	});
-	cy.intercept('POST', /http:\/\/localhost:8888\/api\/routes\/generate-route.*/, {
+	cy.intercept('POST', Cypress.env('BACKEND_URL') + '/api/routes/generate-route/*', {
 		fixture: 'best-route.json',
 	});
 	cy.intercept('GET', /http:\/\/dev-b8qw0pac72kuwxyk\.eu\.auth0\.com\/authorize\?.*/, {
 		statusCode: 200,
 		body: 'OK',
 	});
-	cy.intercept('PATCH', 'http://localhost:8888/api/users/*', {
+	cy.intercept('PATCH',Cypress.env('BACKEND_URL') + '/api/users/*', {
 		statusCode: 200,
 		body: {
 			message: 'User updated',

@@ -9,6 +9,7 @@ import chairLiftImg from '../icons/lifts/chair-lift.svg';
 import gondolaImg from '../icons/lifts/gondola.svg';
 import liftImg from '../icons/lifts/lift.svg';
 import tBarImg from '../icons/lifts/t-bar.svg';
+import getDifficultyString from './difficultyMapping';
 
 const roots = new Map();
 
@@ -20,23 +21,14 @@ const roots = new Map();
 const addPisteDetails = (feature, layer) => {
 	// Safely extract pisteName ensuring feature and properties exist and handling multiple possible keys.
 	const pisteName = feature && feature.properties 
-		? (feature.properties['piste:name'] || feature.properties['name'] || feature.properties['piste:ref'] || feature.properties['ref'] || '').replace(/[^a-zA-Z0-9]/g, '')
+		? (feature.properties['name'] || '').replace(/[^a-zA-Z0-9]/g, '')
 		: '';
 
-	let difficulty = feature.properties["piste:difficulty"] === 'novice' ? 'Beginner' : feature.properties["piste:difficulty"];
-	switch (difficulty) {
-		case 'easy':
-			difficulty = 'Easy';
-			break;
-		case 'intermediate':
-			difficulty = 'Medium';
-			break;
-		case 'expert', 'advanced':
-			difficulty = 'Expert';
-			break;
-		default:
-			difficulty = difficulty.charAt(0).toUpperCase() + difficulty.slice(1);
-	}
+	let difficulty = feature.properties["piste:difficulty"];
+	difficulty = getDifficultyString(difficulty);
+
+	if(!difficulty)
+		console.log('Difficulty not found for piste:', feature);
 
 	const styledPisteDetails = `
 		<div style="font-size: 0.8rem; font-weight: bold;">
