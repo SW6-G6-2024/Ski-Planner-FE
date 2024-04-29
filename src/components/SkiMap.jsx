@@ -54,39 +54,33 @@ const SkiMapComponent = () => {
     }
   };
 
-  const findRoute = async () => {
+  const findRoute = async (isBestRoute) => {
     if (!positionA || !positionB) {
-      notifyError("Please place the two markers by clicking on the map");
-      return;
+        notifyError("Please place the two markers by clicking on the map");
+        return;
     }
 
     setRoute(null);
     const startNode = { lat: positionA.lat, lon: positionA.lng };
     const endNode = { lat: positionB.lat, lon: positionB.lng };
-    const bestRouteData = await fetchBestRoute(
-      startNode,
-      endNode,
-      skiAreaId
-    ).catch(console.error);
+    const routeType = isBestRoute ? "best" : "shortest";
 
-    if (!bestRouteData) {
-      return;
+    const routeData = await fetchBestRoute(startNode, endNode, skiAreaId, isBestRoute).catch(console.error);
+
+    if (!routeData) {
+        return;
     }
 
-    if (bestRouteData.stepByStepGuide) {
-      setStepByStepGuide(bestRouteData.stepByStepGuide);
+    if (routeData.stepByStepGuide) {
+        setStepByStepGuide(routeData.stepByStepGuide);
     }
 
     const route = {
-      geometry: bestRouteData.bestRoute.geometry,
-      properties: { ...bestRouteData.bestRoute.properties, name: "Best Route" },
-      type: "Feature",
+        geometry: routeData.route.geometry,
+        properties: { ...routeData.route.properties, name: routeType.charAt(0).toUpperCase() + routeType.slice(1) },
+        type: "Feature",
     };
     setRoute(route);
-  };
-
-  const shortestRoute = async () => {
-    console.log("Shortest route is not implemented yet");
   };
 
   useEffect(() => {
@@ -105,8 +99,8 @@ const SkiMapComponent = () => {
         <div className="flex flex-row items-center justify-center align-middle space-x-2">
           <SkiAreaDropDown onSelect={handleDropdownSelect} />
           <GenerateRouteBtn
-            bestRoute={findRoute}
-            shortestRoute={shortestRoute}
+            bestRoute={() => findRoute(true)}
+            shortestRoute={() => findRoute(false)}
           />
         </div>
       </div>
