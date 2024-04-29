@@ -47,6 +47,7 @@ function GenerateRouteBtn({ bestRoute, shortestRoute }) {
     <div className="relative" ref={dropdownRef}>
       <div className="flex">
         <button
+          id="generate-route-button"
           onClick={handleClick}
           className=" bg-blue-500 hover:bg-blue-700 text-white py-2 rounded-l text-base font-bold w-[220px] h-11 border-r-2 border-blue-400 "
         >
@@ -55,6 +56,7 @@ function GenerateRouteBtn({ bestRoute, shortestRoute }) {
         <button
           className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded-r text-base font-bold w-6 h-11 text-center flex items-center justify-center"
           onClick={toggleDropdown}
+          id="dropdown-button"
         >
           <ArrowDropDownIcon />
         </button>
