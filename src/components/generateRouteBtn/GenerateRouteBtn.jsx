@@ -36,7 +36,6 @@ function GenerateRouteBtn({ bestRoute, shortestRoute }) {
     } else {
       shortestRoute();
     }
-    console.log(selectedIndex);
   };
 
   const handleMenuItemClick = (event, index) => {

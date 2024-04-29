@@ -63,7 +63,6 @@ const SkiMapComponent = () => {
     setRoute(null);
     const startNode = { lat: positionA.lat, lon: positionA.lng };
     const endNode = { lat: positionB.lat, lon: positionB.lng };
-    const routeType = isBestRoute ? "best" : "shortest";
 
     const routeData = await fetchBestRoute(startNode, endNode, skiAreaId, isBestRoute).catch(console.error);
 
@@ -75,9 +74,11 @@ const SkiMapComponent = () => {
         setStepByStepGuide(routeData.stepByStepGuide);
     }
 
+    console.log(routeData.bestRoute);
+
     const route = {
-        geometry: routeData.route.geometry,
-        properties: { ...routeData.route.properties, name: routeType.charAt(0).toUpperCase() + routeType.slice(1) },
+        geometry: routeData.bestRoute.geometry,
+        properties: { ...routeData.bestRoute.properties, name: "Best Route" },
         type: "Feature",
     };
     setRoute(route);
