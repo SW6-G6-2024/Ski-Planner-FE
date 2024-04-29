@@ -16,7 +16,7 @@ export default defineConfig({
     supportFile: "__test__/cypress/support/e2e.js",
   },
   env: {
-    VITE_BACKEND_URL: "http://localhost:8888",
+    BACKEND_URL: process.env.VITE_BACKEND_URL,
     CYPRESS_PASSWORD: process.env.CYPRESS_PASSWORD,
   },
   hosts: {
