@@ -88,7 +88,7 @@ describe('Ski map', () => {
 
   it('displays an error message if the shortest route generation fails', () => {
     // Intercept the POST request and force it to fail
-    cy.intercept('POST', /http:\/\/localhost:8888\/api\/routes\/generate-route.*/, {
+    cy.intercept('POST', Cypress.env('BACKEND_URL') + '/api/routes/generate-route*', {
       statusCode: 500, // Simulate server error
     }).as('generateRouteFail');
 
