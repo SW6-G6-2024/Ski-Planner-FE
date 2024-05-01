@@ -55,6 +55,8 @@ describe('Ski map', () => {
     cy.visit('/');
     cy.get('.leaflet-container').click(100, 100);
     cy.get('.leaflet-container').click(200, 200);
+    cy.get('#dropdown-button').click();
+    cy.contains('Generate Best Route').click();
     cy.get('#generate-route-button').click();
     cy.get('.leaflet-interactive')
       .filter('path[stroke="grey"]')
@@ -69,13 +71,28 @@ describe('Ski map', () => {
       .should('not.exist');
   });
 
-  it('displays an error message if the route generation fails', () => {
+  it('displays an error message if the best route generation fails', () => {
     // Intercept the POST request and force it to fail
     cy.intercept('POST', Cypress.env('BACKEND_URL') + '/api/routes/generate-route*', {
       statusCode: 500, // Simulate server error
     }).as('generateRouteFail');
 
-    generateRoute();
+    generateBestRoute();
+
+    // Wait for the intercepted request to resolve
+    cy.wait('@generateRouteFail');
+
+    // Check for the presence of an error toast
+    cy.get('div[role="status"]').should('contain', 'Failed to generate route');
+  });
+
+  it('displays an error message if the shortest route generation fails', () => {
+    // Intercept the POST request and force it to fail
+    cy.intercept('POST', Cypress.env('BACKEND_URL') + '/api/routes/generate-route*', {
+      statusCode: 500, // Simulate server error
+    }).as('generateRouteFail');
+
+    generateShortestRoute();
 
     // Wait for the intercepted request to resolve
     cy.wait('@generateRouteFail');
@@ -91,7 +108,7 @@ describe('Ski map', () => {
       statusCode: 200, // Simulate success
     }).as('generateRouteSuccess');
 
-    generateRoute();
+    generateBestRoute();
 
     // Wait for the intercepted request to resolve
     cy.wait('@generateRouteSuccess');
@@ -128,9 +145,20 @@ describe('Ski map', () => {
   });
 });
 
-function generateRoute() {
+function generateBestRoute() {
   cy.visit('/');
   cy.get('.leaflet-container').click(100, 100);
   cy.get('.leaflet-container').click(200, 200);
+  cy.get('#dropdown-button').click();
+  cy.contains('Generate Best Route').click();
+  cy.get('#generate-route-button').click();
+}
+
+function generateShortestRoute() {
+  cy.visit('/');
+  cy.get('.leaflet-container').click(100, 100);
+  cy.get('.leaflet-container').click(200, 200);
+  cy.get('#dropdown-button').click();
+  cy.contains('Generate Shortest Route').click();
   cy.get('#generate-route-button').click();
 }

@@ -24,8 +24,10 @@
         "preview": "vite preview",
         "start": "vite",
         "test": "jest",
-        "cypress:open": "cypress open --e2e --browser chrome --port 52750",
-        "cypress:run": "cypress run --browser chrome",
+        "cypress:open-script": "cypress open --e2e --browser chrome --port 52750",
+        "cypress:run-script": "cypress run --browser chrome",
+        "cypress:run": "npm-run-all --parallel cypress-server cypress:run-script",
+        "cypress:open": "npm-run-all --parallel cypress-server cypress:open-script",
         "cypress-server": "npm start -- --port 5555",
         "watch": "npm-watch lint",
         "test-lint": "tape test/*.js"

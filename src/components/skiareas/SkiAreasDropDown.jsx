@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 /**
  * Dropdown menu component
@@ -10,20 +11,38 @@ import PropTypes from 'prop-types';
 const SkiAreaDropDown = ({ onSelect }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleDropdown = () => setIsOpen(!isOpen);
+  const dropdownRef = useRef(null);
 
   const handleSelect = (skiAreaId, newCenter) => {
     onSelect(skiAreaId, newCenter);
     setIsOpen(false);
   };
 
+  useEffect(() => {
+    // Function to handle clicks outside the dropdown
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsOpen(false); // Close dropdown if clicked outside
+      }
+    };
+
+    // Add event listener for clicks outside the dropdown
+    document.addEventListener("mousedown", handleClickOutside);
+
+    // Cleanup function to remove event listener
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div className="absolute right-[270px] top-5 z-[10000] bg-red-400 hover:bg-red-200 rounded-md shadow-xl hover:shadow-sm">
+    <div className='relative' ref={dropdownRef}>
       <button
         id='ski-area-dropdown-button'
         onClick={toggleDropdown}
         className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded text-base font-bold w-42 h-11"
       >
-        Select Ski Area
+        Select Ski Area <ArrowDropDownIcon />
       </button>
       {isOpen && (
         <div className="absolute left-0 mt-1 bg-white shadow-lg">
