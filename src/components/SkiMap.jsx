@@ -11,6 +11,7 @@ import GuideSlider from "./stepByStepGuide/GuideSlider";
 import { notifyError } from "../utils/customErrorMessage.js";
 import FeatureHandler from "./Map/FeatureHandler";
 import GenerateRouteBtn from "./generateRouteBtn/GenerateRouteBtn.jsx";
+import PisteLiftsSettings from "./preferences/PisteLiftsSettings.jsx";
 
 /**
  * @CodeScene(disable: *Complex Method*)
@@ -30,6 +31,17 @@ const SkiMapComponent = () => {
   const [stepByStepGuide, setStepByStepGuide] = useState([]);
   const [skiAreaId, setSkiAreaId] = useState("65d4a9dbecaa09d942314101");
   const [key, setKey] = useState("65d4a9dbecaa09d942314101");
+  const [settings, setSettings] = useState({
+    "Button lift": true,
+    "Very easy piste": true,
+    "Chair lift": true,
+    "Easy piste": true,
+    "Gondola lift": true,
+    "Medium piste": true,
+    "T-bar lift": true,
+    "Expert piste": true,
+    "Lift": true,
+  });
 
   // Fetch the ski data and update the bounds of the map
   const updateBoundsAndFetchData = useCallback(async () => {
@@ -94,6 +106,12 @@ const SkiMapComponent = () => {
 
   return (
     <div className="relative">
+      <div className="absolute right-5 bottom-5 z-[10000] w-64">
+        <PisteLiftsSettings
+          settings={settings}
+          setSettings={setSettings}
+        />
+      </div>
       <div className="absolute right-[100px] top-7 z-[10000]">
         <div className="flex flex-row items-center justify-center align-middle space-x-2">
           <SkiAreaDropDown onSelect={handleDropdownSelect} />
