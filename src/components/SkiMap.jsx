@@ -76,7 +76,7 @@ const SkiMapComponent = () => {
     const startNode = { lat: positionA.lat, lon: positionA.lng };
     const endNode = { lat: positionB.lat, lon: positionB.lng };
 
-    const routeData = await fetchBestRoute(startNode, endNode, skiAreaId, isBestRoute).catch(console.error);
+    const routeData = await fetchBestRoute(startNode, endNode, skiAreaId, settings, isBestRoute).catch(console.error);
 
     if (!routeData) {
         return;
