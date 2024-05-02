@@ -8,7 +8,7 @@ export const SettingsProvider = ({ children }) => {
     blue: true,       // maps to "Easy piste"
     green: true,      // maps to "Very easy piste"
     red: true,        // maps to "Medium piste"
-    chairlift: true,  // maps to "Chair lift"
+    chair: true,  // maps to "Chair lift"
     gondola: true,    // maps to "Gondola lift"
     platter: true,    // maps to "Button lift"
     tBar: true        // maps to "T-bar lift"
