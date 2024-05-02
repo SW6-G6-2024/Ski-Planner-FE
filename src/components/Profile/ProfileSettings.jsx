@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from '../Button';
 import { useAuth0 } from '@auth0/auth0-react';
 import ProfileField from './ProfileField';
 import FormField from '../FormField';
 import { patchUser } from '../../services/userService';
 import { notifyError, notifySuccess } from '../../utils/customErrorMessage';
+import { useSettings } from '../../contexts/settingsContext';
+import PisteLiftsSettings from '../preferences/PisteLiftsSettings';
 
 /**
  * ProfileSettings component that allows the user to edit their profile
@@ -12,12 +14,14 @@ import { notifyError, notifySuccess } from '../../utils/customErrorMessage';
  */
 function ProfileSettings() {
 	const { user, getAccessTokenSilently } = useAuth0();
+	const { settings, setSettings } = useSettings();
 
-	const [first, setFirstName] = React.useState(user.given_name);
+	const [first, setFirstName] = useState(user.given_name);
 
-	const [last, setLastName] = React.useState(user.family_name);
+	const [last, setLastName] = useState(user.family_name);
 
-	const [editMode, setEditMode] = React.useState(false);
+	const [editMode, setEditMode] = useState(false);
+	const [editPreferences, setEditPreferences] = useState(false);
 
 	/**
 	 * Handles the save button click event to update the user profile information
@@ -49,6 +53,21 @@ function ProfileSettings() {
 		setEditMode(false);
 	};
 
+	const handlePreferencesSave = async () => {
+		// Get access token for backend
+		const token = await getAccessTokenSilently({
+			cacheMode: 'no-cache',
+			authorizationParams: {
+				scope: 'update:user',
+				audience: 'http://localhost:8888'
+			}
+		});
+
+		setSettings(settings);
+		console.log(token);
+		setEditPreferences(false);
+	};
+
 	/**
 	 * Handles the cancel button click event to cancel the user profile edit
 	 * This function is called when the user clicks the cancel button
@@ -66,11 +85,18 @@ function ProfileSettings() {
 				<div className='w-full flex justify-center -translate-y-10'>
 					{user?.picture && <img src={user.picture} alt={user.name} className='rounded-full w-30 h-30' />}
 				</div>
-				{!editMode && (
+				{!editMode && !editPreferences && (
 					<div className='flex-col w-full justify-start *:mb-2'>
 						<ProfileField label='First name:' value={user.given_name} id='first-name-field' />
 						<ProfileField label='Last name:' value={user.family_name} id='last-name-field' />
 						<ProfileField label='Email:' value={user.email} id='email-field' />
+						<Button
+							className='w-44 bg-blue-500 text-white rounded-lg hover:bg-blue-400 py-2 mr-8'
+							onClick={() => setEditPreferences(true)}
+							id='edit-profile-button'
+						>
+							<p>Change preferences</p>
+						</Button>
 						<Button
 							className='w-44 bg-blue-500 text-white rounded-lg hover:bg-blue-400 py-2'
 							onClick={() => setEditMode(true)}
@@ -108,6 +134,30 @@ function ProfileSettings() {
 							</Button>
 						</div>
 
+					</>
+				)}
+				{editPreferences && (
+					<>
+						<div className='flex-col w-full justify-start'>
+							<p>Preferences</p>
+						</div>
+						<PisteLiftsSettings
+							settings={settings}
+							setSettings={setSettings}
+						/>
+						<div className='grid grid-cols-[1fr,2fr] gap-3'>
+							<Button
+								className='bg-red-500 w-full text-white rounded-lg hover:bg-red-400 py-2'
+								onClick={() => setEditPreferences(false)}>
+								<p>Cancel</p>
+							</Button>
+							<Button
+								onClick={() => handlePreferencesSave}
+								id='save-profile-button'
+							>
+								<p>Save</p>
+							</Button>
+						</div>
 					</>
 				)}
 			</div>

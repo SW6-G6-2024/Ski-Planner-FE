@@ -5,6 +5,8 @@ import { MapContainer, TileLayer } from "react-leaflet";
 import "../App.css";
 import LocationMarker from "./LocationMarker";
 import SkiAreaDropDown from "./skiareas/SkiAreasDropDown";
+import { useAuth0 } from '@auth0/auth0-react';
+import { useSettings } from '../contexts/settingsContext';
 
 import "leaflet/dist/leaflet.css";
 import GuideSlider from "./stepByStepGuide/GuideSlider";
@@ -19,6 +21,8 @@ import PisteLiftsSettings from "./preferences/PisteLiftsSettings.jsx";
  * @returns {JSX.Element} SkiMapComponent
  */
 const SkiMapComponent = () => {
+  const { user } = useAuth0();
+  const { settings, setSettings } = useSettings();
   const center = [61.314, 12.1971]; // TODO: Change to the center of the ski resort to be fetched
   const mapRef = useRef(null); // To access the map instance
   const [pistes, setPistes] = useState(null);
@@ -31,17 +35,6 @@ const SkiMapComponent = () => {
   const [stepByStepGuide, setStepByStepGuide] = useState([]);
   const [skiAreaId, setSkiAreaId] = useState("65d4a9dbecaa09d942314101");
   const [key, setKey] = useState("65d4a9dbecaa09d942314101");
-  const [settings, setSettings] = useState({
-    "Button lift": true,
-    "Very easy piste": true,
-    "Chair lift": true,
-    "Easy piste": true,
-    "Gondola lift": true,
-    "Medium piste": true,
-    "T-bar lift": true,
-    "Expert piste": true,
-    "Lift": true,
-  });
 
   // Fetch the ski data and update the bounds of the map
   const updateBoundsAndFetchData = useCallback(async () => {
@@ -104,9 +97,17 @@ const SkiMapComponent = () => {
     }
   }, [skiAreaId, updateBoundsAndFetchData]);
 
+  useEffect(() => {
+    if (user) {
+      console.log(user);
+    } else {
+      console.log("No user");
+    }
+  }, [user]);
+
   return (
     <div className="relative">
-      <div className="absolute right-5 bottom-5 z-[10000] w-64">
+      <div className="absolute right-5 bottom-5 z-[1000] w-64">
         <PisteLiftsSettings
           settings={settings}
           setSettings={setSettings}
