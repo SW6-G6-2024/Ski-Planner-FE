@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 import legendData from '../../data/legendData'; // Adjust the import path as needed
 
 const settingsMapping = {
-  "Button lift": "buttonLift",
+  "Button lift": "platter",
   "Very easy piste": "green",
-  "Chair lift": "chairLift",
+  "Chair lift": "chairlift",
   "Easy piste": "blue",
-  "Gondola lift": "gondolaLift",
+  "Gondola lift": "gondola",
   "Medium piste": "red",
-  "T-bar lift": "tBarLift",
+  "T-bar lift": "tBar",
   "Expert piste": "black"
 };
 

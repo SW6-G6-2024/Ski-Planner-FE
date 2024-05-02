@@ -8,10 +8,10 @@ export const SettingsProvider = ({ children }) => {
     blue: true,       // maps to "Easy piste"
     green: true,      // maps to "Very easy piste"
     red: true,        // maps to "Medium piste"
-    chairLift: true,  // maps to "Chair lift"
-    gondolaLift: true,    // maps to "Gondola lift"
-    buttonLift: true,    // maps to "Button lift"
-    tBarLift: true        // maps to "T-bar lift"
+    chairlift: true,  // maps to "Chair lift"
+    gondola: true,    // maps to "Gondola lift"
+    platter: true,    // maps to "Button lift"
+    tBar: true        // maps to "T-bar lift"
   });
 
   return (
