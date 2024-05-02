@@ -6,7 +6,7 @@ import legendData from '../../data/legendData'; // Adjust the import path as nee
 const settingsMapping = {
   "Button lift": "platter",
   "Very easy piste": "green",
-  "Chair lift": "chairlift",
+  "Chair lift": "chair",
   "Easy piste": "blue",
   "Gondola lift": "gondola",
   "Medium piste": "red",
