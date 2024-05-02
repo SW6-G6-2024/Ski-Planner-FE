@@ -4,15 +4,14 @@ import SettingsContext from '../../contexts/settingsContext';
 
 export const SettingsProvider = ({ children }) => {
   const [settings, setSettings] = useState({
-    "Button lift": true,
-    "Very easy piste": true,
-    "Chair lift": true,
-    "Easy piste": true,
-    "Gondola lift": true,
-    "Medium piste": true,
-    "T-bar lift": true,
-    "Expert piste": true,
-    "Lift": true,
+    black: true,      // maps to "Expert piste"
+    blue: true,       // maps to "Easy piste"
+    green: true,      // maps to "Very easy piste"
+    red: true,        // maps to "Medium piste"
+    chairlift: true,  // maps to "Chair lift"
+    gondola: true,    // maps to "Gondola lift"
+    platter: true,    // maps to "Button lift"
+    tBar: true        // maps to "T-bar lift"
   });
 
   return (

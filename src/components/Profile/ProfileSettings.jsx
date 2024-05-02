@@ -22,6 +22,7 @@ function ProfileSettings() {
 
 	const [editMode, setEditMode] = useState(false);
 	const [editPreferences, setEditPreferences] = useState(false);
+	const [localSettings, setLocalSettings] = useState(settings);
 
 	/**
 	 * Handles the save button click event to update the user profile information
@@ -142,8 +143,8 @@ function ProfileSettings() {
 							<p>Preferences</p>
 						</div>
 						<PisteLiftsSettings
-							settings={settings}
-							setSettings={setSettings}
+							settings={localSettings}
+							setSettings={setLocalSettings}
 						/>
 						<div className='grid grid-cols-[1fr,2fr] gap-3'>
 							<Button

@@ -64,6 +64,7 @@ const getUserPreferences = async (id, token) => {
 			},
 		});
 
+
 		return res.data;
 
 	} catch (error) {

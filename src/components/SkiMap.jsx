@@ -14,6 +14,7 @@ import { notifyError } from "../utils/customErrorMessage.js";
 import FeatureHandler from "./Map/FeatureHandler";
 import GenerateRouteBtn from "./generateRouteBtn/GenerateRouteBtn.jsx";
 import PisteLiftsSettings from "./preferences/PisteLiftsSettings.jsx";
+import { getUserPreferences } from "../services/userService.js";
 
 /**
  * @CodeScene(disable: *Complex Method*)
@@ -21,7 +22,7 @@ import PisteLiftsSettings from "./preferences/PisteLiftsSettings.jsx";
  * @returns {JSX.Element} SkiMapComponent
  */
 const SkiMapComponent = () => {
-  const { user } = useAuth0();
+  const { user, getAccessTokenSilently } = useAuth0();
   const { settings, setSettings } = useSettings();
   const center = [61.314, 12.1971]; // TODO: Change to the center of the ski resort to be fetched
   const mapRef = useRef(null); // To access the map instance
@@ -98,12 +99,36 @@ const SkiMapComponent = () => {
   }, [skiAreaId, updateBoundsAndFetchData]);
 
   useEffect(() => {
-    if (user) {
-      console.log(user);
-    } else {
-      console.log("No user");
+    async function fetchData() {
+      if (user) {
+        try {
+          const token = await getAccessTokenSilently({
+            cacheMode: 'no-cache',
+            authorizationParams: {
+              scope: 'read:current_user',
+              audience: 'http://localhost:8888'
+            }
+          });
+  
+          const data = await getUserPreferences(user.sub, token);
+          // Assuming data.preferences exists and contains the necessary settings
+          if (data && data.preferences) {
+            const updatedSettings = {
+              ...data.preferences.pisteDifficulties,
+              ...data.preferences.liftTypes
+            };
+            setSettings(updatedSettings);
+          }
+        } catch (error) {
+          console.log("Error fetching data:", error);
+        }
+      } else {
+        console.log("No user");
+      }
     }
-  }, [user]);
+  
+    fetchData();
+  }, [user, getAccessTokenSilently, setSettings]);
 
   return (
     <div className="relative">

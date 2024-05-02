@@ -17,7 +17,10 @@ const Checkbox = ({ label, checked, onChange }) => {
 };
 
 Checkbox.propTypes = {
-  label: PropTypes.string.isRequired,
+  label: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element // Allow both strings and JSX elements
+  ]).isRequired,
   checked: PropTypes.bool.isRequired,
   onChange: PropTypes.func.isRequired,
 };
