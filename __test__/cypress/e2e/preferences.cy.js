@@ -19,18 +19,15 @@ describe('User preferences', () => {
   });
 
   it('toggles a specific piste checkbox', () => {
-    // Select a specific checkbox by a more stable identifier, like the first checkbox in the list
+    // Select the first checkbox and perform actions in separate commands
     cy.get('#piste-preferences input[type="checkbox"]').first()
       .as('firstCheckbox') // Alias this checkbox for easy reference
-      .then(($checkbox) => {
-        cy.wrap($checkbox)
-          .click() // Toggle the checkbox
-          .should('not.be.checked'); // Check the new state against the initial state
-      })
+      .click() // Toggle the checkbox
+      .should('not.be.checked'); // Assert the checkbox is unchecked after the first click
+  
+    cy.get('@firstCheckbox') // Re-query the checkbox using the alias
       .click() // Toggle it again
-      .then(($checkbox) => {
-        cy.wrap($checkbox)
-          .should('be.checked'); // Check the state has returned to the initial
-      });
+      .should('be.checked'); // Assert the checkbox is checked after the second click
   });
+  
 });
