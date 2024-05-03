@@ -25,7 +25,8 @@ describe('User preferences', () => {
       .click() // Toggle the checkbox
       .should('not.be.checked'); // Assert the checkbox is unchecked after the first click
   
-    cy.get('@firstCheckbox') // Re-query the checkbox using the alias
+    cy.get('#piste-preferences input[type="checkbox"]').first()
+      .as('firstCheckbox') // Alias this checkbox for easy reference
       .click() // Toggle it again
       .should('be.checked'); // Assert the checkbox is checked after the second click
   });
