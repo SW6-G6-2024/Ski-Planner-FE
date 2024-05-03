@@ -19,16 +19,14 @@ describe('User preferences', () => {
   });
 
   it('toggles a specific piste checkbox', () => {
-    // Select the first checkbox and perform actions in separate commands
+    // First action: Click the checkbox and verify its unchecked state
     cy.get('#piste-preferences input[type="checkbox"]').first()
-      .as('firstCheckbox') // Alias this checkbox for easy reference
       .click() // Toggle the checkbox
-      .should('not.be.checked'); // Assert the checkbox is unchecked after the first click
+      .should('not.be.checked'); // Verify it's unchecked
   
+    // Second action: Re-query the checkbox, click again, and verify its checked state
     cy.get('#piste-preferences input[type="checkbox"]').first()
-      .as('firstCheckbox') // Alias this checkbox for easy reference
-      .click() // Toggle it again
-      .should('be.checked'); // Assert the checkbox is checked after the second click
-  });
-  
+      .click() // Toggle the checkbox again
+      .should('be.checked'); // Verify it's checked
+  });  
 });
