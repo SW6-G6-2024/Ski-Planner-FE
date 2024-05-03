@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import legendData from '../../data/legendData'; // Adjust the import path as needed
 import { useAuth0 } from '@auth0/auth0-react';
 import { patchUserPreferences } from '../../services/userService';
+
 const settingsMapping = {
   "Button lift": "platter",
   "Very easy piste": "green",
@@ -54,9 +55,18 @@ const PisteLiftsSettings = ({ settings, setSettings }) => {
       };
 
       const data = await patchUserPreferences(requestBody, user.sub, token);
-      console.log(data);
+      if (data) {
+        const { pisteDifficulties, liftTypes } = data;
+
+        // Flatten the incoming data and update state
+        const updatedSettings = {
+          ...pisteDifficulties,
+          ...liftTypes
+        };
+
+        setSettings(updatedSettings);
+      }
     } catch (error) {
-      console.log('Failed to update user preferences');
       console.error(error);
     }
   };
@@ -71,7 +81,7 @@ const PisteLiftsSettings = ({ settings, setSettings }) => {
   };
 
   return (
-    <div className="fixed bottom-0 right-4 flex flex-col items-center" id="settings-slider" style={{ zIndex: isExpanded ? 1001 : 500 }}>
+    <div className="fixed bottom-0 right-20 flex flex-col items-center" id="settings-slider" style={{ zIndex: isExpanded ? 1001 : 500 }}>
       <motion.div
         initial={{ height: 0 }}
         animate={{ height: isExpanded ? height : 40 }}
