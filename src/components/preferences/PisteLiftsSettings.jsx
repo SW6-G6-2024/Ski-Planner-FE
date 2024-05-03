@@ -51,7 +51,18 @@ const PisteLiftsSettings = ({ settings, setSettings }) => {
 
     try {
       const requestBody = {
-        settings: settings,
+        pisteDifficulties: {
+          black: settings.black,
+          blue: settings.blue,
+          green: settings.green,
+          red: settings.red
+        },
+        liftTypes: {
+          chair: settings.chair,
+          gondola: settings.gondola,
+          platter: settings.platter,
+          tBar: settings.tBar
+        }
       };
 
       const data = await patchUserPreferences(requestBody, user.sub, token);

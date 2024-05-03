@@ -38,11 +38,7 @@ const patchUser = async (first, last, id, token) => {
 
 const patchUserPreferences = async (settings, id, token) => {
 	try {
-		const requestBody = {
-			settings: settings,
-		};
-
-		const res = await axios.patch(`${env.backendUrl}/api/users/${id}/preferences`, requestBody, {
+		const res = await axios.patch(`${env.backendUrl}/api/users/${id}/preferences`, settings, {
 			headers: {
 				"Content-Type": "application/json",
 				Authorization: `Bearer ${token}`,
