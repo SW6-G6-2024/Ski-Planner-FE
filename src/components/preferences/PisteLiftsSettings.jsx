@@ -96,7 +96,7 @@ const PisteLiftsSettings = ({ settings, setSettings }) => {
       </button>
         <div id="settings-content" className="w-60 h-80 bg-gray-800 bg-opacity-75 rounded-lg p-4">
           <div className="text-white text-2xl">Pistes</div>
-          <div className="grid grid-cols-2 gap-2">
+          <div id='piste-preferences' className="grid grid-cols-2 gap-2">
             {legendData.filter(item => (item.name.includes("piste") && item.name !== "Non-prepared piste")).map((item) => (
               <Checkbox
                 key={item.name}
@@ -107,7 +107,7 @@ const PisteLiftsSettings = ({ settings, setSettings }) => {
             ))}
           </div>
           <div className="text-white text-2xl">Lifts</div>
-          <div className="grid grid-cols-2 gap-2">
+          <div id='lift-preferences' className="grid grid-cols-2 gap-2">
             {legendData.filter(item => item.name.includes("lift") && !item.name.includes("piste")).map((item) => (
               <Checkbox
                 key={item.name}
