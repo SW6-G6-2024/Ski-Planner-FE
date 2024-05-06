@@ -1,4 +1,4 @@
-describe('Ski map', () => {
+describe('Ski Area Dropdown', () => {
   beforeEach(() => {
     cy.intercept('GET', Cypress.env('BACKEND_URL') + '/api/ski-areas/*', {
       fixture: 'ski-area.json',
