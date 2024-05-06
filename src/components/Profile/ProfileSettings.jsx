@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from '../Button';
 import { useAuth0 } from '@auth0/auth0-react';
 import ProfileField from './ProfileField';
@@ -13,11 +13,11 @@ import { notifyError, notifySuccess } from '../../utils/customErrorMessage';
 function ProfileSettings() {
 	const { user, getAccessTokenSilently } = useAuth0();
 
-	const [first, setFirstName] = React.useState(user.given_name);
+	const [first, setFirstName] = useState(user.given_name);
 
-	const [last, setLastName] = React.useState(user.family_name);
+	const [last, setLastName] = useState(user.family_name);
 
-	const [editMode, setEditMode] = React.useState(false);
+	const [editMode, setEditMode] = useState(false);
 
 	/**
 	 * Handles the save button click event to update the user profile information
