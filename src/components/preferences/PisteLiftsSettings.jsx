@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 import legendData from '../../data/legendData'; // Adjust the import path as needed
 import { useAuth0 } from '@auth0/auth0-react';
 import { patchUserPreferences } from '../../services/userService';
+import { KeyboardArrowDown } from '@mui/icons-material';
+import { FilterAlt } from '@mui/icons-material';
 
 const settingsMapping = {
   "Button lift": "platter",
@@ -18,7 +20,7 @@ const settingsMapping = {
 };
 
 const PisteLiftsSettings = ({ settings, setSettings }) => {
-  const [isExpanded, setIsExpanded] = useState(true);
+  const [isExpanded, setIsExpanded] = useState(false);
   const [height, setHeight] = useState(0);
   const { user, getAccessTokenSilently } = useAuth0();
 
@@ -100,12 +102,12 @@ const PisteLiftsSettings = ({ settings, setSettings }) => {
         className="overflow-hidden shadow-lg"
       >
         <button
-        onClick={showSettings}
-        className="h-10 w-20 bg-gray-800 bg-opacity-50 hover:bg-opacity-25 rounded-t flex items-center justify-center z-10"
-      >
-        {isExpanded ? 'Hide' : 'Show'}
-      </button>
-        <div id="settings-content" className="w-60 h-80 bg-gray-800 bg-opacity-75 rounded-lg p-4">
+          onClick={showSettings}
+          className="h-10 w-20 bg-gray-800 bg-opacity-50 hover:bg-opacity-25 rounded-t flex items-center justify-center z-10"
+        >
+          {isExpanded ? <KeyboardArrowDown className='text-white'/> : <FilterAlt className='text-white'/>}
+        </button>
+        <div id="settings-content" className="w-60 h-80 bg-gray-800 bg-opacity-75 rounded-tr-lg p-4">
           <div className="text-white text-2xl">Pistes</div>
           <div id='piste-preferences' className="grid grid-cols-2 gap-2">
             {legendData.filter(item => (item.name.includes("piste") && item.name !== "Non-prepared piste")).map((item) => (
