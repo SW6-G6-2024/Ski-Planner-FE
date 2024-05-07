@@ -62,28 +62,28 @@ const SkiMapComponent = () => {
 
   const findRoute = async (isBestRoute) => {
     if (!positionA || !positionB) {
-        notifyError("Please place the two markers by clicking on the map");
-        return;
+      notifyError("Please place the two markers by clicking on the map");
+      return;
     }
 
     setRoute(null);
     const startNode = { lat: positionA.lat, lon: positionA.lng };
     const endNode = { lat: positionB.lat, lon: positionB.lng };
 
-    const routeData = await fetchBestRoute(startNode, endNode, skiAreaId, settings, isBestRoute).catch(console.error);
+    const routeData = await fetchBestRoute({ start: startNode, end: endNode }, skiAreaId, settings, isBestRoute).catch(console.error);
 
     if (!routeData) {
-        return;
+      return;
     }
 
     if (routeData.stepByStepGuide) {
-        setStepByStepGuide(routeData.stepByStepGuide);
+      setStepByStepGuide(routeData.stepByStepGuide);
     }
 
     const route = {
-        geometry: routeData.bestRoute.geometry,
-        properties: { ...routeData.bestRoute.properties, name: "Best Route" },
-        type: "Feature",
+      geometry: routeData.bestRoute.geometry,
+      properties: { ...routeData.bestRoute.properties, name: "Best Route" },
+      type: "Feature",
     };
     setRoute(route);
   };
@@ -109,7 +109,7 @@ const SkiMapComponent = () => {
               audience: 'http://localhost:8888'
             }
           });
-  
+
           const data = await getUserPreferences(user.sub, token);
           // Assuming data.preferences exists and contains the necessary settings
           if (data && data.preferences) {
@@ -126,7 +126,7 @@ const SkiMapComponent = () => {
         console.log("No user");
       }
     }
-  
+
     fetchData();
   }, [user, getAccessTokenSilently, setSettings]);
 

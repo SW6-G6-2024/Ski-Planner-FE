@@ -16,11 +16,11 @@ const client = axios.create({
  * @param {string} skiArea ID of the ski area
  * @returns {Promise<BestRoute>} bestRoute
  */
-export const fetchBestRoute = async (start, end, skiArea, settings, isBestRoute) => {
+export const fetchBestRoute = async (coords, skiArea, settings, isBestRoute) => {
   try {
     const requestBody = {
-      start: start,
-      end: end,
+      start: coords.start,
+      end: coords.end,
       skiArea: skiArea,
       settings: settings,
       isBestRoute: isBestRoute,
