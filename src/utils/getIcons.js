@@ -36,7 +36,7 @@ function getLiftIcon(liftType) {
 	switch (liftType) {
 		case "button-lift":
 			return buttonLift;
-		case "chair-lift":
+		case "chair_lift":
 			return chairLift;
 		case "t-bar":
 			return tbarLift;
